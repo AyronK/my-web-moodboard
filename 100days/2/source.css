@@ -2,8 +2,14 @@
 @import "../../templates/colors.css";
 
 body {
-  --animation: 0.5s cubic-bezier(0.5, 0, 0.5, 1);
+  --animation: 0.5s cubic-bezier(0.5, 0, 0.25, 1);
   --icon-size: 64px;
+
+  --bottom-bar-x-position: translate(0, 200%) rotate(-45deg);
+  --bottom-bar-hamburger-position: translate(0, 400%) rotate(0);
+  --top-bar-x-position: translateY(200%) rotate(45deg);
+  --top-bar-hamburger-position: rotate(0);
+  --bar-neutral-position: translate(0, 200%) rotate(0);
 }
 
 .menu-icon {
@@ -13,7 +19,12 @@ body {
   z-index: 0;
 }
 
-.menu-icon--checkbox {
+/* Two radio buttons are used to simulate state
+   They are basically a toggle because once radio is selected
+   it is hidden and only the other one can be checked again.
+   There is no selection at the start so the animation will not trigger.
+ */
+.radio {
   -webkit-appearance: none;
   appearance: none;
   cursor: pointer;
@@ -28,106 +39,126 @@ body {
   z-index: 2;
 }
 
-.menu-icon--button {
-  z-index: 1;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  bottom: 50%;
-  left: 50%;
+.radio:checked {
+  display: none;
 }
 
-.menu-icon--bar {
+.button {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+}
+
+.bar {
   position: absolute;
   border-radius: 200px;
-  bottom: 50%;
-  left: 50%;
-  width: 56px;
+  margin: 4px 8px;
+  left: 0;
+  right: 0;
+  top: 8px;
   height: 8px;
   z-index: 1;
-  background-color: white;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  background-color: var(--color-quaternary);
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
-.menu-icon--bar--bottom {
-  transform: translate(-50%, 200%);
-  animation: bottomForwards var(--animation) forwards;
+.bar--bottom {
+  transform: translateY(400%);
 }
 
-.menu-icon--checkbox:checked + .menu-icon--button .menu-icon--bar--bottom {
-  animation: bottomBackwards var(--animation) forwards;
+.bar--middle {
+  transform: translateY(200%);
 }
 
-.menu-icon--bar--middle {
-  transform: translate(-50%, -50%) scale(1);
+/* 
+  The first radio is checked.
+  Trigger animation into Hamburger.
+*/
+
+.radio:checked ~ .button .bar--top {
+  animation: topBarToHamburger var(--animation) forwards;
+}
+
+.radio:checked ~ .button .bar--top--cover {
+  animation: topBarToHamburger var(--animation) forwards;
+}
+
+.radio:checked ~ .button .bar--middle {
+  transform: translateY(200%) scale(1);
   transition: transform var(--animation);
 }
-.menu-icon--checkbox:checked + .menu-icon--button .menu-icon--bar--middle {
-  transform: translate(-50%, -50%) scale(0);
+
+.radio:checked ~ .button .bar--bottom {
+  animation: bottomBarToHamburger var(--animation) forwards;
+}
+
+@keyframes topBarToHamburger {
+  0% {
+    transform: var(--top-bar-x-position);
+  }
+  50% {
+    transform: var(--bar-neutral-position);
+  }
+  100% {
+    transform: var(--top-bar-hamburger-position);
+  }
+}
+
+@keyframes bottomBarToHamburger {
+  0% {
+    transform: var(--bottom-bar-x-position);
+  }
+  50% {
+    transform: var(--bar-neutral-position);
+  }
+  100% {
+    transform: var(--bottom-bar-hamburger-position);
+  }
+}
+
+/* 
+  The second radio is checked
+  Trigger animation into X.
+ */
+.radio:checked + .button .bar--top {
+  animation: topBarToX var(--animation) forwards;
+}
+
+.radio:checked + .button .bar--top--cover {
+  box-shadow: none;
+  animation: topBarToX var(--animation) forwards;
+}
+
+.radio:checked + .button .bar--middle {
+  transform: translateY(200%) scale(0);
   transform-origin: center;
 }
 
-.menu-icon--bar--top {
-  transform: translate(-50%, -300%);
-  animation: topForwards var(--animation) forwards;
+.radio:checked + .button .bar--bottom {
+  animation: bottomBarToX var(--animation) forwards;
 }
 
-.menu-icon--checkbox:checked + .menu-icon--button .menu-icon--bar--top {
-  animation: topBackwards var(--animation) forwards;
-}
-
-.menu-icon--bar--x {
-  box-shadow: none;
-  animation: topForwards var(--animation) forwards;
-}
-
-.menu-icon--checkbox:checked + .menu-icon--button .menu-icon--bar--x {
-  animation: topBackwards var(--animation) forwards;
-}
-
-@keyframes topForwards {
+@keyframes topBarToX {
   0% {
-    transform: translate(-50%, -50%) rotate(45deg);
+    transform: var(--top-bar-hamburger-position);
   }
   50% {
-    transform: translate(-50%, -50%) rotate(0);
+    transform: var(--bar-neutral-position);
   }
   100% {
-    transform: translate(-50%, -300%) rotate(0);
+    transform: var(--top-bar-x-position);
   }
 }
 
-@keyframes topBackwards {
+@keyframes bottomBarToX {
   0% {
-    transform: translate(-50%, -300%) rotate(0);
+    transform: var(--bottom-bar-hamburger-position);
   }
   50% {
-    transform: translate(-50%, -50%) rotate(0);
+    transform: var(--bar-neutral-position);
   }
   100% {
-    transform: translate(-50%, -50%) rotate(45deg);
-  }
-}
-
-@keyframes bottomForwards {
-  0% {
-    transform: translate(-50%, -50%) rotate(135deg);
-  }
-  50% {
-    transform: translate(-50%, -50%) rotate(0);
-  }
-  100% {
-    transform: translate(-50%, 200%) rotate(0);
-  }
-}
-
-@keyframes bottomBackwards {
-  0% {
-    transform: translate(-50%, 200%) rotate(0);
-  }
-  50% {
-    transform: translate(-50%, -50%) rotate(0);
-  }
-  100% {
-    transform: translate(-50%, -50%) rotate(135deg);
+    transform: var(--bottom-bar-x-position);
   }
 }
