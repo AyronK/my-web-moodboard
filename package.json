@@ -103,7 +103,7 @@
         "singleQuote": false
     },
     "lint-staged": {
-        "*.js": "eslint --cache --fix",
-        "*.{js,css,md}": "prettier --write"
+        "*.{js,ts,jsx,tsx}": "eslint --cache --fix",
+        "*.{js,jsx,ts,tsx,css,md}": "prettier --write"
     }
 }
