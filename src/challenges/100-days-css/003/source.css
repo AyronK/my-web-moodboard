@@ -1,0 +1,431 @@
+@import "../styles/frame.css";
+@import "../styles/colors.css";
+
+body {
+    --animation: 8s linear infinite;
+    --color-sky: hsl(206, 67%, 91%);
+    --color-sand: hsl(58, 86%, 95%);
+    --color-pyramid: #f8cba6;
+}
+
+.container {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    position: relative;
+    /* animation: light var(--light-animation); */
+}
+
+.sun-container {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    animation: sun-rotation var(--animation);
+}
+
+.sun {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    top: 20%;
+    left: 20%;
+    border-radius: 50%;
+    animation: sun var(--animation);
+}
+
+.stars-container {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    animation: stars-rotation var(--animation);
+}
+
+.star {
+    width: 1px;
+    height: 1px;
+    position: relative;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.star:nth-of-type(1) {
+    top: 38%;
+    left: 15%;
+}
+
+.star:nth-of-type(2) {
+    top: 32%;
+    left: 48%;
+}
+
+.star:nth-of-type(3) {
+    top: 45%;
+    left: 27%;
+}
+
+.star:nth-of-type(4) {
+    top: 40%;
+    left: 3%;
+}
+
+.star:nth-of-type(5) {
+    top: 20%;
+    left: 41%;
+}
+
+.clouds-container {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    animation: clouds-movement var(--animation);
+}
+
+.cloud {
+    width: 35px;
+    height: 12px;
+    background: #eceff1;
+    box-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 100px;
+    position: absolute;
+}
+
+.cloud:nth-of-type(1) {
+    top: 15%;
+    right: 0%;
+}
+
+.cloud:nth-of-type(2) {
+    top: 25%;
+    right: 30%;
+    transform: scale(0.75);
+}
+
+.cloud::after,
+.cloud::before {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    background: inherit;
+    border-radius: inherit;
+}
+.cloud::after {
+    width: 10px;
+    height: 10px;
+    top: -5px;
+    left: 5px;
+}
+.cloud::before {
+    width: 18px;
+    height: 18px;
+    top: -7px;
+    left: 13px;
+}
+
+.sky {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 65%;
+    background: linear-gradient(
+        rgba(3, 29, 48, 1) 0%,
+        rgba(3, 29, 48, 1) 3%,
+        #820000 10%,
+        #d98324 20%,
+        rgba(217, 234, 247, 1) 30%,
+        rgba(217, 234, 247, 1) 70%,
+        #d98324 80%,
+        #820000 90%,
+        rgba(3, 29, 48, 1) 97%,
+        rgba(3, 29, 48, 1) 100%
+    );
+    background-size: 2000% 2000%;
+    animation: sky var(--animation), light var(--animation);
+}
+
+.pyramid-front {
+    z-index: 4;
+    position: absolute;
+    background-color: var(--color-pyramid);
+    top: 40%;
+    bottom: 44px;
+    left: 13px;
+    right: 46%;
+    transform: rotate(-35deg);
+    transform-origin: top right;
+    animation: pyramid-front var(--animation);
+}
+
+.pyramid-side {
+    z-index: 3;
+    position: absolute;
+    background-color: var(--color-pyramid);
+    top: 40%;
+    bottom: 15%;
+    left: 45px;
+    right: 46%;
+    transform: rotate(-54deg);
+    transform-origin: top right;
+    animation: pyramid-side var(--animation);
+}
+
+.pyramid-shadow {
+    z-index: 6;
+    background-color: rgba(0, 0, 0, 0.384);
+    position: absolute;
+    top: 65%;
+    bottom: 0%;
+    left: 0%;
+    right: 0%;
+    animation: pyramid-shadow var(--animation);
+}
+
+.sand {
+    position: absolute;
+    z-index: 5;
+    width: 100%;
+    top: 65%;
+    height: 35%;
+    background: var(--color-sand);
+    animation: sand var(--animation), light var(--animation);
+}
+
+@keyframes pyramid-side {
+    0% {
+        filter: brightness(50%);
+    }
+    25% {
+        filter: brightness(70%);
+    }
+    37.5% {
+        filter: brightness(120%);
+    }
+    40% {
+        filter: brightness(80%);
+    }
+    50% {
+        filter: brightness(30%);
+    }
+    90% {
+        filter: brightness(30%);
+    }
+    100% {
+        filter: brightness(50%);
+    }
+}
+
+@keyframes pyramid-front {
+    0% {
+        filter: brightness(120%);
+    }
+    25% {
+        filter: brightness(150%);
+    }
+    37.5% {
+        filter: brightness(100%);
+    }
+    40% {
+        filter: brightness(60%);
+    }
+    50% {
+        filter: brightness(60%);
+    }
+    90% {
+        filter: brightness(60%);
+    }
+    100% {
+        filter: brightness(70%);
+    }
+}
+
+/* Using polygon to draw a triangle and move one corner to animate shadow */
+@keyframes pyramid-shadow {
+    0% {
+        clip-path: polygon(18% 0%, 200% 30%, 88% 0);
+    }
+    7.5% {
+        clip-path: polygon(18% 0%, 100% 45%, 88% 0);
+    }
+    25% {
+        clip-path: polygon(18% 0%, 50% 25%, 88% 0);
+    }
+    42.5% {
+        clip-path: polygon(18% 0%, 0% 45%, 88% 0);
+    }
+    50% {
+        clip-path: polygon(18% 0%, -100% 30%, 88% 0);
+        filter: brightness(100%);
+        opacity: 1;
+    }
+    55% {
+        clip-path: polygon(18% 0%, -100% 30%, 88% 0);
+        opacity: 0;
+    }
+    100% {
+        clip-path: polygon(18% 0%, -100% 30%, 88% 0);
+        opacity: 0;
+    }
+}
+
+@keyframes sun {
+    0% {
+        transform: scale(1);
+        background-color: rgb(217, 131, 36);
+    }
+    3.5% {
+        background-color: rgb(217, 131, 36);
+    }
+    5% {
+        background-color: rgb(217, 131, 36);
+    }
+    7.5% {
+        background-color: rgb(255, 245, 240);
+    }
+    25% {
+        transform: scale(0.75);
+        background-color: rgb(255, 245, 240);
+    }
+    37.5% {
+        transform: scale(0.75);
+        background-color: rgb(255, 245, 240);
+    }
+    42.5% {
+        background-color: rgb(255, 245, 240);
+    }
+    45% {
+        background-color: rgb(217, 131, 36);
+    }
+    46.5% {
+        background-color: rgb(217, 131, 36);
+    }
+    50% {
+        transform: scale(1);
+        background-color: rgb(217, 131, 36);
+    }
+    50% {
+        transform: scale(0.5);
+        background-color: white;
+    }
+    100% {
+        transform: scale(0.5);
+        background-color: white;
+    }
+}
+
+@keyframes sun-rotation {
+    0% {
+        transform: rotate(-90deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    51% {
+        transform: rotate(270deg);
+    }
+    100% {
+        transform: rotate(540deg);
+    }
+}
+
+@keyframes clouds-movement {
+    0% {
+        transform: translateX(-100%);
+    }
+    40% {
+        filter: brightness(100%);
+    }
+    50% {
+        filter: brightness(30%);
+    }
+    100% {
+        filter: brightness(30%);
+        transform: translateX(50%);
+    }
+}
+
+@keyframes stars-rotation {
+    0% {
+        opacity: 0;
+        transform: rotate(45deg);
+    }
+    40% {
+        opacity: 0;
+    }
+    45% {
+        opacity: 0.4;
+    }
+    50% {
+        opacity: 0.85;
+    }
+    95% {
+        opacity: 0.85;
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(60deg);
+    }
+}
+
+@keyframes sky {
+    0% {
+        background-position-y: -5%;
+    }
+    5% {
+        background-position-y: -10%;
+    }
+    15% {
+        background-position-y: -50%;
+    }
+    35% {
+        background-position-y: -50%;
+    }
+    45% {
+        background-position-y: -10%;
+    }
+    50% {
+        background-position-y: -5%;
+    }
+    51% {
+        background-position-y: 0%;
+    }
+}
+
+@keyframes light {
+    0% {
+        filter: brightness(30%);
+    }
+    5% {
+        filter: brightness(50%);
+    }
+    10% {
+        filter: brightness(80%);
+    }
+    20% {
+        filter: brightness(100%);
+    }
+    30% {
+        filter: brightness(100%);
+    }
+    40% {
+        filter: brightness(80%);
+    }
+    45% {
+        filter: brightness(50%);
+    }
+    50% {
+        filter: brightness(30%);
+    }
+    100% {
+        filter: brightness(30%);
+    }
+}
