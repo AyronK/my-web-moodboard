@@ -1,27 +1,21 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy to Pages
+name: Deploy to Pages and Chromatic
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
 
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow one concurrent deployment
 concurrency:
   group: "pages"
   cancel-in-progress: true
 
 jobs:
-  # Single deploy job since we're just deploying
   deploy:
     environment:
       name: github-pages
@@ -38,15 +32,17 @@ jobs:
           cache: yarn
           cache-dependency-path: yarn.lock
       - name: Install dependencies
-        run: yarn install
-        shell: bash   
+        run: yarn
+        shell: bash
       - name: Build App
         run: yarn build
-        shell: bash               
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        shell: bash
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          path: './build'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          publish_dir: ./build
+      - name: Publish to Chromatic
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
