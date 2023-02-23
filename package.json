@@ -35,7 +35,8 @@
         "eject": "react-scripts eject",
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook",
-        "init-msw": "msw init public/"
+        "init-msw": "msw init public/",
+        "postinstall": "husky install"
     },
     "eslintConfig": {
         "extends": [
@@ -84,6 +85,7 @@
         "eslint": "latest",
         "eslint-config-prettier": "^8.6.0",
         "eslint-plugin-react": "latest",
+        "husky": "^8.0.3",
         "lint-staged": "^13.1.2",
         "msw": "^1.0.1",
         "msw-storybook-addon": "^1.7.0",
@@ -99,5 +101,9 @@
         "tabWidth": 4,
         "semi": true,
         "singleQuote": false
+    },
+    "lint-staged": {
+        "*.js": "eslint --cache --fix",
+        "*.{js,css,md}": "prettier --write"
     }
 }
