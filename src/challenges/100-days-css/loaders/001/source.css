@@ -1,5 +1,5 @@
-@import "../../templates/frame/frame.css";
-@import "../../templates/colors.css";
+@import "../../styles/frame.css";
+@import "../../styles/colors.css";
 
 html {
   --animation-duration: 1.25s;
