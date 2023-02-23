@@ -81,6 +81,57 @@ body {
   left: 41%;
 }
 
+.clouds-container {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  animation: clouds-movement var(--animation);
+}
+
+.cloud {
+  width: 35px;
+  height: 12px;
+  background: #eceff1;
+  box-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 100px;
+  position: absolute;
+}
+
+.cloud:nth-of-type(1) {
+  top: 15%;
+  right: 0%;
+}
+
+.cloud:nth-of-type(2) {
+  top: 25%;
+  right: 30%;
+  transform: scale(0.75);
+}
+
+.cloud::after,
+.cloud::before {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  background: inherit;
+  border-radius: inherit;
+}
+.cloud::after {
+  width: 10px;
+  height: 10px;
+  top: -5px;
+  left: 5px;
+}
+.cloud::before {
+  width: 18px;
+  height: 18px;
+  top: -7px;
+  left: 13px;
+}
+
 .sky {
   position: absolute;
   z-index: 1;
@@ -283,6 +334,22 @@ body {
   }
   100% {
     transform: rotate(540deg);
+  }
+}
+
+@keyframes clouds-movement {
+  0% {
+    transform: translateX(-100%);
+  }
+  40% {
+    filter: brightness(100%);
+  }
+  50% {
+    filter: brightness(30%);
+  }
+  100% {
+    filter: brightness(30%);
+    transform: translateX(50%);
   }
 }
 
