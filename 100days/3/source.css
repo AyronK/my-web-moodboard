@@ -2,11 +2,11 @@
 @import "../../templates/colors.css";
 
 body {
-  --animation: 5s cubic-bezier(0.25, 0.75, 0.75, 0.25) infinite;
+  --animation: 3s linear infinite;
+  --light-animation: 6s linear infinite;
   --color-sky: hsl(206, 67%, 91%);
   --color-sand: hsl(58, 86%, 95%);
-  --color-pyramid: #ffe7cc;
-  --color-other: #f8cba6;
+  --color-pyramid: #f8cba6;
 }
 
 .container {
@@ -15,7 +15,7 @@ body {
   border-radius: 50%;
   position: relative;
   overflow: hidden;
-  animation: light var(--animation);
+  animation: light var(--light-animation);
   position: relative;
 }
 
@@ -45,14 +45,12 @@ body {
   width: 100%;
   height: 65%;
   background: linear-gradient(
-    rgba(3, 29, 48, 1) 0%,
-    #820000 5%,
-    #d98324 20%,
+    #820000 0%,
+    #d98324 10%,
     rgba(217, 234, 247, 1) 25%,
     rgba(217, 234, 247, 1) 75%,
-    #d98324 80%,
-    #820000 95%,
-    rgb(1, 11, 19) 100%
+    #d98324 90%,
+    #820000 100%
   );
   background-size: 2000% 2000%;
   animation: sky var(--animation);
@@ -61,7 +59,7 @@ body {
 .pyramid-front {
   z-index: 4;
   position: absolute;
-  background-color: var(--color-other);
+  background-color: var(--color-pyramid);
   top: 40%;
   bottom: 0;
   left: 0;
@@ -74,7 +72,7 @@ body {
 .pyramid-side {
   z-index: 3;
   position: absolute;
-  background-color: var(--color-other);
+  background-color: var(--color-pyramid);
   top: 40%;
   bottom: 0;
   left: 0;
@@ -101,7 +99,7 @@ body {
   width: 100%;
   top: 65%;
   height: 35%;
-  background: hsl(58, 86%, 95%);
+  background: var(--color-sand);
   animation: sand var(--animation);
 }
 
@@ -129,6 +127,7 @@ body {
   }
 }
 
+/* Using polygon to draw a triangle and move one corner to animate shadow */
 @keyframes pyramid-shadow {
   0% {
     clip-path: polygon(18% 0%, 200% 30%, 88% 0);
@@ -216,21 +215,18 @@ body {
 
 @keyframes light {
   0% {
-    filter: brightness(20%);
+    filter: brightness(0%);
   }
   10% {
-    filter: brightness(80%);
-  }
-  20% {
     filter: brightness(100%);
   }
-  80% {
+  40% {
     filter: brightness(100%);
   }
-  90% {
-    filter: brightness(80%);
+  50% {
+    filter: brightness(0%);
   }
   100% {
-    filter: brightness(20%);
+    filter: brightness(0%);
   }
 }
