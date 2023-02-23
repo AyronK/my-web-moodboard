@@ -2,35 +2,35 @@
 @import "../../styles/colors.css";
 
 html {
-  --animation-duration: 1.25s;
-  --loader-thickness: 6px;
+    --animation-duration: 1.25s;
+    --loader-thickness: 6px;
 }
 
 .loader {
-  position: relative;
-  width: 64px;
-  height: 64px;
+    position: relative;
+    width: 64px;
+    height: 64px;
 }
 
 .loader::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 50%;
-  border: var(--loader-thickness) solid var(--color-quaternary);
-  border-bottom-color: var(--color-terciary);
-  box-sizing: border-box;
-  animation: rotation var(--animation-duration) linear infinite;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    border: var(--loader-thickness) solid var(--color-quaternary);
+    border-bottom-color: var(--color-terciary);
+    box-sizing: border-box;
+    animation: rotation var(--animation-duration) linear infinite;
 }
 
 @keyframes rotation {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
