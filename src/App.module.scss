@@ -56,3 +56,17 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: lighten($color-quaternary, 10%);
 }
+
+h1 {
+    font-size: 32px;
+}
+
+.note {
+    max-width: 1200px;
+    padding: 16px;
+    text-align: justify;
+
+    @media (min-width: 1200px) {
+        padding: 32px 64px;
+    }
+}

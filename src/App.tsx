@@ -4,8 +4,7 @@ import {
     Day2,
     Day3,
     Day4,
-    Day5,
-    Day6
+    Day5
 } from "./challenges/100-days-css/index.t";
 import styles from "./App.module.scss";
 import { FrameSwitch } from "./FrameSwitch/FrameSwitch";
@@ -148,6 +147,23 @@ function App() {
             <header>
                 <h1>Ayron&apos;s Web Portfolio </h1>
             </header>
+            <hr />
+            <section className={styles.note}>
+                The inspiration for my work below comes from&nbsp;
+                <strong>
+                    <a href="https://100dayscss.com">100 Days CSS Challenge</a>
+                </strong>
+                , and the snippets were originally designed by{" "}
+                <strong>Matthias&nbsp;Martin</strong>. These snippets are an
+                invaluable resource for my education, and I believe they should
+                be treated as learning materials. Below, you will find my
+                implementation of various CSS scenarios, often with additional
+                modifications and extensions.
+                <br />
+                <br />
+                Please note that this work is in progress and subject to further
+                updates, additions and revisions.
+            </section>
             <hr />
             <article>
                 <ul className={styles.grid}>
