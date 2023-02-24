@@ -2,11 +2,16 @@
     overflow: auto;
     position: relative;
     height: 100vh;
-    padding: 128px;
+    padding: 16px;
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
     gap: 64px;
 
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    justify-items: center;
+
+    @media (min-width: 1200px) {
+        padding: 128px;
+    }
 }
