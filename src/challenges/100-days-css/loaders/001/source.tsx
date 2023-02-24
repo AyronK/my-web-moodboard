@@ -1,10 +1,11 @@
 import React from "react";
-import "./source.css";
+import { Frame } from "../../Frame/source";
+import "./source.scss";
 
-export const Frame = () => (
-    <div className="frame">
+export const Spinner = () => (
+    <Frame>
         <div className="center">
             <div className="loader"></div>
         </div>
-    </div>
+    </Frame>
 );

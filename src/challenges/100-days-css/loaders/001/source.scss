@@ -1,10 +1,7 @@
-@import "../../styles/frame.css";
-@import "../../styles/colors.css";
+@import "../../styles/colors.scss";
 
-html {
-    --animation-duration: 1.25s;
-    --loader-thickness: 6px;
-}
+$animation-duration: 1.25s;
+$loader-thickness: 6px;
 
 .loader {
     position: relative;
@@ -20,10 +17,10 @@ html {
     right: 0;
     bottom: 0;
     border-radius: 50%;
-    border: var(--loader-thickness) solid var(--color-quaternary);
-    border-bottom-color: var(--color-terciary);
+    border: $loader-thickness solid $color-quaternary;
+    border-bottom-color: $color-terciary;
     box-sizing: border-box;
-    animation: rotation var(--animation-duration) linear infinite;
+    animation: rotation $animation-duration linear infinite;
 }
 
 @keyframes rotation {

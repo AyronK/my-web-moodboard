@@ -1,8 +1,8 @@
-import { Frame } from "./source";
+import { Spinner } from "./source";
 
 export default {
     title: "Challenges/100 Days of CSS/Spinners",
-    component: Frame
+    component: Spinner
 };
 
 export const Variant1 = {};

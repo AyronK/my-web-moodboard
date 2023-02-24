@@ -1,12 +1,7 @@
-@import "../styles/frame.css";
-@import "../styles/colors.css";
-
-body {
-    --animation: 8s linear infinite;
-    --color-sky: hsl(206, 67%, 91%);
-    --color-sand: hsl(58, 86%, 95%);
-    --color-pyramid: #f8cba6;
-}
+$animation: 8s linear infinite;
+$color-sky: hsl(206, 67%, 91%);
+$color-sand: hsl(58, 86%, 95%);
+$color-pyramid: #f8cba6;
 
 .container {
     width: 150px;
@@ -15,7 +10,6 @@ body {
     position: relative;
     overflow: hidden;
     position: relative;
-    /* animation: light var(--light-animation); */
 }
 
 .sun-container {
@@ -25,7 +19,7 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    animation: sun-rotation var(--animation);
+    animation: sun-rotation $animation;
 }
 
 .sun {
@@ -35,7 +29,7 @@ body {
     top: 20%;
     left: 20%;
     border-radius: 50%;
-    animation: sun var(--animation);
+    animation: sun $animation;
 }
 
 .stars-container {
@@ -45,7 +39,7 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    animation: stars-rotation var(--animation);
+    animation: stars-rotation $animation;
 }
 
 .star {
@@ -88,7 +82,7 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    animation: clouds-movement var(--animation);
+    animation: clouds-movement $animation;
 }
 
 .cloud {
@@ -150,33 +144,33 @@ body {
         rgba(3, 29, 48, 1) 100%
     );
     background-size: 2000% 2000%;
-    animation: sky var(--animation), light var(--animation);
+    animation: sky $animation, light $animation;
 }
 
 .pyramid-front {
     z-index: 4;
     position: absolute;
-    background-color: var(--color-pyramid);
+    background-color: $color-pyramid;
     top: 40%;
     bottom: 44px;
     left: 13px;
     right: 46%;
     transform: rotate(-35deg);
     transform-origin: top right;
-    animation: pyramid-front var(--animation);
+    animation: pyramid-front $animation;
 }
 
 .pyramid-side {
     z-index: 3;
     position: absolute;
-    background-color: var(--color-pyramid);
+    background-color: $color-pyramid;
     top: 40%;
     bottom: 15%;
     left: 45px;
     right: 46%;
     transform: rotate(-54deg);
     transform-origin: top right;
-    animation: pyramid-side var(--animation);
+    animation: pyramid-side $animation;
 }
 
 .pyramid-shadow {
@@ -187,7 +181,7 @@ body {
     bottom: 0%;
     left: 0%;
     right: 0%;
-    animation: pyramid-shadow var(--animation);
+    animation: pyramid-shadow $animation;
 }
 
 .sand {
@@ -196,8 +190,8 @@ body {
     width: 100%;
     top: 65%;
     height: 35%;
-    background: var(--color-sand);
-    animation: sand var(--animation), light var(--animation);
+    background: $color-sand;
+    animation: sand $animation, light $animation;
 }
 
 @keyframes pyramid-side {

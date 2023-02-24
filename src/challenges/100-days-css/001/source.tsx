@@ -1,15 +1,12 @@
 import React from "react";
-import "./source.css";
+import { Frame } from "../Frame/source";
+import "./source.scss";
 
-export const Frame = () => (
-    <div className="frame">
-        <div className="background">
-            <div className="center">
-                <div className="flex">
-                    <p className="title">CSS</p>
-                    <p className="subtitle">Challenge</p>
-                </div>
-            </div>
+export const Day1 = () => (
+    <Frame>
+        <div className="flex">
+            <p className="title">CSS</p>
+            <p className="subtitle">Challenge</p>
         </div>
-    </div>
+    </Frame>
 );

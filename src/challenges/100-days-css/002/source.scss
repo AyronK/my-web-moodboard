@@ -1,21 +1,18 @@
-@import "../styles/frame.css";
-@import "../styles/colors.css";
+@import "../styles/colors.scss";
 
-body {
-    --animation: 0.5s cubic-bezier(0.5, 0, 0.25, 1);
-    --icon-size: 64px;
+$animation: 0.5s cubic-bezier(0.5, 0, 0.25, 1);
+$icon-size: 64px;
 
-    --bottom-bar-x-position: translate(0, 200%) rotate(-45deg);
-    --bottom-bar-hamburger-position: translate(0, 400%) rotate(0);
-    --top-bar-x-position: translateY(200%) rotate(45deg);
-    --top-bar-hamburger-position: rotate(0);
-    --bar-neutral-position: translate(0, 200%) rotate(0);
-}
+$bottom-bar-x-position: translate(0, 200%) rotate(-45deg);
+$bottom-bar-hamburger-position: translate(0, 400%) rotate(0);
+$top-bar-x-position: translateY(200%) rotate(45deg);
+$top-bar-hamburger-position: rotate(0);
+$bar-neutral-position: translate(0, 200%) rotate(0);
 
 .menu-icon {
     position: relative;
-    width: var(--icon-size);
-    height: var(--icon-size);
+    width: $icon-size;
+    height: $icon-size;
     z-index: 0;
 }
 
@@ -59,7 +56,7 @@ body {
     top: 8px;
     height: 8px;
     z-index: 1;
-    background-color: var(--color-quaternary);
+    background-color: $color-quaternary;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
@@ -77,43 +74,43 @@ body {
 */
 
 .radio:checked ~ .button .bar--top {
-    animation: topBarToHamburger var(--animation) forwards;
+    animation: topBarToHamburger $animation forwards;
 }
 
 .radio:checked ~ .button .bar--top--cover {
-    animation: topBarToHamburger var(--animation) forwards;
+    animation: topBarToHamburger $animation forwards;
 }
 
 .radio:checked ~ .button .bar--middle {
     transform: translateY(200%) scale(1);
-    transition: transform var(--animation);
+    transition: transform $animation;
 }
 
 .radio:checked ~ .button .bar--bottom {
-    animation: bottomBarToHamburger var(--animation) forwards;
+    animation: bottomBarToHamburger $animation forwards;
 }
 
 @keyframes topBarToHamburger {
     0% {
-        transform: var(--top-bar-x-position);
+        transform: $top-bar-x-position;
     }
     50% {
-        transform: var(--bar-neutral-position);
+        transform: $bar-neutral-position;
     }
     100% {
-        transform: var(--top-bar-hamburger-position);
+        transform: $top-bar-hamburger-position;
     }
 }
 
 @keyframes bottomBarToHamburger {
     0% {
-        transform: var(--bottom-bar-x-position);
+        transform: $bottom-bar-x-position;
     }
     50% {
-        transform: var(--bar-neutral-position);
+        transform: $bar-neutral-position;
     }
     100% {
-        transform: var(--bottom-bar-hamburger-position);
+        transform: $bottom-bar-hamburger-position;
     }
 }
 
@@ -122,12 +119,12 @@ body {
   Trigger animation into X.
  */
 .radio:checked + .button .bar--top {
-    animation: topBarToX var(--animation) forwards;
+    animation: topBarToX $animation forwards;
 }
 
 .radio:checked + .button .bar--top--cover {
     box-shadow: none;
-    animation: topBarToX var(--animation) forwards;
+    animation: topBarToX $animation forwards;
 }
 
 .radio:checked + .button .bar--middle {
@@ -136,29 +133,29 @@ body {
 }
 
 .radio:checked + .button .bar--bottom {
-    animation: bottomBarToX var(--animation) forwards;
+    animation: bottomBarToX $animation forwards;
 }
 
 @keyframes topBarToX {
     0% {
-        transform: var(--top-bar-hamburger-position);
+        transform: $top-bar-hamburger-position;
     }
     50% {
-        transform: var(--bar-neutral-position);
+        transform: $bar-neutral-position;
     }
     100% {
-        transform: var(--top-bar-x-position);
+        transform: $top-bar-x-position;
     }
 }
 
 @keyframes bottomBarToX {
     0% {
-        transform: var(--bottom-bar-hamburger-position);
+        transform: $bottom-bar-hamburger-position;
     }
     50% {
-        transform: var(--bar-neutral-position);
+        transform: $bar-neutral-position;
     }
     100% {
-        transform: var(--bottom-bar-x-position);
+        transform: $bottom-bar-x-position;
     }
 }
