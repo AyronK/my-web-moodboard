@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/my-web-moodboard/static/css/main.f8730f0d.css",
-    "main.js": "/my-web-moodboard/static/js/main.24012157.js",
+    "main.css": "/my-web-moodboard/static/css/main.40050105.css",
+    "main.js": "/my-web-moodboard/static/js/main.e2725e30.js",
     "static/media/percolate.svg?5w3um4": "/my-web-moodboard/static/media/percolate.1527b5e7e2f78187d4a8.svg",
     "static/media/percolate.eot": "/my-web-moodboard/static/media/percolate.944f04e66433b0904029.eot",
     "static/media/percolate.woff?5w3um4": "/my-web-moodboard/static/media/percolate.19e89b87c4eaf9bc5a6a.woff",
     "static/media/percolate.ttf?5w3um4": "/my-web-moodboard/static/media/percolate.fae78e19b0826fafb9be.ttf",
     "index.html": "/my-web-moodboard/index.html",
-    "main.f8730f0d.css.map": "/my-web-moodboard/static/css/main.f8730f0d.css.map",
-    "main.24012157.js.map": "/my-web-moodboard/static/js/main.24012157.js.map"
+    "main.40050105.css.map": "/my-web-moodboard/static/css/main.40050105.css.map",
+    "main.e2725e30.js.map": "/my-web-moodboard/static/js/main.e2725e30.js.map"
   },
   "entrypoints": [
-    "static/css/main.f8730f0d.css",
-    "static/js/main.24012157.js"
+    "static/css/main.40050105.css",
+    "static/js/main.e2725e30.js"
   ]
 }
