@@ -14,7 +14,7 @@ export default {
         )
     ],
     parameters: {
-        chromatic: { pauseAnimationAtEnd: true }
+        chromatic: { delay: 2000 }
     }
 } as ComponentMeta<typeof Component>;
 
