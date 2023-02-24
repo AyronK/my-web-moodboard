@@ -6,6 +6,7 @@ import { FrameSwitch } from "./FrameSwitch/FrameSwitch";
 import { Play, FileTsx, FileCss } from "phosphor-react";
 import { FetchedText } from "./FetchedText/FetchedText";
 import { CodeBlock } from "./CodeBlock/CodeBlock";
+import { Day5 } from "./challenges/100-days-css/005/source";
 
 const baseRawUrl =
     "https://raw.githubusercontent.com/AyronK/my-web-moodboard/main/src";
@@ -56,6 +57,45 @@ const cards = [
             </>
         ),
         path: "/challenges/100-days-css/004"
+    },
+    {
+        component: (
+            <Day5
+                {...{
+                    date: "01. Feb - 07. Feb",
+                    revenue: 3621.79,
+                    labels: ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"],
+                    legend: ["Views", "Purchases"],
+                    data: [
+                        [
+                            [9, 61],
+                            [50, 50],
+                            [90, 65],
+                            [130, 55],
+                            [171, 61],
+                            [211, 74],
+                            [251, 64]
+                        ],
+                        [
+                            [9, 46],
+                            [50, 12],
+                            [90, 23],
+                            [130, 11],
+                            [171, 38],
+                            [211, 48],
+                            [251, 19]
+                        ]
+                    ] as [number, number][][]
+                }}
+            />
+        ),
+        text: (
+            <>
+                <h1>Chart</h1>
+                <p>Featuring an interactive chart drawn as SVG.</p>
+            </>
+        ),
+        path: "/challenges/100-days-css/005"
     }
 ];
 

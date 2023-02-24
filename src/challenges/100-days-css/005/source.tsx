@@ -1,12 +1,21 @@
-import React, {
-    useCallback,
-    useLayoutEffect,
-    useMemo,
-    useRef,
-    useState
-} from "react";
+import React, { useMemo, useRef, useState } from "react";
 import { Center } from "../../../Frame/Frame";
 import styles from "./source.module.scss";
+
+const mapCursorToSvgPoint = (
+    mouseEvent: React.MouseEvent<HTMLDivElement>,
+    svg: SVGSVGElement,
+    point: DOMPoint
+): Point => {
+    if (!point || !svg) {
+        return { x: 0, y: 0 };
+    }
+    point.x = mouseEvent.clientX;
+    point.y = mouseEvent.clientY;
+    return point.matrixTransform(svg.getScreenCTM()?.inverse());
+};
+
+export type Point = { x: number; y: number };
 
 export type Day5Props = {
     revenue: number;
@@ -23,12 +32,11 @@ export const Day5: React.FC<Day5Props> = ({
     legend,
     data
 }) => {
-    const [mouseIn, setMouseIn] = useState<any>(null);
-    const [cursorStart, setCursorStart] = useState<any>(null);
-    const [transform, setTransform] = useState<any>({ x: 0, y: 0 });
+    const [cursorStart, setCursorStart] = useState<Point | null>(null);
+    const [transform, setTransform] = useState<Point>({ x: 0, y: 0 });
     const [zoom, setZoom] = useState<number>(1);
-    const [prevTransform, setPrevTransform] = useState<any>({ x: 0, y: 0 });
-    const svgRef = useRef<any>(null);
+    const [prevTransform, setPrevTransform] = useState<Point>({ x: 0, y: 0 });
+    const svgRef = useRef<SVGSVGElement>(null);
 
     const [minX, maxX, minY, maxY] = useMemo(() => {
         const xValues = data.flatMap((d) => d).map((d) => d[0]);
@@ -42,30 +50,52 @@ export const Day5: React.FC<Day5Props> = ({
         return [minX, maxX, minY, maxY];
     }, [data]);
 
-    const pt = useMemo(
+    const svgPoint = useMemo(
         () => svgRef.current?.createSVGPoint(),
         [svgRef.current]
     );
+    const zoomIn = () => setZoom((t) => t + 0.1);
+    const zoomOut = () => setZoom((t) => t - 0.1);
 
-    const cursorPoint = (evt: any) => {
-        pt.x = evt.clientX;
-        pt.y = evt.clientY;
-        return pt.matrixTransform(svgRef.current.getScreenCTM().inverse());
+    const onMouseDown = (
+        e: React.MouseEvent<HTMLDivElement, MouseEvent>
+    ): void => {
+        if (svgRef.current && svgPoint) {
+            setCursorStart(mapCursorToSvgPoint(e, svgRef.current, svgPoint));
+        }
     };
 
-    const onScroll = useCallback(
-        (ev: Event) => {
-            if (mouseIn) {
-                setZoom((t) => t - (ev as WheelEvent).deltaY / 2500.0);
-            }
-        },
-        [mouseIn]
-    );
+    const onMouseUp = () => {
+        setCursorStart(null);
+        setPrevTransform(transform);
+    };
 
-    useLayoutEffect(() => {
-        document.addEventListener("wheel", onScroll);
-        return () => document.removeEventListener("scroll", onScroll);
-    }, [onScroll]);
+    const onMouseMove = (
+        e: React.MouseEvent<HTMLDivElement, MouseEvent>
+    ): void => {
+        if (cursorStart && svgRef.current && svgPoint) {
+            setTransform({
+                x:
+                    cursorStart.x -
+                    mapCursorToSvgPoint(e, svgRef.current, svgPoint).x +
+                    prevTransform.x,
+                y:
+                    cursorStart.y -
+                    mapCursorToSvgPoint(e, svgRef.current, svgPoint).y +
+                    prevTransform.y
+            });
+        }
+    };
+
+    const onMouseEnter = () => {
+        setCursorStart(null);
+        setPrevTransform(transform);
+    };
+
+    const onMouseLeave = () => {
+        setCursorStart(null);
+        setPrevTransform(transform);
+    };
 
     return (
         <Center>
@@ -85,42 +115,16 @@ export const Day5: React.FC<Day5Props> = ({
                     <div
                         className={styles.chart}
                         role="figure"
-                        onMouseDown={(e) => setCursorStart(cursorPoint(e))}
-                        onMouseUp={() => {
-                            setCursorStart(null);
-                            setPrevTransform(transform);
-                        }}
-                        onMouseMove={(e): void => {
-                            if (cursorStart) {
-                                setTransform({
-                                    x:
-                                        cursorStart.x -
-                                        cursorPoint(e).x +
-                                        prevTransform.x,
-                                    y:
-                                        cursorStart.y -
-                                        cursorPoint(e).y +
-                                        prevTransform.y
-                                });
-                            }
-                        }}
-                        onMouseOver={() => {
-                            setMouseIn(true);
-                            console.log("over");
-                        }}
-                        onMouseEnter={() => {
-                            setCursorStart(null);
-                            setPrevTransform(transform);
-                            console.log("enter");
-                            setMouseIn(true);
-                        }}
-                        onMouseLeave={() => {
-                            setCursorStart(null);
-                            setPrevTransform(transform);
-                            console.log("leave");
-                            setMouseIn(false);
-                        }}
+                        onMouseDown={onMouseDown}
+                        onMouseUp={onMouseUp}
+                        onMouseMove={onMouseMove}
+                        onMouseEnter={onMouseEnter}
+                        onMouseLeave={onMouseLeave}
                     >
+                        <div className={styles.zoom}>
+                            <button onClick={zoomIn}>+</button>
+                            <button onClick={zoomOut}>-</button>
+                        </div>
                         <svg
                             ref={svgRef}
                             width={"100%"}

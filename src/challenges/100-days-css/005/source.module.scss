@@ -63,7 +63,8 @@
     background-color: white;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
+    padding-top: 8px;
 }
 
 .labels {
@@ -149,6 +150,29 @@
 
         circle {
             stroke-width: 1px;
+        }
+    }
+}
+
+.zoom {
+    display: flex;
+    gap: 4px;
+    position: absolute;
+    z-index: 2;
+    bottom: 0;
+    right: 0;
+
+    button {
+        width: 16px;
+        height: 16px;
+        border-radius: 4px;
+        padding: 0;
+
+        background: rgba(85, 107, 47, 0.3);
+        border: none;
+
+        &:hover {
+            opacity: 0.9;
         }
     }
 }
