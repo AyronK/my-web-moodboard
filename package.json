@@ -82,6 +82,7 @@
         "@typescript-eslint/parser": "latest",
         "babel-plugin-named-exports-order": "^0.0.2",
         "chromatic": "^6.17.0",
+        "css-loader": "5.2.6",
         "eslint": "latest",
         "eslint-config-prettier": "^8.6.0",
         "eslint-plugin-react": "latest",
@@ -89,8 +90,12 @@
         "lint-staged": "^13.1.2",
         "msw": "^1.0.1",
         "msw-storybook-addon": "^1.7.0",
+        "node-sass": "^8.0.0",
         "prettier": "2.8.4",
         "prop-types": "^15.8.1",
+        "sass": "^1.58.3",
+        "sass-loader": "10.1.1",
+        "style-loader": "2.0.0",
         "webpack": "^5.75.0"
     },
     "readme": "ERROR: No README data found!",
@@ -104,6 +109,6 @@
     },
     "lint-staged": {
         "*.{js,ts,jsx,tsx}": "eslint --cache --fix",
-        "*.{js,jsx,ts,tsx,css,md}": "prettier --write"
+        "*.{js,jsx,ts,tsx,css,scss,md}": "prettier --write"
     }
 }
