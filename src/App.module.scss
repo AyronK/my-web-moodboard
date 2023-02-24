@@ -1,25 +1,41 @@
-@import "./challenges/100-days-css/styles/colors.scss";
+@import "./styles/colors.scss";
+
+body {
+    background-color: lighten($color-primary, 70%);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px;
+
+    @media (min-width: 1200px) {
+        padding: 64px;
+    }
+}
 
 .grid {
-    overflow: auto;
-    position: relative;
-    height: 100vh;
-    padding: 16px;
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding: 0;
+    padding-top: 24px;
+    padding-bottom: 24px;
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    gap: 64px;
+    gap: 32px;
 
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    justify-items: center;
-
-    @media (min-width: 1200px) {
-        padding: 128px;
-    }
+    grid-template-columns: repeat(auto-fit, 300px);
+    justify-content: space-around;
 
     list-style: none;
+    max-width: 1200px;
+
+    @media (min-width: 1200px) {
+        grid-template-columns: repeat(auto-fit, 400px);
+        padding-top: 48px;
+        padding-bottom: 48px;
+        gap: 64px;
+    }
+
+    li {
+        width: 100%;
+    }
 }
 
 ::-webkit-scrollbar {

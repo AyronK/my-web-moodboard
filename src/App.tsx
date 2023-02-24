@@ -100,23 +100,40 @@ function App() {
     }
     return (
         <>
-            <ul className={styles.grid}>
-                {cards.map((c, cardIdx) => (
-                    <li key={c.path}>
-                        <FrameSwitch
-                            text={() => c.text}
-                            overflow={(frameIdx) => frameIdx !== 0}
-                            buttons={[
-                                <Play key="tsx" size={20} />,
-                                <FileTsx key="tsx" size={20} />,
-                                <FileCss key="css" size={20} />
-                            ]}
-                        >
-                            {(frameIdx) => switchFrame(frameIdx, cardIdx)}
-                        </FrameSwitch>
-                    </li>
-                ))}
-            </ul>
+            <header>
+                <h1>Ayron&apos;s Web Portfolio </h1>
+            </header>
+            <hr />
+            <article>
+                <ul className={styles.grid}>
+                    {cards.map((c, cardIdx) => (
+                        <li key={c.path}>
+                            <FrameSwitch
+                                text={() => c.text}
+                                overflow={(frameIdx) => frameIdx !== 0}
+                                buttons={[
+                                    <Play key="tsx" size={20} />,
+                                    <FileTsx key="tsx" size={20} />,
+                                    <FileCss key="css" size={20} />
+                                ]}
+                            >
+                                {(frameIdx) => switchFrame(frameIdx, cardIdx)}
+                            </FrameSwitch>
+                        </li>
+                    ))}
+                </ul>
+            </article>
+            <hr />
+            <footer>
+                <h2>Licence</h2>
+                <a href="https://github.com/AyronK/my-web-moodboard/blob/main/LICENSE.md">
+                    Github
+                </a>
+                <FetchedText url="https://raw.githubusercontent.com/AyronK/my-web-moodboard/main/LICENSE.md">
+                    {(text) => <blockquote>{text}</blockquote>}
+                </FetchedText>
+                <blockquote></blockquote>
+            </footer>
         </>
     );
 }
