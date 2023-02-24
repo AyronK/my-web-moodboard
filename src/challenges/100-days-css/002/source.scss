@@ -134,7 +134,6 @@ $bar-neutral-position: translate(0, 200%) rotate(0);
 }
 
 .radio:checked + .button .bar--top--cover {
-    box-shadow: none;
     animation: topBarToX $animation forwards;
 }
 
@@ -169,4 +168,8 @@ $bar-neutral-position: translate(0, 200%) rotate(0);
     100% {
         transform: $bottom-bar-x-position;
     }
+}
+
+.bar--top--cover {
+    box-shadow: none !important;
 }

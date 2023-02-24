@@ -2,6 +2,7 @@ import React from "react";
 import { Frame } from "./challenges/100-days-css/Frame/source";
 import { Day1, Day2, Day3, Spinner1 } from "./challenges/100-days-css/index.t";
 import styles from "./App.module.scss";
+import { Day4 } from "./challenges/100-days-css/004/source";
 
 function App() {
     return (
@@ -42,6 +43,16 @@ function App() {
                     }
                 >
                     <Day3 />
+                </Frame>
+                <Frame
+                    text={
+                        <>
+                            <h1>Pulsing loader</h1>
+                            <p>Featuring infinite loop loading animation.</p>
+                        </>
+                    }
+                >
+                    <Day4 />
                 </Frame>
                 <Frame
                     text={
