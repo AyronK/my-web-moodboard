@@ -1,9 +1,12 @@
 import React from "react";
+import { Center } from "../../../Frame/Frame";
 import "./source.scss";
 
 export const Day1 = () => (
-    <div className="flex">
-        <p className="title">CSS</p>
-        <p className="subtitle">Challenge</p>
-    </div>
+    <Center>
+        <div className="flex">
+            <p className="title">CSS</p>
+            <p className="subtitle">Challenge</p>
+        </div>
+    </Center>
 );

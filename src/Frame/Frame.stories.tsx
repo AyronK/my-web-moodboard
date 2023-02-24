@@ -1,15 +1,14 @@
-import { Frame as FrameComponent } from "./source";
+import { Frame } from "./Frame";
 import { ComponentMeta } from "@storybook/react";
 import React from "react";
 
 export default {
-    title: "Challenges/100 Days of CSS",
-    component: FrameComponent
+    component: Frame
 };
 
-export const Frame = {};
+export const Default = {};
 
-export const FrameWithText: ComponentMeta<typeof FrameComponent> = {
+export const WithText: ComponentMeta<typeof Frame> = {
     args: {
         text: (
             <>

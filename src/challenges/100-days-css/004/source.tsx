@@ -1,16 +1,19 @@
 import React from "react";
+import { Center } from "../../../Frame/Frame";
 import "./source.scss";
 
 export const Day4 = () => (
-    <div>
-        <div className="circleWrapper">
-            <div className="circle first"></div>
+    <Center>
+        <div>
+            <div className="circleWrapper">
+                <div className="circle first"></div>
+            </div>
+            <div className="circleWrapper">
+                <div className="circle second"></div>
+            </div>
+            <div className="circleWrapper">
+                <div className="circle third"></div>
+            </div>
         </div>
-        <div className="circleWrapper">
-            <div className="circle second"></div>
-        </div>
-        <div className="circleWrapper">
-            <div className="circle third"></div>
-        </div>
-    </div>
+    </Center>
 );
