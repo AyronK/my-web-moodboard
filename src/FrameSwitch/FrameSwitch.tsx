@@ -1,7 +1,7 @@
 import React, { ReactNode, useId, useState } from "react";
-import { Frame } from "../Frame/source";
+import { Frame } from "../Frame/Frame";
 
-import styles from "./source.module.scss";
+import styles from "./FrameSwitch.module.scss";
 
 export type FrameSwitchProps = {
     children: (idx: number) => ReactNode;

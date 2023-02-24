@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from "react";
-import styles from "./source.module.scss";
+import styles from "./Frame.module.scss";
 
 export const Frame: React.FC<
     PropsWithChildren & {

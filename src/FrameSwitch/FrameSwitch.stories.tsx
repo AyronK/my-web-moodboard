@@ -1,15 +1,14 @@
 import React from "react";
-import { FrameSwitch as Component } from "./source";
+import { FrameSwitch } from "./FrameSwitch";
 import { ComponentMeta } from "@storybook/react";
 import { FileCss, FileTsx, Play } from "phosphor-react";
-import { Center } from "../Frame/source";
+import { Center } from "../Frame/Frame";
 
 export default {
-    title: "Challenges/100 Days of CSS",
-    component: Component
-} as ComponentMeta<typeof Component>;
+    component: FrameSwitch
+} as ComponentMeta<typeof FrameSwitch>;
 
-export const FrameSwitch: ComponentMeta<typeof Component> = {
+export const Default: ComponentMeta<typeof FrameSwitch> = {
     args: {
         buttons: [
             <Play key="tsx" size={20} />,

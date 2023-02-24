@@ -1,10 +1,10 @@
 import React from "react";
-import { Day1, Day2, Day3, Spinner1 } from "./challenges/100-days-css/index.t";
+import { Day1, Day2, Day3 } from "./challenges/100-days-css/index.t";
 import styles from "./App.module.scss";
 import { Day4 } from "./challenges/100-days-css/004/source";
-import { FrameSwitch } from "./challenges/100-days-css/FrameSwitch/source";
+import { FrameSwitch } from "./FrameSwitch/FrameSwitch";
 import { Play, FileTsx, FileCss } from "phosphor-react";
-import { FetchedText } from "./FetchedText/source";
+import { FetchedText } from "./FetchedText/FetchedText";
 import { CodeBlock } from "./CodeBlock/CodeBlock";
 
 const baseRawUrl =
@@ -56,16 +56,6 @@ const cards = [
             </>
         ),
         path: "/challenges/100-days-css/004"
-    },
-    {
-        component: <Spinner1 />,
-        text: (
-            <>
-                <h1>Simple round spinner</h1>
-                <p>Featuring simple rotation animation.</p>
-            </>
-        ),
-        path: "/challenges/100-days-css/loaders/001"
     }
 ];
 

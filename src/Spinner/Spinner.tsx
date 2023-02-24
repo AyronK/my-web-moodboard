@@ -1,6 +1,6 @@
 import React from "react";
-import { Center } from "../../Frame/source";
-import "./source.scss";
+import { Center } from "../Frame/Frame";
+import "./Spinner.scss";
 
 export const Spinner = () => (
     <Center>

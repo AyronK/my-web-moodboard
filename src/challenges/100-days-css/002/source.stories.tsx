@@ -1,6 +1,6 @@
 import { ComponentMeta } from "@storybook/react";
 import React from "react";
-import { Frame } from "../Frame/source";
+import { Frame } from "../../../Frame/Frame";
 import { Day2 as Component } from "./source";
 
 export default {

@@ -1,5 +1,5 @@
 import React from "react";
-import { Center } from "../Frame/source";
+import { Center } from "../../../Frame/Frame";
 import "./source.scss";
 
 export const Day1 = () => (
