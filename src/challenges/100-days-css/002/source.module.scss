@@ -9,7 +9,7 @@ $top-bar-x-position: translateY(200%) rotate(45deg);
 $top-bar-hamburger-position: rotate(0);
 $bar-neutral-position: translate(0, 200%) rotate(0);
 
-.menu-icon {
+.menuIcon {
     position: relative;
     width: $icon-size;
     height: $icon-size;
@@ -71,11 +71,11 @@ $bar-neutral-position: translate(0, 200%) rotate(0);
     box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, 0.2);
 }
 
-.bar--bottom {
+.barBottom {
     transform: translateY(400%);
 }
 
-.bar--middle {
+.barMiddle {
     transform: translateY(200%);
 }
 
@@ -84,20 +84,20 @@ $bar-neutral-position: translate(0, 200%) rotate(0);
   Trigger animation into Hamburger.
 */
 
-.radio:checked ~ .button .bar--top {
+.radio:checked ~ .button .barTop {
     animation: topBarToHamburger $animation forwards;
 }
 
-.radio:checked ~ .button .bar--top--cover {
+.radio:checked ~ .button .barTopCover {
     animation: topBarToHamburger $animation forwards;
 }
 
-.radio:checked ~ .button .bar--middle {
+.radio:checked ~ .button .barMiddle {
     transform: translateY(200%) scale(1);
     transition: transform $animation;
 }
 
-.radio:checked ~ .button .bar--bottom {
+.radio:checked ~ .button .barBottom {
     animation: bottomBarToHamburger $animation forwards;
 }
 
@@ -129,20 +129,20 @@ $bar-neutral-position: translate(0, 200%) rotate(0);
   The second radio is checked
   Trigger animation into X.
  */
-.radio:checked + .button .bar--top {
+.radio:checked + .button .barTop {
     animation: topBarToX $animation forwards;
 }
 
-.radio:checked + .button .bar--top--cover {
+.radio:checked + .button .barTopCover {
     animation: topBarToX $animation forwards;
 }
 
-.radio:checked + .button .bar--middle {
+.radio:checked + .button .barMiddle {
     transform: translateY(200%) scale(0);
     transform-origin: center;
 }
 
-.radio:checked + .button .bar--bottom {
+.radio:checked + .button .barBottom {
     animation: bottomBarToX $animation forwards;
 }
 
@@ -170,6 +170,6 @@ $bar-neutral-position: translate(0, 200%) rotate(0);
     }
 }
 
-.bar--top--cover {
+.barTopCover {
     box-shadow: none !important;
 }

@@ -1,12 +1,17 @@
 import React from "react";
-import { Day1, Day2, Day3 } from "./challenges/100-days-css/index.t";
+import {
+    Day1,
+    Day2,
+    Day3,
+    Day4,
+    Day5,
+    Day6
+} from "./challenges/100-days-css/index.t";
 import styles from "./App.module.scss";
-import { Day4 } from "./challenges/100-days-css/004/source";
 import { FrameSwitch } from "./FrameSwitch/FrameSwitch";
 import { Play, FileTsx, FileCss } from "phosphor-react";
 import { FetchedText } from "./FetchedText/FetchedText";
 import { CodeBlock } from "./CodeBlock/CodeBlock";
-import { Day5 } from "./challenges/100-days-css/005/source";
 
 const baseRawUrl =
     "https://raw.githubusercontent.com/AyronK/my-web-moodboard/main/src";
@@ -124,13 +129,13 @@ function App() {
                 return (
                     <>
                         <FetchedText
-                            url={`${baseRawUrl}${cards[cardIdx].path}/source.scss`}
+                            url={`${baseRawUrl}${cards[cardIdx].path}/source.module.scss`}
                         >
                             {(text) => (
                                 <CodeBlock
                                     code={text?.trim()}
                                     language={"sass"}
-                                    githubUrl={`${baseUrl}${cards[cardIdx].path}/source.scss`}
+                                    githubUrl={`${baseUrl}${cards[cardIdx].path}/source.module.scss`}
                                 />
                             )}
                         </FetchedText>

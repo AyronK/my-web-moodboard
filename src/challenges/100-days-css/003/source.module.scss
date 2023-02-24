@@ -12,7 +12,7 @@ $color-pyramid: #f8cba6;
     position: relative;
 }
 
-.sun-container {
+.sunContainer {
     z-index: 2;
     position: absolute;
     top: 0;
@@ -32,7 +32,7 @@ $color-pyramid: #f8cba6;
     animation: sun $animation;
 }
 
-.stars-container {
+.starsContainer {
     z-index: 2;
     position: absolute;
     top: 0;
@@ -75,7 +75,7 @@ $color-pyramid: #f8cba6;
     left: 41%;
 }
 
-.clouds-container {
+.cloudsContainer {
     z-index: 2;
     position: absolute;
     top: 0;
@@ -147,7 +147,7 @@ $color-pyramid: #f8cba6;
     animation: sky $animation, light $animation;
 }
 
-.pyramid-front {
+.pyramidFront {
     z-index: 4;
     position: absolute;
     background-color: $color-pyramid;
@@ -160,7 +160,7 @@ $color-pyramid: #f8cba6;
     animation: pyramid-front $animation;
 }
 
-.pyramid-side {
+.pyramidSide {
     z-index: 3;
     position: absolute;
     background-color: $color-pyramid;
@@ -173,7 +173,7 @@ $color-pyramid: #f8cba6;
     animation: pyramid-side $animation;
 }
 
-.pyramid-shadow {
+.pyramidShadow {
     z-index: 6;
     background-color: rgba(0, 0, 0, 0.384);
     position: absolute;

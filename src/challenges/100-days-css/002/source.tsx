@@ -1,17 +1,17 @@
 import React from "react";
 import { Center } from "../../../Frame/Frame";
-import "./source.scss";
+import styles from "./source.module.scss";
 
 export const Day2 = () => (
     <Center>
-        <div className="menu-icon">
-            <input className="radio" type="radio" name="menu-icon" />
-            <input className="radio" type="radio" name="menu-icon" />
-            <div className="button">
-                <div className="bar bar--top"></div>
-                <div className="bar bar--middle"></div>
-                <div className="bar bar--bottom"></div>
-                <div className="bar bar--top--cover"></div>
+        <div className={styles.menuIcon}>
+            <input className={styles.radio} type="radio" name="menuIcon" />
+            <input className={styles.radio} type="radio" name="menuIcon" />
+            <div className={styles.button}>
+                <div className={styles.bar + " " + styles.barTop}></div>
+                <div className={styles.bar + " " + styles.barMiddle}></div>
+                <div className={styles.bar + " " + styles.barBottom}></div>
+                <div className={styles.bar + " " + styles.barTopCover}></div>
             </div>
         </div>
     </Center>

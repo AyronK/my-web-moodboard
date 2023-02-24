@@ -1,12 +1,12 @@
 import React from "react";
 import { Center } from "../../../Frame/Frame";
-import "./source.scss";
+import styles from "./source.module.scss";
 
 export const Day1 = () => (
     <Center>
-        <div className="flex">
-            <p className="title">CSS</p>
-            <p className="subtitle">Challenge</p>
+        <div className={styles.flex}>
+            <p className={styles.title}>CSS</p>
+            <p className={styles.subtitle}>Challenge</p>
         </div>
     </Center>
 );

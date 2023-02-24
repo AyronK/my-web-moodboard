@@ -12,10 +12,7 @@ export default {
                 <Story />
             </Frame>
         )
-    ],
-    parameters: {
-        chromatic: { pauseAnimationAtEnd: true }
-    }
+    ]
 } as ComponentMeta<typeof Component>;
 
 export const Day3 = {};
