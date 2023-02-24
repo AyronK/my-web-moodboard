@@ -58,6 +58,17 @@ $bar-neutral-position: translate(0, 200%) rotate(0);
     z-index: 1;
     background-color: $color-quaternary;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.25s linear, box-shadow 0.25s linear;
+}
+
+.radio:hover ~ .button .bar {
+    background-color: lighten($color-quaternary, 5%);
+    box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.radio:active ~ .button .bar {
+    background-color: darken($color-quaternary, 3%);
+    box-shadow: 2px 2px 2px 3px rgba(0, 0, 0, 0.2);
 }
 
 .bar--bottom {
