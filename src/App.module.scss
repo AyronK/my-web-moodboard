@@ -1,8 +1,12 @@
+@import "./challenges/100-days-css/styles/colors.scss";
+
 .grid {
     overflow: auto;
     position: relative;
     height: 100vh;
     padding: 16px;
+    padding-top: 80px;
+    padding-bottom: 80px;
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
@@ -14,4 +18,25 @@
     @media (min-width: 1200px) {
         padding: 128px;
     }
+
+    list-style: none;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: $color-quaternary;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: lighten($color-quaternary, 10%);
 }
