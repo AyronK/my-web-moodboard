@@ -9,7 +9,7 @@ import {
 } from "./challenges/100-days-css/index.t";
 import styles from "./App.module.scss";
 import { FrameSwitch } from "./FrameSwitch/FrameSwitch";
-import { MonitorPlay, FileTsx, FileCss } from "phosphor-react";
+import { MonitorPlay, FileTsx, FileCss, GithubLogo } from "phosphor-react";
 import { FetchedText } from "./FetchedText/FetchedText";
 import { CodeBlock } from "./CodeBlock/CodeBlock";
 
@@ -157,6 +157,14 @@ function App() {
         <>
             <header>
                 <h1>Ayron&apos;s Web Portfolio </h1>
+                <div className={styles.links}>
+                    <a href="https://github.com/AyronK/my-web-moodboard">
+                        <GithubLogo size={16} /> My GitHub
+                    </a>
+                    <a href="https://github.com/AyronK/">
+                        <GithubLogo size={16} /> Project Site
+                    </a>
+                </div>
             </header>
             <hr />
             <section className={styles.note}>
