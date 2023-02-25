@@ -4,11 +4,12 @@ import {
     Day2,
     Day3,
     Day4,
-    Day5
+    Day5,
+    Day6
 } from "./challenges/100-days-css/index.t";
 import styles from "./App.module.scss";
 import { FrameSwitch } from "./FrameSwitch/FrameSwitch";
-import { Play, FileTsx, FileCss } from "phosphor-react";
+import { MonitorPlay, FileTsx, FileCss, GithubLogo } from "phosphor-react";
 import { FetchedText } from "./FetchedText/FetchedText";
 import { CodeBlock } from "./CodeBlock/CodeBlock";
 
@@ -100,6 +101,16 @@ const cards = [
             </>
         ),
         path: "/challenges/100-days-css/005"
+    },
+    {
+        component: <Day6 />,
+        text: (
+            <>
+                <h1>Profile Card</h1>
+                <p>Featuring CSS grid and hover animations.</p>
+            </>
+        ),
+        path: "/challenges/100-days-css/006"
     }
 ];
 
@@ -146,6 +157,14 @@ function App() {
         <>
             <header>
                 <h1>Ayron&apos;s Web Portfolio </h1>
+                <div className={styles.links}>
+                    <a href="https://github.com/AyronK/my-web-moodboard">
+                        <GithubLogo size={16} /> My GitHub
+                    </a>
+                    <a href="https://github.com/AyronK/">
+                        <GithubLogo size={16} /> Project Site
+                    </a>
+                </div>
             </header>
             <hr />
             <section className={styles.note}>
@@ -173,7 +192,7 @@ function App() {
                                 text={() => c.text}
                                 overflow={(frameIdx) => frameIdx !== 0}
                                 buttons={[
-                                    <Play key="tsx" size={20} />,
+                                    <MonitorPlay key="tsx" size={20} />,
                                     <FileTsx key="tsx" size={20} />,
                                     <FileCss key="css" size={20} />
                                 ]}
