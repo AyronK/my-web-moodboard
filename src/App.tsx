@@ -107,7 +107,7 @@ const cards = [
         text: (
             <>
                 <h1>Profile Card</h1>
-                <p></p>
+                <p>Featuring CSS grid and hover animations.</p>
             </>
         ),
         path: "/challenges/100-days-css/006"
