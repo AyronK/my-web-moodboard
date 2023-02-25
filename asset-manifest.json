@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/my-web-moodboard/static/css/main.cb0036eb.css",
-    "main.js": "/my-web-moodboard/static/js/main.0f8627fb.js",
+    "main.js": "/my-web-moodboard/static/js/main.4d8c10b7.js",
     "react-syntax-highlighter/refractor-core-import.js": "/my-web-moodboard/static/js/react-syntax-highlighter/refractor-core-import.fef4cf01.chunk.js",
     "react-syntax-highlighter_languages_refractor_abap.js": "/my-web-moodboard/static/js/react-syntax-highlighter_languages_refractor_abap.d6ce2d39.chunk.js",
     "react-syntax-highlighter_languages_refractor_actionscript.js": "/my-web-moodboard/static/js/react-syntax-highlighter_languages_refractor_actionscript.6676a4ee.chunk.js",
@@ -160,7 +160,7 @@
     "static/media/percolate.ttf?5w3um4": "/my-web-moodboard/static/media/percolate.fae78e19b0826fafb9be.ttf",
     "index.html": "/my-web-moodboard/index.html",
     "main.cb0036eb.css.map": "/my-web-moodboard/static/css/main.cb0036eb.css.map",
-    "main.0f8627fb.js.map": "/my-web-moodboard/static/js/main.0f8627fb.js.map",
+    "main.4d8c10b7.js.map": "/my-web-moodboard/static/js/main.4d8c10b7.js.map",
     "refractor-core-import.fef4cf01.chunk.js.map": "/my-web-moodboard/static/js/react-syntax-highlighter/refractor-core-import.fef4cf01.chunk.js.map",
     "react-syntax-highlighter_languages_refractor_abap.d6ce2d39.chunk.js.map": "/my-web-moodboard/static/js/react-syntax-highlighter_languages_refractor_abap.d6ce2d39.chunk.js.map",
     "react-syntax-highlighter_languages_refractor_actionscript.6676a4ee.chunk.js.map": "/my-web-moodboard/static/js/react-syntax-highlighter_languages_refractor_actionscript.6676a4ee.chunk.js.map",
@@ -316,6 +316,6 @@
   },
   "entrypoints": [
     "static/css/main.cb0036eb.css",
-    "static/js/main.0f8627fb.js"
+    "static/js/main.4d8c10b7.js"
   ]
 }
