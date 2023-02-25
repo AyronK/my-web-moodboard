@@ -4,7 +4,8 @@ import {
     Day2,
     Day3,
     Day4,
-    Day5
+    Day5,
+    Day6
 } from "./challenges/100-days-css/index.t";
 import styles from "./App.module.scss";
 import { FrameSwitch } from "./FrameSwitch/FrameSwitch";
@@ -100,6 +101,16 @@ const cards = [
             </>
         ),
         path: "/challenges/100-days-css/005"
+    },
+    {
+        component: <Day6 />,
+        text: (
+            <>
+                <h1>Profile Card</h1>
+                <p></p>
+            </>
+        ),
+        path: "/challenges/100-days-css/006"
     }
 ];
 
