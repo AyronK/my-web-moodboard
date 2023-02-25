@@ -23,8 +23,8 @@ const cards = [
         component: <Day1 />,
         text: (
             <>
-                <h1>Simple cover</h1>
-                <p>Featuring gradient background with font composition.</p>
+                <h2>#1 Cover</h2>
+                <p>Simple gradient background with font composition.</p>
             </>
         ),
         path: "/challenges/100-days-css/001"
@@ -34,8 +34,8 @@ const cards = [
 
         text: (
             <>
-                <h1>Animated menu button</h1>
-                <p>Featuring animated state transition.</p>
+                <h2>#2 Menu button</h2>
+                <p>Animated state transition on click.</p>
             </>
         ),
         path: "/challenges/100-days-css/002"
@@ -44,11 +44,8 @@ const cards = [
         component: <Day3 />,
         text: (
             <>
-                <h1>Daytime animation</h1>
-                <p>
-                    Featuring multiple animations combined into infinite loop
-                    scene.
-                </p>
+                <h2>#3 Day animation</h2>
+                <p>Multiple animations combined into one scene.</p>
             </>
         ),
         path: "/challenges/100-days-css/003"
@@ -57,8 +54,8 @@ const cards = [
         component: <Day4 />,
         text: (
             <>
-                <h1>Pulsing loader</h1>
-                <p>Featuring infinite loop loading animation.</p>
+                <h2>#4 Pulsing loader</h2>
+                <p>Infinite loop loading animation.</p>
             </>
         ),
         path: "/challenges/100-days-css/004"
@@ -96,8 +93,11 @@ const cards = [
         ),
         text: (
             <>
-                <h1>Chart</h1>
-                <p>Featuring an interactive chart drawn as SVG.</p>
+                <h2>#5 Chart</h2>
+                <p>
+                    An interactive chart drawn as SVG. Use mouse to move chart
+                    or +/- buttons to zoom it.
+                </p>
             </>
         ),
         path: "/challenges/100-days-css/005"
@@ -106,8 +106,8 @@ const cards = [
         component: <Day6 />,
         text: (
             <>
-                <h1>Profile Card</h1>
-                <p>Featuring CSS grid and hover animations.</p>
+                <h2>#6 Profile Card</h2>
+                <p>Featuring CSS grid layout with interactive elements.</p>
             </>
         ),
         path: "/challenges/100-days-css/006"
@@ -156,7 +156,7 @@ function App() {
     return (
         <>
             <header>
-                <h1>Ayron&apos;s Web Portfolio </h1>
+                <h2>Ayron&apos;s Web Portfolio </h2>
                 <div className={styles.links}>
                     <a href="https://github.com/AyronK">
                         <GithubLogo size={16} /> My GitHub
@@ -187,7 +187,7 @@ function App() {
             <article>
                 <ul className={styles.grid}>
                     {cards.map((c, cardIdx) => (
-                        <li key={c.path}>
+                        <li key={c.path} id={`day-${cardIdx + 1}`}>
                             <FrameSwitch
                                 text={() => c.text}
                                 overflow={(frameIdx) => frameIdx !== 0}
