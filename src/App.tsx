@@ -158,10 +158,10 @@ function App() {
             <header>
                 <h1>Ayron&apos;s Web Portfolio </h1>
                 <div className={styles.links}>
-                    <a href="https://github.com/AyronK/my-web-moodboard">
+                    <a href="https://github.com/AyronK">
                         <GithubLogo size={16} /> My GitHub
                     </a>
-                    <a href="https://github.com/AyronK/">
+                    <a href="https://github.com/AyronK/my-web-moodboard">
                         <GithubLogo size={16} /> Project Site
                     </a>
                 </div>
