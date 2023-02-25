@@ -17,7 +17,7 @@ This is my hub. My space. My moodboard. My so called portfolio for anything rela
 You can visit the site [here](https://ayronk.github.io/my-web-moodboard/).
 
 ## Currently working on
-[100 Days CSS Challenge](https://github.com/AyronK/my-web-moodboard/edit/main/README.md#100-days-css-challenge)
+[100 Days CSS Challenge](https://github.com/AyronK/my-web-moodboard#100-days-css-challenge)
 
 ## Table of contents  
 ### **100 Days CSS Challenge**
