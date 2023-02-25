@@ -9,7 +9,7 @@ import {
 } from "./challenges/100-days-css/index.t";
 import styles from "./App.module.scss";
 import { FrameSwitch } from "./FrameSwitch/FrameSwitch";
-import { Play, FileTsx, FileCss } from "phosphor-react";
+import { MonitorPlay, FileTsx, FileCss } from "phosphor-react";
 import { FetchedText } from "./FetchedText/FetchedText";
 import { CodeBlock } from "./CodeBlock/CodeBlock";
 
@@ -184,7 +184,7 @@ function App() {
                                 text={() => c.text}
                                 overflow={(frameIdx) => frameIdx !== 0}
                                 buttons={[
-                                    <Play key="tsx" size={20} />,
+                                    <MonitorPlay key="tsx" size={20} />,
                                     <FileTsx key="tsx" size={20} />,
                                     <FileCss key="css" size={20} />
                                 ]}
