@@ -202,10 +202,50 @@ $color-sun: #fff9d7;
     left: 13px;
 }
 
+.rainDrop {
+    animation: raindropFall 1s linear infinite;
+    .particleBody {
+        width: 18px;
+        height: 20px;
+        background-color: lightblue;
+        border-radius: 50% 50%;
+        opacity: 0.75;
+        &::before,
+        &::after {
+            position: absolute;
+            content: "";
+            background-color: lightblue;
+            border-radius: 50% 50%;
+        }
+
+        &::before {
+            top: -5px;
+            right: 4px;
+            width: 11px;
+            height: 15px;
+        }
+        &::after {
+            top: -8px;
+            right: 7px;
+            width: 5px;
+            height: 7px;
+        }
+    }
+}
+
+.snowflake {
+    animation: snowflakeFall 4s linear infinite;
+    .particleBody {
+        width: 16px;
+        height: 16px;
+        background-color: white;
+        border-radius: 50% 50%;
+    }
+}
+
 .particle {
     position: absolute;
     z-index: 3;
-    animation: particleFall 1s linear infinite;
     transform: translate(0, -20px) scale(1) rotate(25deg);
 
     @for $i from 1 through 40 {
@@ -218,56 +258,6 @@ $color-sun: #fff9d7;
             }
         }
     }
-
-    @keyframes particleFall {
-        0% {
-            transform: translate(0, -20px) scale(1) rotate(25deg);
-        }
-        85% {
-            transform: translate(-50px, 290px) scale(1) rotate(25deg);
-        }
-        100% {
-            transform: translate(-50px, 290px) scale(2, 0.1) rotate(25deg);
-        }
-    }
-}
-
-.particleBody {
-    width: 18px;
-    height: 20px;
-    background-color: lightblue;
-    border-radius: 50% 50%;
-    opacity: 0.75;
-    &::before,
-    &::after {
-        position: absolute;
-        content: "";
-        background-color: lightblue;
-        border-radius: 50% 50%;
-    }
-
-    &::before {
-        top: -5px;
-        right: 4px;
-        width: 11px;
-        height: 15px;
-    }
-    &::after {
-        top: -8px;
-        right: 7px;
-        width: 5px;
-        height: 7px;
-    }
-
-    // @for $i from 1 through 10 {
-    //     &:nth-of-type(#{$i}) {
-    //         top: ($i / 4) * 24px;
-    //         left: ($i % 4) * 24px;
-    //     }
-    // }
-}
-
-.rainDrop {
 }
 
 .time--night {
@@ -298,14 +288,48 @@ $color-sun: #fff9d7;
     }
 }
 
-.weather--raining {
+.weather--raining,
+.weather--snowing {
     .celestial {
         opacity: 0.05;
     }
     .sky {
         filter: brightness(65%);
     }
+}
+
+.weather--raining {
     .particle {
         @extend .rainDrop;
+    }
+}
+
+.weather--snowing {
+    .particle {
+        @extend .snowflake;
+    }
+}
+
+@keyframes raindropFall {
+    0% {
+        transform: translate(0, -20px) scale(1) rotate(25deg);
+    }
+    85% {
+        transform: translate(-50px, 290px) scale(1) rotate(25deg);
+    }
+    100% {
+        transform: translate(-50px, 290px) scale(2, 0.1) rotate(25deg);
+    }
+}
+
+@keyframes snowflakeFall {
+    0% {
+        transform: translate(0px, -20px) scale(1);
+    }
+    85% {
+        transform: translate(30px, 290px) scale(1);
+    }
+    100% {
+        transform: translate(30px, 290px) scale(2, 0.1);
     }
 }

@@ -5,8 +5,7 @@ enum Weather {
     ClearSky = "clear-sky",
     Cloudy = "cloudy",
     Raining = "raining",
-    Snowing = "snowing",
-    RainingAndSnowing = "raining-and-snowing"
+    Snowing = "snowing"
 }
 
 export const Day9: React.FC<{
