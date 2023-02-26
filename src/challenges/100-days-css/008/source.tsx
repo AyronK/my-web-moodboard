@@ -13,14 +13,18 @@ export const Day8: React.FC = () => {
     return (
         <Center>
             <div className={styles.container}>
-                {Array.from({ length: 4 }).map((_, idx) => (
-                    <div key={idx} className={styles.liquid}></div>
-                ))}
-                {Array.from({ length: 16 }).map((_, idx) => (
-                    <div key={idx} className={styles.particleContainer}>
-                        <div className={styles.particle}></div>
-                    </div>
-                ))}
+                <div className={styles.blobs}>
+                    {Array.from({ length: 6 }).map((_, idx) => (
+                        <div key={idx} className={styles.liquid}></div>
+                    ))}
+                </div>
+                <div className={styles.particles}>
+                    {Array.from({ length: 8 }).map((_, idx) => (
+                        <div key={idx} className={styles.particleContainer}>
+                            <div className={styles.particle}></div>
+                        </div>
+                    ))}
+                </div>
             </div>
             <svg>
                 <filter id="fluid-filter">
