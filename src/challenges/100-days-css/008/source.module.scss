@@ -1,0 +1,187 @@
+@import "../../../styles/colors.scss";
+
+.container {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    counter-reset: particle;
+
+    filter: url("#fluid-filter");
+}
+
+.container .liquid {
+    z-index: 3;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(
+        closest-side,
+        $color-quaternary,
+        $color-terciary
+    );
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    box-shadow: 4px 4px 8px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container .liquid:nth-child(1) {
+    width: 40px;
+    height: 48px;
+    animation: animation4 5s linear infinite;
+}
+
+.container .liquid:nth-child(2) {
+    width: 48px;
+    height: 48px;
+    animation: animation2 5s linear infinite;
+}
+
+.container .liquid:nth-child(3) {
+    width: 48px;
+    height: 48px;
+    animation: animation3 2s linear infinite;
+}
+
+.container .liquid:nth-child(4) {
+    width: 56px;
+    height: 56px;
+    transform: translate(-50%, -50%);
+    animation: animation1 10s linear infinite;
+}
+
+.container .particleContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.particleContainer .particle {
+    z-index: 2;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    background: radial-gradient(
+        closest-side,
+        $color-quaternary,
+        $color-terciary
+    );
+    animation: animation5 10s ease-in-out infinite;
+}
+
+@for $i from 0 through 16 {
+    .container .particleContainer:nth-child(#{$i + 5}) {
+        transform: translate(-50%, -50%);
+        animation: rotation#{$i} random(10) * 0.5s + 3s linear infinite;
+
+        .particle {
+            animation-delay: random(100) * 0.1s;
+        }
+    }
+
+    @keyframes rotation#{$i} {
+        0% {
+            transform: translate(-50%, -50%) rotate($i * 150deg);
+        }
+        50% {
+            transform: translate(-50%, -50%) rotate($i * 150deg + 180deg);
+        }
+        100% {
+            transform: translate(-50%, -50%) rotate($i * 150deg + 360deg);
+        }
+    }
+}
+
+@keyframes animation1 {
+    0% {
+        transform: translate(-50%, -50%) scale(1, 1.1);
+    }
+    25% {
+        transform: translate(-50%, -50%) scale(1.2, 1.1);
+    }
+    75% {
+        transform: translate(-50%, -50%) scale(1.1, 1.2);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1, 1.1);
+    }
+}
+
+@keyframes animation2 {
+    0% {
+        transform: translate(-50%, -50%) rotate(0) translate(20%, 20%) scale(1);
+    }
+    25% {
+        transform: translate(-50%, -50%) rotate(90deg) translate(15%, 10%)
+            scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(180deg) translate(-15%, -15%)
+            scaleY(1.5);
+    }
+    75% {
+        transform: translate(-50%, -50%) rotate(270deg) translate(0%, 0%)
+            scale(1);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg) translate(20%, 20%);
+    }
+}
+
+@keyframes animation3 {
+    0% {
+        transform: translate(-50%, -50%) rotate(-90deg) translate(20%, 20%);
+    }
+    25% {
+        transform: translate(-50%, -50%) rotate(0deg) translate(15%, 10%);
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(90deg) translate(10%, 10%);
+    }
+    75% {
+        transform: translate(-50%, -50%) rotate(180deg) translate(20%, 25%);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(270deg) translate(20%, 20%);
+    }
+}
+
+@keyframes animation4 {
+    0% {
+        transform: translate(-50%, -50%) rotate(-180deg) translate(20%, 20%);
+    }
+    25% {
+        transform: translate(-50%, -50%) rotate(-90deg) translate(15%, 10%);
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(0deg) translate(20%, 15%);
+    }
+    75% {
+        transform: translate(-50%, -50%) rotate(90deg) translate(20%, 20%);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(180deg) translate(20%, 20%);
+    }
+}
+
+@keyframes animation5 {
+    0% {
+        transform: translate(800%, 800%) scale(0.65);
+    }
+    25% {
+        transform: translate(0, 0) scale(1.5);
+    }
+    50% {
+        transform: translate(-800%, -800%) scale(0.65);
+    }
+    75% {
+        transform: translate(0, 0) scale(1.5);
+    }
+    100% {
+        transform: translate(800%, 800%) scale(0.65);
+    }
+}
