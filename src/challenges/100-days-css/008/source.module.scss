@@ -105,7 +105,7 @@
 
         .particle {
             animation-delay: random(100) * 0.025s + $i * 0.3s;
-            animation-duration: random(100) * 0.05s + 3s + $i * 0.3s;
+            animation-duration: random(100) * 0.05s + 10s + $i * 0.3s;
         }
     }
 
