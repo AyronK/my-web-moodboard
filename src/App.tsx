@@ -5,7 +5,8 @@ import {
     Day3,
     Day4,
     Day5,
-    Day6
+    Day6,
+    Day7
 } from "./challenges/100-days-css/index.t";
 import styles from "./App.module.scss";
 import { FrameSwitch } from "./FrameSwitch/FrameSwitch";
@@ -111,6 +112,18 @@ const cards = [
             </>
         ),
         path: "/challenges/100-days-css/006"
+    },
+    {
+        component: <Day7 />,
+        text: (
+            <>
+                <h2>#7 Notifications, Search and Menu</h2>
+                <p>
+                    Featuring header state transitions and on-hover animations.
+                </p>
+            </>
+        ),
+        path: "/challenges/100-days-css/007"
     }
 ];
 

@@ -1,0 +1,196 @@
+@import "../../../styles/colors.scss";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,500);
+
+.header {
+    color: white;
+    background-color: $color-terciary;
+    padding: 16px 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+
+    h1 {
+        font-weight: 500;
+        font-size: 16px;
+        margin: 0;
+    }
+}
+
+.button {
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    border: none;
+    height: 24px;
+    width: 24px;
+    opacity: 0.6;
+    transition: opacity 0.25s ease-in-out;
+
+    svg {
+        stroke-linecap: round;
+        stroke-width: 3px;
+    }
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.card,
+.menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    border-radius: 4px;
+    box-shadow: 4px 4px 8px 2px rgba(0, 0, 0, 0.3);
+    transition: transform 0.5s ease-in-out;
+}
+
+.card {
+    z-index: 1;
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    color: darken($color-terciary, 15%);
+    overflow: hidden;
+}
+
+.menu {
+    z-index: 0;
+    background-color: $color-secondary;
+    height: 90%;
+    width: 90%;
+    box-sizing: border-box;
+    color: darken($color-terciary, 15%);
+    transform: translate(5%, 5%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-weight: 300;
+    list-style: none;
+    padding: 8px 0;
+    gap: 0;
+
+    li {
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        align-items: center;
+        padding: 14px 12px;
+        height: auto;
+        color: rgba(255, 255, 255, 0.75);
+        background-color: transparent;
+        transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out;
+        &:hover {
+            color: white;
+            background-color: rgba(0, 0, 0, 0.25);
+        }
+    }
+}
+
+.search {
+    position: absolute;
+    left: 32px;
+    right: 40px;
+    top: 12px;
+    opacity: 0;
+    transition: left 0.25s ease-in-out, right 0.25s ease-in-out,
+        opacity 0.25s ease-in-out;
+
+    input {
+        width: 100%;
+        padding: 0;
+        border-radius: 100px;
+        border: 0;
+        padding: 4px 16px;
+        box-sizing: border-box;
+        height: 32px;
+        font-family: inherit;
+        color: gray;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 14px;
+        outline: 0;
+    }
+}
+
+.card.menuOpen {
+    transform: translateX(50%);
+}
+
+.card.searchOpen {
+    .search {
+        left: 16px;
+        right: 56px;
+        opacity: 1;
+    }
+}
+
+.menu.menuOpen {
+    transform: translate(0%, 5%);
+}
+
+.notifications {
+    margin: 0;
+    padding: 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    list-style: none;
+    gap: 12px;
+
+    &:before {
+        content: "";
+        z-index: 0;
+        display: block;
+        position: absolute;
+        height: 100%;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        left: 24px;
+        background-color: rgba(0, 0, 0, 0.125);
+    }
+
+    li {
+        cursor: pointer;
+        color: $color-secondary;
+        position: relative;
+        padding-left: 12px;
+        display: flex;
+        flex-direction: column;
+
+        &::before {
+            content: "";
+            position: absolute;
+            height: 6px;
+            width: 6px;
+            top: 2px;
+            left: -4px;
+            border-radius: 50%;
+            background-color: white;
+            border: 2px solid $color-terciary;
+            box-shadow: 0 0 0 3px white;
+        }
+
+        span:first-of-type {
+            color: $color-primary;
+            font-size: 11px;
+            line-height: 16px;
+        }
+
+        span {
+            color: $color-secondary;
+            font-size: 14px;
+        }
+
+        &:hover span {
+            color: $color-terciary;
+        }
+    }
+}
