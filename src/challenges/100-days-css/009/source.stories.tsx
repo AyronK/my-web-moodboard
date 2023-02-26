@@ -1,7 +1,7 @@
 import { ComponentMeta } from "@storybook/react";
 import React from "react";
 import { Frame } from "../../../Frame/Frame";
-import { Day9 as Component } from "./source";
+import { Day9 as Component, Weather } from "./source";
 
 export default {
     title: "Challenges/100 Days of CSS",
@@ -15,4 +15,9 @@ export default {
     ]
 } as ComponentMeta<typeof Component>;
 
-export const Day9 = {};
+export const Day9 = {
+    args: {
+        weather: Weather.ClearSky,
+        night: false
+    }
+};

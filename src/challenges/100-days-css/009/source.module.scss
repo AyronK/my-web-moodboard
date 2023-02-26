@@ -209,7 +209,7 @@ $color-sun: #fff9d7;
         height: 20px;
         background-color: lightblue;
         border-radius: 50% 50%;
-        opacity: 0.75;
+        opacity: 0.5;
         &::before,
         &::after {
             position: absolute;
@@ -248,13 +248,13 @@ $color-sun: #fff9d7;
     z-index: 3;
     transform: translate(0, -20px) scale(1) rotate(25deg);
 
-    @for $i from 1 through 40 {
+    @for $i from 1 through 60 {
         &:nth-of-type(#{$i}) {
             left: -50px + random(30) * 20px;
             animation-delay: $i * 0.1s;
 
             .particleBody {
-                transform: scale(0.5 - $i % 4 * 0.05);
+                transform: scale(0.4 - $i % 4 * 0.05);
             }
         }
     }
@@ -291,10 +291,10 @@ $color-sun: #fff9d7;
 .weather--raining,
 .weather--snowing {
     .celestial {
-        opacity: 0.05;
+        visibility: hidden;
     }
     .sky {
-        filter: brightness(65%);
+        filter: brightness(50%);
     }
 }
 

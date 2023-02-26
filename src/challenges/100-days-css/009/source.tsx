@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./source.module.scss";
 
-enum Weather {
+export enum Weather {
     ClearSky = "clear-sky",
     Cloudy = "cloudy",
     Raining = "raining",
@@ -11,7 +11,7 @@ enum Weather {
 export const Day9: React.FC<{
     weather: Weather;
     night?: boolean;
-}> = ({ night = true, weather = Weather.Raining }) => {
+}> = ({ night = true, weather }) => {
     return (
         <div className={styles.card}>
             <div
@@ -42,7 +42,7 @@ export const Day9: React.FC<{
                 </div>
                 {weather !== Weather.ClearSky && weather !== Weather.Cloudy && (
                     <div className={styles.particles}>
-                        {Array.from({ length: 40 }).map((_, idx) => (
+                        {Array.from({ length: 60 }).map((_, idx) => (
                             <div key={idx} className={styles.particle}>
                                 <div className={styles.particleBody}></div>
                             </div>
