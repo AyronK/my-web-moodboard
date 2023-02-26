@@ -1,4 +1,6 @@
 @import "../../../styles/colors.scss";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,600);
 
 @function getColor($amount) {
     @return change-color(
@@ -8,6 +10,7 @@
 }
 
 .container {
+    font-weight: 300;
     display: flex;
     flex-direction: column;
     height: 75%;

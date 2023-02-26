@@ -1,7 +1,9 @@
 @import "../../../styles/colors.scss";
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,400);
 
 .card {
+    font-weight: 300;
     background-color: white;
     height: 100%;
     width: 100%;
@@ -127,7 +129,7 @@
     span {
         font-size: 12px;
         line-height: 14px;
-        font-weight: 400;
+        font-weight: 300;
     }
 }
 
