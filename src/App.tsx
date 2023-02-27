@@ -135,7 +135,10 @@ const cards = [
 
 function App() {
     function switchFrame(frameIdx: number, cardIdx: number) {
-        const url = `${baseRawUrl}${challengesPath}/${(cardIdx + 1)
+        const rawUrl = `${baseRawUrl}${challengesPath}/${(cardIdx + 1)
+            .toString()
+            .padStart(3, "0")}`;
+        const url = `${baseUrl}${challengesPath}/${(cardIdx + 1)
             .toString()
             .padStart(3, "0")}`;
         switch (frameIdx) {
@@ -144,7 +147,7 @@ function App() {
             case 1:
                 return (
                     <>
-                        <FetchedText url={`${url}/source.tsx`}>
+                        <FetchedText url={`${rawUrl}/source.tsx`}>
                             {(text) => (
                                 <CodeBlock
                                     code={text?.trim()}
@@ -158,7 +161,7 @@ function App() {
             case 2:
                 return (
                     <>
-                        <FetchedText url={`${url}/source.module.scss`}>
+                        <FetchedText url={`${rawUrl}/source.module.scss`}>
                             {(text) => (
                                 <CodeBlock
                                     code={text?.trim()}
