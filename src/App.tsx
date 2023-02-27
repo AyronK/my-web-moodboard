@@ -6,7 +6,8 @@ import {
     Day4,
     Day5,
     Day6,
-    Day7
+    Day7,
+    Day8
 } from "./challenges/100-days-css/index.t";
 import styles from "./App.module.scss";
 import { FrameSwitch } from "./FrameSwitch/FrameSwitch";
@@ -19,6 +20,8 @@ const baseRawUrl =
 
 const baseUrl = "https://github.com/AyronK/my-web-moodboard/tree/main/src";
 
+const challengesPath = "/challenges/100-days-css/";
+
 const cards = [
     {
         component: <Day1 />,
@@ -27,8 +30,7 @@ const cards = [
                 <h2>#1 Cover</h2>
                 <p>Simple gradient background with font composition.</p>
             </>
-        ),
-        path: "/challenges/100-days-css/001"
+        )
     },
     {
         component: <Day2 />,
@@ -38,8 +40,7 @@ const cards = [
                 <h2>#2 Menu button</h2>
                 <p>Animated state transition on click.</p>
             </>
-        ),
-        path: "/challenges/100-days-css/002"
+        )
     },
     {
         component: <Day3 />,
@@ -48,8 +49,7 @@ const cards = [
                 <h2>#3 Day animation</h2>
                 <p>Multiple animations combined into one scene.</p>
             </>
-        ),
-        path: "/challenges/100-days-css/003"
+        )
     },
     {
         component: <Day4 />,
@@ -58,8 +58,7 @@ const cards = [
                 <h2>#4 Pulsing loader</h2>
                 <p>Infinite loop loading animation.</p>
             </>
-        ),
-        path: "/challenges/100-days-css/004"
+        )
     },
     {
         component: (
@@ -100,8 +99,7 @@ const cards = [
                     or +/- buttons to zoom it.
                 </p>
             </>
-        ),
-        path: "/challenges/100-days-css/005"
+        )
     },
     {
         component: <Day6 />,
@@ -110,8 +108,7 @@ const cards = [
                 <h2>#6 Profile Card</h2>
                 <p>Featuring CSS grid layout with interactive elements.</p>
             </>
-        ),
-        path: "/challenges/100-days-css/006"
+        )
     },
     {
         component: <Day7 />,
@@ -122,27 +119,37 @@ const cards = [
                     Featuring header state transitions and on-hover animations.
                 </p>
             </>
-        ),
-        path: "/challenges/100-days-css/007"
+        )
+    },
+
+    {
+        component: <Day8 />,
+        text: (
+            <>
+                <h2>#8 Liquid particles</h2>
+                <p>Filters are capable of magic.</p>
+            </>
+        )
     }
 ];
 
 function App() {
     function switchFrame(frameIdx: number, cardIdx: number) {
+        const url = `${baseRawUrl}${challengesPath}/${(cardIdx + 1)
+            .toString()
+            .padStart(3, "0")}`;
         switch (frameIdx) {
             case 0:
                 return <>{cards[cardIdx].component}</>;
             case 1:
                 return (
                     <>
-                        <FetchedText
-                            url={`${baseRawUrl}${cards[cardIdx].path}/source.tsx`}
-                        >
+                        <FetchedText url={`${url}/source.tsx`}>
                             {(text) => (
                                 <CodeBlock
                                     code={text?.trim()}
                                     language={"tsx"}
-                                    githubUrl={`${baseUrl}${cards[cardIdx].path}/source.tsx`}
+                                    githubUrl={`${url}/source.tsx`}
                                 />
                             )}
                         </FetchedText>
@@ -151,14 +158,12 @@ function App() {
             case 2:
                 return (
                     <>
-                        <FetchedText
-                            url={`${baseRawUrl}${cards[cardIdx].path}/source.module.scss`}
-                        >
+                        <FetchedText url={`${url}/source.module.scss`}>
                             {(text) => (
                                 <CodeBlock
                                     code={text?.trim()}
                                     language={"sass"}
-                                    githubUrl={`${baseUrl}${cards[cardIdx].path}/source.module.scss`}
+                                    githubUrl={`${url}/source.module.scss`}
                                 />
                             )}
                         </FetchedText>
@@ -200,7 +205,7 @@ function App() {
             <article>
                 <ul className={styles.grid}>
                     {cards.map((c, cardIdx) => (
-                        <li key={c.path} id={`day-${cardIdx + 1}`}>
+                        <li key={cardIdx} id={`day-${cardIdx + 1}`}>
                             <FrameSwitch
                                 text={() => c.text}
                                 overflow={(frameIdx) => frameIdx !== 0}
