@@ -203,7 +203,7 @@ $color-sun: #fff9d7;
 }
 
 .rainDrop {
-    animation: raindropFall 1s linear infinite;
+    animation: raindropFall 0.8s linear infinite;
     .particleBody {
         width: 18px;
         height: 20px;
@@ -234,7 +234,7 @@ $color-sun: #fff9d7;
 }
 
 .snowflake {
-    animation: snowflakeFall 4s linear infinite;
+    animation: snowflakeFall 3.5s linear infinite;
     .particleBody {
         width: 16px;
         height: 16px;
@@ -248,10 +248,10 @@ $color-sun: #fff9d7;
     z-index: 3;
     transform: translate(0, -20px) scale(1) rotate(25deg);
 
-    @for $i from 1 through 60 {
+    @for $i from 1 through 80 {
         &:nth-of-type(#{$i}) {
             left: -50px + random(30) * 20px;
-            animation-delay: $i * 0.1s;
+            animation-delay: random(10) * $i * 0.0125s + random(200) * 0.02s;
 
             .particleBody {
                 transform: scale(0.4 - $i % 4 * 0.05);
@@ -294,7 +294,7 @@ $color-sun: #fff9d7;
         visibility: hidden;
     }
     .sky {
-        filter: brightness(50%);
+        filter: brightness(65%);
     }
 }
 
@@ -310,15 +310,38 @@ $color-sun: #fff9d7;
     }
 }
 
+.weather--storm {
+    @extend .weather--raining;
+    .sky {
+        filter: brightness(20%);
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: whitesmoke;
+        opacity: 0;
+        animation: lightning 8s linear infinite;
+    }
+
+    .rainDrop {
+        animation-duration: 0.55s;
+    }
+}
+
 @keyframes raindropFall {
     0% {
         transform: translate(0, -20px) scale(1) rotate(25deg);
     }
-    85% {
-        transform: translate(-50px, 290px) scale(1) rotate(25deg);
+    75% {
+        transform: translate(-70px, 290px) scale(1) rotate(25deg);
     }
     100% {
-        transform: translate(-50px, 290px) scale(2, 0.1) rotate(25deg);
+        transform: translate(-70px, 290px) scale(6, 0.005) rotate(25deg);
     }
 }
 
@@ -327,9 +350,42 @@ $color-sun: #fff9d7;
         transform: translate(0px, -20px) scale(1);
     }
     85% {
-        transform: translate(30px, 290px) scale(1);
+        transform: translate(30px, 292px) scale(1);
     }
     100% {
-        transform: translate(30px, 290px) scale(2, 0.1);
+        transform: translate(30px, 292px) scale(3.5, 0.05);
+    }
+}
+
+@keyframes lightning {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 0;
+    }
+    11% {
+        opacity: 0.9;
+    }
+    12% {
+        opacity: 0;
+    }
+    13% {
+        opacity: 0.9;
+    }
+    16% {
+        opacity: 0;
+    }
+    56% {
+        opacity: 0;
+    }
+    57% {
+        opacity: 0.9;
+    }
+    62% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
     }
 }

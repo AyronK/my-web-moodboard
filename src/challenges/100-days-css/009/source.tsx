@@ -5,7 +5,8 @@ export enum Weather {
     ClearSky = "clear-sky",
     Cloudy = "cloudy",
     Raining = "raining",
-    Snowing = "snowing"
+    Snowing = "snowing",
+    Storm = "storm"
 }
 
 export const Day9: React.FC<{
@@ -42,7 +43,7 @@ export const Day9: React.FC<{
                 </div>
                 {weather !== Weather.ClearSky && weather !== Weather.Cloudy && (
                     <div className={styles.particles}>
-                        {Array.from({ length: 60 }).map((_, idx) => (
+                        {Array.from({ length: 80 }).map((_, idx) => (
                             <div key={idx} className={styles.particle}>
                                 <div className={styles.particleBody}></div>
                             </div>
