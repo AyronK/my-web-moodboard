@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
     Day1,
     Day2,
@@ -7,13 +7,15 @@ import {
     Day5,
     Day6,
     Day7,
-    Day8
+    Day8,
+    Day9
 } from "./challenges/100-days-css/index.t";
 import styles from "./App.module.scss";
 import { FrameSwitch } from "./FrameSwitch/FrameSwitch";
 import { MonitorPlay, FileTsx, FileCss, GithubLogo } from "phosphor-react";
 import { FetchedText } from "./FetchedText/FetchedText";
 import { CodeBlock } from "./CodeBlock/CodeBlock";
+import { Weather } from "./challenges/100-days-css/009/source";
 
 const baseRawUrl =
     "https://raw.githubusercontent.com/AyronK/my-web-moodboard/main/src";
@@ -21,6 +23,37 @@ const baseRawUrl =
 const baseUrl = "https://github.com/AyronK/my-web-moodboard/tree/main/src";
 
 const challengesPath = "/challenges/100-days-css/";
+
+const Day9Wrapper: React.FC = () => {
+    const frames = useRef([
+        { weather: Weather.Cloudy, night: true },
+        { weather: Weather.Cloudy, night: false },
+        { weather: Weather.Snowing, night: true },
+        { weather: Weather.Snowing, night: false },
+        { weather: Weather.Raining, night: true },
+        { weather: Weather.Raining, night: false },
+        { weather: Weather.Storm, night: true },
+        { weather: Weather.Storm, night: false },
+        { weather: Weather.ClearSky, night: true },
+        { weather: Weather.ClearSky, night: false }
+    ]);
+    const [newArgs, setNewArgs] = useState(frames.current[0]);
+
+    useEffect(() => {
+        let i = 0;
+        const timer = setInterval(() => {
+            i++;
+            setNewArgs(frames.current[i % frames.current.length]);
+        }, (20 * 1000) / frames.current.length);
+        return () => clearInterval(timer);
+    }, []);
+
+    return (
+        <>
+            <Day9 {...newArgs} />
+        </>
+    );
+};
 
 const cards = [
     {
@@ -121,13 +154,21 @@ const cards = [
             </>
         )
     },
-
     {
         component: <Day8 />,
         text: (
             <>
                 <h2>#8 Liquid particles</h2>
                 <p>Filters are capable of magic.</p>
+            </>
+        )
+    },
+    {
+        component: <Day9Wrapper />,
+        text: (
+            <>
+                <h2>#9 Weather widget</h2>
+                <p>What tomorrow will bring?</p>
             </>
         )
     }

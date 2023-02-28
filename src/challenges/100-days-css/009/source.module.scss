@@ -5,7 +5,6 @@
 $color-night-sky: #0a2647;
 $color-night-terrain1: #144272;
 $color-night-terrain2: #205295;
-//$color-night-terrain3: #2c74b3;
 $color-day-sky: hsl(206, 67%, 91%);
 $color-day-terrain1: hsl(58, 86%, 95%);
 $color-day-terrain2: #f8cba6;
@@ -13,6 +12,7 @@ $color-moon: rgb(241, 229, 172);
 $color-sun: #fff9d7;
 
 .card {
+    position: absolute;
     overflow: hidden;
     font-weight: 300;
     background-color: white;
@@ -121,7 +121,6 @@ $color-sun: #fff9d7;
     .crater {
         position: absolute;
         border-radius: 50%;
-        background-color: red;
         width: 8px;
         height: 8px;
 
