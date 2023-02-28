@@ -1,0 +1,179 @@
+@import "../../../styles/colors.scss";
+
+@property --opacity {
+    syntax: "<number>";
+    inherits: false;
+    initial-value: 1;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+}
+
+@property --singles {
+    inherits: false;
+    initial-value: 0;
+    syntax: "<integer>";
+}
+
+@property --tens {
+    inherits: false;
+    initial-value: 0;
+    syntax: "<integer>";
+}
+
+.frame,
+.highlight,
+.case {
+    border-radius: 50%;
+}
+
+.frame {
+    $frame-color: #3d3a3a;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(
+        circle at 75% 40%,
+        lighten($frame-color, 50%),
+        lighten($frame-color, 15%),
+        $frame-color
+    );
+    box-shadow: 0 0 16px 2px rgba(0, 0, 0, 0.5);
+    z-index: -2;
+}
+
+.seconds {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+
+    .tens {
+        position: relative;
+        display: block;
+        z-index: 5;
+        counter-reset: tens var(--tens);
+        animation: countTens 60s steps(6) infinite;
+
+        &::after {
+            z-index: 5;
+            content: counter(tens);
+            position: relative;
+            font-size: 1.5rem;
+            color: hsl(0, 0%, 100%);
+            font-weight: bold;
+            font-family: sans-serif;
+        }
+    }
+
+    .singles {
+        position: relative;
+        display: block;
+        z-index: 5;
+        counter-reset: counterSingles var(--singles);
+        animation: countSingles 10s steps(10, end) infinite forwards;
+
+        &::after {
+            z-index: 5;
+            content: counter(counterSingles);
+            position: relative;
+            font-size: 1.5rem;
+            color: hsl(0, 0%, 100%);
+            font-weight: bold;
+            font-family: sans-serif;
+        }
+    }
+}
+
+.case {
+    position: absolute;
+    inset: 14px;
+    background: conic-gradient(
+        rgba(0, 230, 255, var(--opacity)) var(--angle),
+        transparent calc(var(--angle) + 0.5deg)
+    );
+    animation: notification1 8s linear infinite;
+
+    &:before,
+    &:after {
+        content: "";
+        position: absolute;
+        border-radius: inherit;
+        background-color: #101010;
+    }
+
+    &:before {
+        z-index: -1;
+        inset: -2px;
+    }
+
+    &:after {
+        z-index: 1;
+        inset: 6px;
+    }
+}
+
+@keyframes notification1 {
+    0%,
+    9%,
+    13%,
+    17%,
+    100% {
+        --angle: 360deg;
+        --opacity: 0;
+    }
+    19% {
+        --angle: 0deg;
+        --opacity: 0;
+    }
+    11%,
+    15% {
+        --angle: 360deg;
+        --opacity: 0.75;
+    }
+    20% {
+        --angle: 0deg;
+        --opacity: 0.75;
+    }
+    25%,
+    30% {
+        --opacity: 0.75;
+        --angle: 360deg;
+    }
+    33% {
+        --angle: 360deg;
+        --opacity: 0;
+    }
+}
+
+@keyframes rotation {
+    from {
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
+}
+
+@keyframes countSingles {
+    from {
+        --singles: 0;
+    }
+    to {
+        --singles: 10;
+    }
+}
+
+@keyframes countTens {
+    from {
+        --tens: 0;
+    }
+    to {
+        --tens: 6;
+    }
+}
