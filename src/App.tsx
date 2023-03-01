@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import {
     Day1,
+    Day10,
     Day2,
     Day3,
     Day4,
@@ -169,6 +170,18 @@ const cards = [
             <>
                 <h2>#9 Weather widget</h2>
                 <p>What tomorrow will bring?</p>
+            </>
+        )
+    },
+    {
+        component: <Day10 />,
+        text: (
+            <>
+                <h2>#10 Smart Watch</h2>
+                <p>
+                    CSS custom properies combined with counters and animations
+                    work together really well.
+                </p>
             </>
         )
     }
