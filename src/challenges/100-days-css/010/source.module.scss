@@ -24,6 +24,12 @@
     syntax: "<integer>";
 }
 
+@property --heartbeat {
+    syntax: "<number>";
+    inherits: false;
+    initial-value: 70;
+}
+
 .frame,
 .highlight,
 .case {
@@ -45,13 +51,13 @@
     z-index: -2;
 }
 
+.time {
+    font-size: 2rem;
+}
+
 .seconds {
+    margin-bottom: auto;
     display: flex;
-    position: absolute;
-    top: 50%;
-    left: 75%;
-    transform: translate(-50%, -50%);
-    z-index: 5;
 
     .tens {
         position: relative;
@@ -64,10 +70,7 @@
             z-index: 5;
             content: counter(tens);
             position: relative;
-            font-size: 1.5rem;
-            color: hsl(0, 0%, 100%);
-            font-weight: bold;
-            font-family: sans-serif;
+            font-size: 0.75rem;
         }
     }
 
@@ -82,16 +85,28 @@
             z-index: 5;
             content: counter(counterSingles);
             position: relative;
-            font-size: 1.5rem;
-            color: hsl(0, 0%, 100%);
-            font-weight: bold;
-            font-family: sans-serif;
+            font-size: 0.75rem;
         }
     }
 }
 
 .case {
     position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: rgb(214, 214, 214);
+    font-size: 0.75rem;
+    gap: 4px;
+
+    > * {
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+    }
+
     inset: 14px;
     background: conic-gradient(
         rgba(0, 230, 255, var(--opacity)) var(--angle),
@@ -104,7 +119,7 @@
         content: "";
         position: absolute;
         border-radius: inherit;
-        background-color: #101010;
+        background-color: #252525;
     }
 
     &:before {
@@ -115,6 +130,23 @@
     &:after {
         z-index: 1;
         inset: 6px;
+    }
+}
+
+.health {
+    gap: 12px;
+}
+
+.heartbeat {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+
+    svg {
+        fill: rgb(194, 0, 0);
+        animation: heartbeat 1s infinite forwards;
     }
 }
 
@@ -134,15 +166,15 @@
     11%,
     15% {
         --angle: 360deg;
-        --opacity: 0.75;
+        --opacity: 0.6;
     }
     20% {
         --angle: 0deg;
-        --opacity: 0.75;
+        --opacity: 0.6;
     }
     25%,
     30% {
-        --opacity: 0.75;
+        --opacity: 0.6;
         --angle: 360deg;
     }
     33% {
@@ -175,5 +207,14 @@
     }
     to {
         --tens: 6;
+    }
+}
+
+@keyframes heartbeat {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.25);
     }
 }

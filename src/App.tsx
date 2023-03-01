@@ -178,7 +178,10 @@ const cards = [
         text: (
             <>
                 <h2>#10 Smart Watch</h2>
-                <p></p>
+                <p>
+                    CSS custom properies combined with counters and animations
+                    work together really well.
+                </p>
             </>
         )
     }
