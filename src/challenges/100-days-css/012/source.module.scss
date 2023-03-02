@@ -1,0 +1,124 @@
+@import "../../../styles/colors.scss";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,500);
+
+.container {
+    position: absolute;
+    inset: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-items: space-around;
+    align-items: flex-start;
+}
+
+.author,
+.quote {
+    color: white;
+}
+
+.author {
+    font-style: italic;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.quote {
+    font-size: 20px;
+    line-height: 32px;
+    position: relative;
+    z-index: 0;
+    box-sizing: border-box;
+    margin: auto;
+
+    &::before {
+        content: "„";
+        z-index: -1;
+        position: absolute;
+        top: -0.3em;
+        left: -0.1em;
+        font-size: 256px;
+        line-height: 0px;
+        font-family: Arial, Helvetica, sans-serif;
+        opacity: 0.1;
+    }
+}
+
+.tooltip {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    border-radius: 4px;
+    padding: 1px 8px 3px 8px;
+    background-color: darken($color-primary, 10%);
+
+    .visible {
+        opacity: 1;
+        top: 50%;
+    }
+
+    .tooltipBody {
+        cursor: text;
+        opacity: 0;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 0%;
+        left: 50%;
+        width: 300px;
+        height: auto;
+        background-color: $color-terciary;
+        color: white;
+        font-size: 16px;
+        line-height: 24px;
+        border-radius: 4px;
+        transform: translate(-50%, calc(-100% - 24px));
+        transition: opacity 0.3s 0.5s ease-out, top 0.3s 0.5s ease-out;
+
+        &:hover {
+            @extend .visible;
+        }
+
+        &::before {
+            content: "";
+            z-index: -1;
+            position: absolute;
+            inset: -16px;
+        }
+    }
+
+    .tooltipHeader {
+        color: $color-secondary;
+        background-color: white;
+        padding: 4px 8px 4px 8px;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .tooltipContent {
+        padding: 4px 8px 4px 8px;
+    }
+
+    &:hover {
+        .tooltipBody {
+            @extend .visible;
+        }
+    }
+}
+
+.speaker {
+    cursor: pointer;
+    color: inherit;
+    background: none;
+    padding: 0;
+    border: none;
+    height: 16px;
+    transition: transform 0.1s ease-in-out;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+}
