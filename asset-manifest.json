@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/my-web-moodboard/static/css/main.cee5c964.css",
-    "main.js": "/my-web-moodboard/static/js/main.9d75cb0e.js",
+    "main.css": "/my-web-moodboard/static/css/main.08e240bb.css",
+    "main.js": "/my-web-moodboard/static/js/main.3824281e.js",
     "react-syntax-highlighter/refractor-core-import.js": "/my-web-moodboard/static/js/react-syntax-highlighter/refractor-core-import.fef4cf01.chunk.js",
     "react-syntax-highlighter_languages_refractor_abap.js": "/my-web-moodboard/static/js/react-syntax-highlighter_languages_refractor_abap.d6ce2d39.chunk.js",
     "react-syntax-highlighter_languages_refractor_actionscript.js": "/my-web-moodboard/static/js/react-syntax-highlighter_languages_refractor_actionscript.6676a4ee.chunk.js",
@@ -159,8 +159,8 @@
     "static/media/percolate.woff?5w3um4": "/my-web-moodboard/static/media/percolate.19e89b87c4eaf9bc5a6a.woff",
     "static/media/percolate.ttf?5w3um4": "/my-web-moodboard/static/media/percolate.fae78e19b0826fafb9be.ttf",
     "index.html": "/my-web-moodboard/index.html",
-    "main.cee5c964.css.map": "/my-web-moodboard/static/css/main.cee5c964.css.map",
-    "main.9d75cb0e.js.map": "/my-web-moodboard/static/js/main.9d75cb0e.js.map",
+    "main.08e240bb.css.map": "/my-web-moodboard/static/css/main.08e240bb.css.map",
+    "main.3824281e.js.map": "/my-web-moodboard/static/js/main.3824281e.js.map",
     "refractor-core-import.fef4cf01.chunk.js.map": "/my-web-moodboard/static/js/react-syntax-highlighter/refractor-core-import.fef4cf01.chunk.js.map",
     "react-syntax-highlighter_languages_refractor_abap.d6ce2d39.chunk.js.map": "/my-web-moodboard/static/js/react-syntax-highlighter_languages_refractor_abap.d6ce2d39.chunk.js.map",
     "react-syntax-highlighter_languages_refractor_actionscript.6676a4ee.chunk.js.map": "/my-web-moodboard/static/js/react-syntax-highlighter_languages_refractor_actionscript.6676a4ee.chunk.js.map",
@@ -315,7 +315,7 @@
     "react-syntax-highlighter_languages_refractor_yaml.c070035e.chunk.js.map": "/my-web-moodboard/static/js/react-syntax-highlighter_languages_refractor_yaml.c070035e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cee5c964.css",
-    "static/js/main.9d75cb0e.js"
+    "static/css/main.08e240bb.css",
+    "static/js/main.3824281e.js"
   ]
 }
