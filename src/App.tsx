@@ -3,6 +3,7 @@ import {
     Day1,
     Day10,
     Day11,
+    Day12,
     Day2,
     Day3,
     Day4,
@@ -192,6 +193,17 @@ const cards = [
             <>
                 <h2>#11 Shoes</h2>
                 <p>Well... shoes. On invisible legs I suppose.</p>
+            </>
+        )
+    },
+    {
+        component: <Day12 />,
+        text: (
+            <>
+                <h2>#12 Tooltip</h2>
+                <p>
+                    Featuring animation on hover and arrow to anchored element.
+                </p>
             </>
         )
     }

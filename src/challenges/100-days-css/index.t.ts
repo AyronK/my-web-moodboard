@@ -9,5 +9,19 @@ import { Day8 } from "./008/source";
 import { Day9 } from "./009/source";
 import { Day10 } from "./010/source";
 import { Day11 } from "./011/source";
+import { Day12 } from "./012/source";
 
-export { Day1, Day2, Day3, Day4, Day5, Day6, Day7, Day8, Day9, Day10, Day11 };
+export {
+    Day1,
+    Day2,
+    Day3,
+    Day4,
+    Day5,
+    Day6,
+    Day7,
+    Day8,
+    Day9,
+    Day10,
+    Day11,
+    Day12
+};
