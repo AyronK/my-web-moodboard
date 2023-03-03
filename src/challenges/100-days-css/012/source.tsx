@@ -6,12 +6,11 @@ export const Day12: React.FC = () => {
     return (
         <div className={styles.container}>
             <p className={styles.quote}>
-                I know quite certainly that I myself have no special talent;
-                curiosity,{" "}
+                A man is what he has{" "}
                 <span className={styles.tooltip}>
                     <span className={styles.tooltipBody}>
                         <span className={styles.tooltipHeader}>
-                            [əbˈseʃ(ə)n]
+                            [/ˈpæʃ.ən/]
                             <button className={styles.speaker}>
                                 <SpeakerSimpleHigh
                                     size={16}
@@ -21,16 +20,17 @@ export const Day12: React.FC = () => {
                             </button>
                         </span>
                         <span className={styles.tooltipContent}>
-                            Obsession, a persistent disturbing preoccupation
-                            with an often unreasonable idea or feeling.
+                            A true desire sustained or prolonged; Any great,
+                            strong, powerful emotion, especially romantic love
+                            or extreme hate.
                         </span>
                     </span>
-                    obsession
+                    passion
                 </span>{" "}
-                and dogged endurance, combined with self-criticism have brought
-                me to my ideas.
+                about. If you give up what you want most for what you think you
+                should want more, you&apos;ll end up miserable.
             </p>
-            <span className={styles.author}>Albert Einstein</span>
+            <span className={styles.author}>Brandon Sanderson</span>
         </div>
     );
 };

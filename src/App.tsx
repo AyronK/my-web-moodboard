@@ -201,6 +201,9 @@ const cards = [
         text: (
             <>
                 <h2>#12 Tooltip</h2>
+                <p>
+                    Featuring animation on hover and arrow to anchored element.
+                </p>
             </>
         )
     }
