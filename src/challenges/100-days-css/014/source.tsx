@@ -38,7 +38,7 @@ export const Day14: React.FC = () => {
                         alt=".NET"
                     />
                     <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Microsoft_Azure.svg/2048px-Microsoft_Azure.svg.png"
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Blazor.png/800px-Blazor.png"
                         className={styles.lighter}
                         width="48"
                         height="48"
