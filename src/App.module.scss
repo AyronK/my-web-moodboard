@@ -13,28 +13,21 @@ body {
 
 .grid {
     padding: 0;
-    padding-top: 24px;
-    padding-bottom: 24px;
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    gap: 32px;
 
-    grid-template-columns: repeat(auto-fit, 300px);
+    grid-template-columns: repeat(auto-fit, 400px);
     justify-content: space-around;
+    gap: 0;
 
     list-style: none;
     max-width: 1200px;
 
-    @media (min-width: 1200px) {
-        grid-template-columns: repeat(auto-fit, 400px);
+    @media (min-width: 400px) {
         padding-top: 48px;
         padding-bottom: 48px;
         gap: 64px;
-    }
-
-    li {
-        width: 100%;
     }
 
     h2 {
