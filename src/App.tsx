@@ -4,6 +4,7 @@ import {
     Day10,
     Day11,
     Day12,
+    Day13,
     Day2,
     Day3,
     Day4,
@@ -204,6 +205,15 @@ const cards = [
                 <p>
                     Featuring animation on hover and arrow to anchored element.
                 </p>
+            </>
+        )
+    },
+    {
+        component: <Day13 />,
+        text: (
+            <>
+                <h2>#13 User Gallery</h2>
+                <p>Transition between a user gallery and profile details.</p>
             </>
         )
     }

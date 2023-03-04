@@ -2,10 +2,10 @@
 
 .container {
     background-color: white;
-    width: auto;
-    height: 100%;
-    @media (min-width: 400px) {
-        width: 400px;
+    width: 400px;
+
+    @media (max-width: 400px) {
+        transform: scale(0.85);
     }
 
     border-radius: 2px;
@@ -18,11 +18,7 @@
 .frame {
     position: relative;
     height: 100%;
-    max-height: 300px;
-
-    @media (min-width: 400px) {
-        max-height: 400px;
-    }
+    max-height: 400px;
 
     background: #fff;
     color: #333;
@@ -71,6 +67,7 @@
 }
 
 .actions {
+    z-index: 1000;
     position: absolute;
     top: 8px;
     right: 8px;
@@ -79,7 +76,7 @@
     flex-direction: column;
     gap: 4px;
 
-    @media (min-width: 1200px) {
+    @media (min-width: 600px) {
         right: -32px;
     }
 }
