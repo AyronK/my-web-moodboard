@@ -92,6 +92,7 @@ $flip-duration: 0.35s;
 
     &::after {
         content: "";
+        pointer-events: none;
         position: absolute;
         z-index: 2;
         inset: 0px;
@@ -221,11 +222,16 @@ $flip-duration: 0.35s;
     grid-template-rows: 1fr 1fr;
     row-gap: 24px;
 
-    img {
+    div {
+        transition: filter 0.3s ease-in-out;
         filter: grayscale(1);
+
+        &:hover {
+            filter: grayscale(0);
+        }
     }
 
     .lighter {
-        filter: brightness(1.6) grayscale(1);
+        filter: brightness(1.6);
     }
 }
