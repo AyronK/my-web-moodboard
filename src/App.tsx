@@ -5,6 +5,7 @@ import {
     Day11,
     Day12,
     Day13,
+    Day14,
     Day2,
     Day3,
     Day4,
@@ -214,6 +215,15 @@ const cards = [
             <>
                 <h2>#13 User Gallery</h2>
                 <p>Transition between a user gallery and profile details.</p>
+            </>
+        )
+    },
+    {
+        component: <Day14 />,
+        text: (
+            <>
+                <h2>#14 Business Card</h2>
+                <p>Why settle for boring when you can have fun on the web?</p>
             </>
         )
     }
