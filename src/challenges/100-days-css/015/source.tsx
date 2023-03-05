@@ -61,7 +61,6 @@ export const Day15: React.FC = () => {
             }
         }, tick);
     };
-    console.log(progress);
     return (
         <Center>
             <div className={styles.card}>
@@ -71,6 +70,15 @@ export const Day15: React.FC = () => {
                         : uploaded
                         ? "Your file is uploaded!"
                         : "Drop file to upload"}
+                    <div
+                        className={styles.progress}
+                        style={{
+                            width: `${Math.min(
+                                Math.ceil(progress * 100),
+                                100
+                            )}%`
+                        }}
+                    ></div>
                 </div>
                 <div
                     className={
