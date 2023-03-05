@@ -12,9 +12,10 @@ $animationSceneDuration: 1.3s;
 }
 
 .shape {
-    background-color: white;
+    background-color: $color-quaternary;
     width: 100%;
     height: 100%;
+    position: relative;
 }
 
 .circleIn,
@@ -23,6 +24,15 @@ $animationSceneDuration: 1.3s;
 .circle,
 .circleOut {
     @extend .shape;
+    z-index: 1;
+
+    + .wobble {
+        visibility: hidden;
+        position: absolute;
+        z-index: 2;
+        border-radius: 50%;
+        border: 4px solid $color-quaternary;
+    }
 }
 
 .circleIn,
@@ -33,6 +43,11 @@ $animationSceneDuration: 1.3s;
 .circleIn {
     animation: circleInFrames $animationSceneDuration linear infinite,
         visibility calc(4 * $animationSceneDuration) linear infinite;
+
+    + .wobble {
+        animation: wobbleFrames $animationSceneDuration ease-out infinite,
+            visibility calc(4 * $animationSceneDuration) 0.25s linear infinite;
+    }
 }
 
 .octagon {
@@ -51,6 +66,12 @@ $animationSceneDuration: 1.3s;
             cubic-bezier(0.75, 3, 0, 1.25) infinite alternate,
         visibility calc(4 * $animationSceneDuration) $animationSceneDuration
             linear infinite;
+
+    + .wobble {
+        animation: wobbleFrames $animationSceneDuration ease-out infinite,
+            visibility calc(4 * $animationSceneDuration) $animationSceneDuration
+                linear infinite;
+    }
 }
 
 .triangle {
@@ -60,6 +81,12 @@ $animationSceneDuration: 1.3s;
             cubic-bezier(0.75, 3, 0, 1.25) infinite alternate,
         visibility calc(4 * $animationSceneDuration)
             calc(2 * $animationSceneDuration) linear infinite;
+
+    + .wobble {
+        animation: wobbleFrames $animationSceneDuration ease-out infinite,
+            visibility calc(4 * $animationSceneDuration)
+                calc(2 * $animationSceneDuration) linear infinite;
+    }
 }
 
 .circleOut {
@@ -69,6 +96,12 @@ $animationSceneDuration: 1.3s;
         visibility calc(4 * $animationSceneDuration)
             calc(3 * $animationSceneDuration) linear infinite,
         circleOutFrames $animationSceneDuration linear infinite;
+
+    + .wobble {
+        animation: wobbleFrames $animationSceneDuration ease-out infinite,
+            visibility calc(4 * $animationSceneDuration)
+                calc(3 * $animationSceneDuration) linear infinite;
+    }
 }
 
 @keyframes scale {
@@ -78,15 +111,6 @@ $animationSceneDuration: 1.3s;
     85%,
     100% {
         transform: scale(0.7);
-    }
-}
-
-@keyframes hide {
-    from {
-        visibility: visible;
-    }
-    to {
-        visibility: hidden;
     }
 }
 
@@ -144,7 +168,21 @@ $animationSceneDuration: 1.3s;
     80% {
         transform: translate(0, -40%) scale(0.75, 0.75);
     }
+    90%,
     100% {
         transform: translate(0, 300%) scale(0.75, 0.75);
+    }
+}
+
+@keyframes wobbleFrames {
+    0%,
+    10% {
+        inset: 50%;
+        opacity: 1;
+    }
+    50%,
+    100% {
+        opacity: 0;
+        inset: -60%;
     }
 }
