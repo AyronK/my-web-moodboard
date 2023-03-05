@@ -6,6 +6,7 @@ import {
     Day12,
     Day13,
     Day14,
+    Day16,
     Day2,
     Day3,
     Day4,
@@ -224,6 +225,14 @@ const cards = [
             <>
                 <h2>#14 Business Card</h2>
                 <p>Why settle for boring when you can have fun on the web?</p>
+            </>
+        )
+    },
+    {
+        component: <Day16 />,
+        text: (
+            <>
+                <h2>#16 Blobby</h2>
             </>
         )
     }
