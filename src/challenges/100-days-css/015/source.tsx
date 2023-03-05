@@ -2,7 +2,6 @@ import {
     FilePlus,
     Upload,
     File as FileIcon,
-    X,
     Trash,
     ArrowsClockwise,
     Cube,
@@ -20,6 +19,7 @@ export const Day15: React.FC = () => {
     const [progress, setProgress] = useState<number>(0);
     const [uploading, setUploading] = useState<boolean>(false);
     const [uploaded, setUploaded] = useState<boolean>(false);
+
     const onDrop = (e: React.DragEvent<HTMLDivElement>) => {
         e.preventDefault();
         if (!e.dataTransfer.files?.length) {
@@ -28,6 +28,7 @@ export const Day15: React.FC = () => {
         setDragInside(false);
         setFile(e.dataTransfer.files[0]);
     };
+
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (!e.target.files?.length) {
             return;
@@ -35,6 +36,7 @@ export const Day15: React.FC = () => {
 
         setFile(e.target.files.item(0));
     };
+
     const upload = () => {
         if (uploaded) {
             setFile(null);
@@ -61,6 +63,7 @@ export const Day15: React.FC = () => {
             }
         }, tick);
     };
+
     return (
         <Center>
             <div className={styles.card}>
