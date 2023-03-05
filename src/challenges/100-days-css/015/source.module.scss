@@ -1,0 +1,247 @@
+@import "../../../styles/colors.scss";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,400);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,500);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,700);
+
+.card {
+    font-weight: 300;
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 4px 4px 8px 2px rgba(0, 0, 0, 0.3);
+    color: darken($color-terciary, 15%);
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 7fr 15fr 2fr 8fr;
+    justify-items: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.headerContainer {
+    width: 100%;
+    height: 100%;
+    background-color: $color-quaternary;
+    border-bottom: 1px solid $color-terciary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 400;
+    position: relative;
+}
+
+.fileName {
+    font-size: 12px;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 80%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.dropContainer {
+    position: relative;
+    .statusIcon,
+    .box {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+    }
+    .statusIcon {
+        transition: transform 0.3s 2s ease-in-out;
+        transform: translate(-50%, -50%) scale(0);
+    }
+
+    .box {
+        width: 48px;
+        height: 48px;
+        transform: translate(-50%, -50%);
+
+        svg {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+        }
+    }
+    .dropZone {
+        transition: transform 0.5s ease-in;
+        transform-origin: 50% 20%;
+    }
+    &.uploading {
+        .dropZone {
+            transform: translateY(10%) scale(0);
+        }
+        .statusIcon {
+            transform: translate(-50%, -50%) scale(1);
+
+            svg {
+                animation: rotate 2.5s linear infinite;
+            }
+        }
+        .box {
+            svg {
+                &:nth-child(1) {
+                    animation: boxOpenAnimation 3s linear forwards;
+                }
+
+                &:nth-child(2) {
+                    animation: boxClosedAnimation 3s linear forwards;
+                }
+            }
+        }
+    }
+
+    &.uploaded {
+        .dropZone {
+            visibility: hidden;
+        }
+        .statusIcon {
+            transform: translate(-50%, -50%) scale(1);
+        }
+        .box {
+            visibility: hidden;
+        }
+    }
+}
+
+.dropZone {
+    position: relative;
+    width: 150px;
+    height: 100px;
+    border-radius: 4px;
+    border: 1px dashed $color-terciary;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .removeButton {
+        z-index: 2;
+        position: absolute;
+        cursor: pointer;
+        padding: 0;
+        top: 4px;
+        right: 4px;
+        background: none;
+        border: none;
+        border-radius: 50%;
+        width: 16px;
+        height: 16px;
+        color: $color-terciary;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: filter 0.1s ease-in-out, transform 0.1s ease-in-out;
+
+        &:hover {
+            filter: brightness(0.9);
+            transform: scale(1.15);
+        }
+    }
+
+    input {
+        cursor: pointer;
+        z-index: 1;
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+    }
+
+    label {
+        padding: 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        div {
+            pointer-events: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}
+
+.actionContainer {
+    button {
+        cursor: pointer;
+        background-color: $color-terciary;
+        border: 1px solid $color-terciary;
+        color: white;
+        border-radius: 100px;
+        padding: 12px 18px;
+        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        font-weight: 500;
+
+        &:not(:disabled) :hover {
+            background-color: white;
+            color: $color-terciary;
+        }
+
+        &:disabled {
+            filter: grayscale(1);
+            cursor: not-allowed;
+        }
+    }
+}
+
+.hidden {
+    transform: scale(0);
+    transition: transform 0.1s linear;
+}
+
+.visible {
+    transform: scale(1);
+    transition: transform 0.25s 0.1s linear;
+    transform-origin: 50% 100%;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes boxOpenAnimation {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    25% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    49% {
+        visibility: visible;
+    }
+    50%,
+    100% {
+        visibility: hidden;
+    }
+}
+@keyframes boxClosedAnimation {
+    0%,
+    25% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    60% {
+        transform: translateX(0);
+    }
+    75%,
+    100% {
+        opacity: 1;
+        transform: translateX(300px);
+    }
+}
