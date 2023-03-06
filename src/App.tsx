@@ -6,6 +6,7 @@ import {
     Day12,
     Day13,
     Day14,
+    Day15,
     Day2,
     Day3,
     Day4,
@@ -224,6 +225,18 @@ const cards = [
             <>
                 <h2>#14 Business Card</h2>
                 <p>Why settle for boring when you can have fun on the web?</p>
+            </>
+        )
+    },
+    {
+        component: <Day15 />,
+        text: (
+            <>
+                <h2>#15 File Upload</h2>
+                <p>
+                    Yes, you can actually drag and drop a file in there. But
+                    don&apos;t worry, the upload process is faked.
+                </p>
             </>
         )
     }
