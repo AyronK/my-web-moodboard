@@ -7,6 +7,7 @@ import {
     Day13,
     Day14,
     Day15,
+    Day16,
     Day2,
     Day3,
     Day4,
@@ -239,7 +240,18 @@ const cards = [
                 </p>
             </>
         )
-    }
+    },
+    {
+        component: <Day16 />,
+        text: (
+            <>
+                <h2>#16 Blobby</h2>
+                <p>
+                    Shape changing object with some smooth animations.
+                </p>
+            </>
+        )
+    },
 ];
 
 function App() {
