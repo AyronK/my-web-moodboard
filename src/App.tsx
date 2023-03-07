@@ -6,6 +6,7 @@ import {
     Day12,
     Day13,
     Day14,
+    Day15,
     Day16,
     Day2,
     Day3,
@@ -229,13 +230,28 @@ const cards = [
         )
     },
     {
+        component: <Day15 />,
+        text: (
+            <>
+                <h2>#15 File Upload</h2>
+                <p>
+                    Yes, you can actually drag and drop a file in there. But
+                    don&apos;t worry, the upload process is faked.
+                </p>
+            </>
+        )
+    },
+    {
         component: <Day16 />,
         text: (
             <>
                 <h2>#16 Blobby</h2>
+                <p>
+                    Shape changing object with some smooth animations.
+                </p>
             </>
         )
-    }
+    },
 ];
 
 function App() {
