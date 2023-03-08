@@ -14,6 +14,7 @@ import { Day13 } from "./013/source";
 import { Day14 } from "./014/source";
 import { Day15 } from "./015/source";
 import { Day16 } from "./016/source";
+import { Day17 } from "./017/source";
 
 export {
     Day1,
@@ -31,5 +32,6 @@ export {
     Day13,
     Day14,
     Day15,
-    Day16
+    Day16,
+    Day17
 };

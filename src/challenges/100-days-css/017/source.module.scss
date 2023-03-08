@@ -1,0 +1,37 @@
+@import "../../../styles/colors.scss";
+
+.polygon {
+    position: absolute;
+    width: 160px;
+    height: 140px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    $color: $color-terciary;
+
+    .light {
+        fill: lighten($color, 20%);
+        transition: all 0.6s ease-in-out;
+    }
+    .middle {
+        fill: $color;
+        transition: all 0.6s ease-in-out;
+    }
+    .dark {
+        fill: darken($color, 20%);
+        transition: all 0.6s ease-in-out;
+    }
+
+    &:hover {
+        .light {
+            fill: darken($color, 10%);
+        }
+        .middle {
+            fill: lighten($color, 5%);
+        }
+        .dark {
+            fill: lighten($color, 15%);
+        }
+    }
+}
