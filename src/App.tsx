@@ -267,8 +267,8 @@ const cards = [
             <>
                 <h2>#18 Elastic fabric</h2>
                 <p>
-                    Featuring 3D transformations spiced up with
-                    `backface-visibility`.
+                    Featuring 3D transformations spiced up with&nbsp;
+                    <code>backface-visibility</code>.
                 </p>
             </>
         )
