@@ -21,7 +21,6 @@ export const Day17: React.FC = () => {
                     />
                 </svg>
             </div>
-            ł
         </Center>
     );
 };
