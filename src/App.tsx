@@ -9,6 +9,7 @@ import {
     Day15,
     Day16,
     Day17,
+    Day18,
     Day2,
     Day3,
     Day4,
@@ -257,6 +258,18 @@ const cards = [
             <>
                 <h2>#17 Penrose Triangle</h2>
                 <p>Impossible becomes possible with a bit of CSS.</p>
+            </>
+        )
+    },
+    {
+        component: <Day18 />,
+        text: (
+            <>
+                <h2>#18 Elastic fabric</h2>
+                <p>
+                    Featuring 3D transformations spiced up with
+                    `backface-visibility`.
+                </p>
             </>
         )
     }
