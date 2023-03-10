@@ -10,6 +10,7 @@ import {
     Day16,
     Day17,
     Day18,
+    Day19,
     Day2,
     Day3,
     Day4,
@@ -269,6 +270,18 @@ const cards = [
                 <p>
                     Featuring 3D transformations spiced up with&nbsp;
                     <code>backface-visibility</code>.
+                </p>
+            </>
+        )
+    },
+    {
+        component: <Day19 />,
+        text: (
+            <>
+                <h2>#19 Slider</h2>
+                <p>
+                    In many cases combining CSS selectors can replace
+                    JavaScript.
                 </p>
             </>
         )
