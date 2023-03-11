@@ -13,6 +13,7 @@ import {
     Day19,
     Day2,
     Day20,
+    Day21,
     Day3,
     Day4,
     Day5,
@@ -296,6 +297,15 @@ const cards = [
                     SVG animations can make user interactions much more
                     engagning and interesting.
                 </p>
+            </>
+        )
+    },
+    {
+        component: <Day21 />,
+        text: (
+            <>
+                <h2>#21 Pac-Man</h2>
+                <p>Waka waka waka waka waka...</p>
             </>
         )
     }

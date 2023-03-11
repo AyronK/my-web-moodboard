@@ -1,0 +1,78 @@
+@import "../../../styles/colors.scss";
+
+$animationSpeed: 0.75s;
+
+.container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pacman {
+    z-index: 2;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    fill: none;
+    stroke: $color-quaternary;
+    stroke-width: 50px;
+    stroke-linecap: butt;
+    stroke-dasharray: (50 * 3.14);
+    animation: pacman $animationSpeed ease-in-out infinite;
+}
+
+.eye {
+    z-index: 3;
+    position: absolute;
+    top: -32px;
+    left: 8px;
+    fill: $color-primary;
+    animation: eye $animationSpeed ease-in-out infinite;
+}
+
+.dots {
+    position: absolute;
+    z-index: 1;
+    height: 14px;
+    width: 300px;
+    top: -6px;
+    left: 0;
+    stroke: $color-terciary;
+    stroke-width: 14px;
+    stroke-dasharray: 0px 50px;
+    stroke-linecap: round;
+    animation: points $animationSpeed linear infinite;
+    stroke-dashoffset: 14;
+}
+
+@keyframes pacman {
+    0%,
+    100% {
+        stroke-dashoffset: 0;
+        transform: rotate(0deg) translate(0, 0);
+    }
+    50% {
+        stroke-dashoffset: (50 * 3.14 / 4);
+        transform: rotate(50deg);
+    }
+}
+
+@keyframes eye {
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(-6px, -3px);
+    }
+}
+
+@keyframes points {
+    0% {
+        stroke-dashoffset: 14;
+    }
+    100% {
+        stroke-dashoffset: 64;
+    }
+}
