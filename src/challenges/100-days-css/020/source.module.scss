@@ -1,0 +1,153 @@
+@import "../../../styles/colors.scss";
+
+$buttonHeight: 40px;
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-flow: column;
+    flex: auto 1;
+    gap: 48px;
+}
+
+.background {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: $color-secondary;
+
+    &::after {
+        content: "";
+        border-radius: 50%;
+        position: absolute;
+        inset: -10px;
+        border: 3px solid $color-secondary;
+    }
+}
+
+.footer {
+    position: relative;
+    width: 60%;
+    height: $buttonHeight;
+}
+
+.radioSend,
+.radioReset {
+    all: unset;
+    background-color: white;
+    border-radius: 100px;
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    width: 100%;
+    height: $buttonHeight;
+
+    &:checked {
+        pointer-events: none;
+    }
+
+    &::before {
+        position: absolute;
+        display: flex;
+        inset: 0;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        font-weight: 600;
+        text-transform: uppercase;
+        opacity: 1;
+        transition: opacity 0.5s ease-in-out;
+    }
+
+    &:hover {
+        background-color: $color-terciary;
+        color: white;
+    }
+}
+
+.radioReset {
+    opacity: 1;
+    transition: opacity 1.5s 3s linear, background-color 0.3s ease-in-out,
+        color 0.3s ease-in-out;
+
+    &::before {
+        content: "Reset";
+    }
+
+    &:checked {
+        transition: none;
+        opacity: 0;
+    }
+}
+
+.radioSend {
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+
+    &::before {
+        content: "Send Email";
+    }
+
+    &:checked {
+        animation: radioChecked 1.5s 1s linear forwards;
+
+        &::before {
+            animation: radioCheckedBefore 1.5s 1s linear forwards;
+        }
+    }
+}
+
+@keyframes radioUnchecked {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes radioChecked {
+    0% {
+        background-color: $color-quaternary;
+    }
+    25%,
+    30% {
+        background-color: $color-terciary;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    60%,
+    70% {
+        width: $buttonHeight;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: $color-terciary;
+        transform: scale(1);
+    }
+    90% {
+        width: $buttonHeight;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: $color-terciary;
+        transform: scale(1.2);
+    }
+    100% {
+        width: $buttonHeight;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: $color-terciary;
+        transform: scale(0);
+    }
+}
+
+@keyframes radioCheckedBefore {
+    0% {
+        opacity: 1;
+    }
+    30%,
+    100% {
+        opacity: 0;
+    }
+}

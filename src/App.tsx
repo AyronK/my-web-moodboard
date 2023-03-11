@@ -12,6 +12,7 @@ import {
     Day18,
     Day19,
     Day2,
+    Day20,
     Day3,
     Day4,
     Day5,
@@ -282,6 +283,18 @@ const cards = [
                 <p>
                     In many cases combining CSS selectors can replace
                     JavaScript.
+                </p>
+            </>
+        )
+    },
+    {
+        component: <Day20 />,
+        text: (
+            <>
+                <h2>#20 Email sending animation</h2>
+                <p>
+                    SVG animations can make user interactions much more
+                    engagning and interesting.
                 </p>
             </>
         )
