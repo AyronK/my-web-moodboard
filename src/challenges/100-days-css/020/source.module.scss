@@ -102,6 +102,41 @@ $planeFlightAnimationDuration: 1s;
     }
 }
 
+.check {
+    position: absolute;
+    box-sizing: content-box;
+    padding: 36px;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    background-color: $color-secondary;
+    transform: translate(-50%, -50%) rotateY(-90deg);
+}
+
+.sendButton:checked ~ .svgContainer {
+    .envelope {
+        animation: planeFlight $planeFlightAnimationDuration
+            $envelopeAnimationDuration + $planeAnimationDuration
+            cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+        path:nth-of-type(1) {
+            animation: envelopeTop $envelopeAnimationDuration linear forwards,
+                planeTop $planeAnimationDuration $envelopeAnimationDuration -
+                    0.25s linear forwards;
+        }
+        path:nth-of-type(2) {
+            animation: envelopeBottom $envelopeAnimationDuration linear forwards,
+                planeBottom $planeAnimationDuration $envelopeAnimationDuration -
+                    0.25s linear forwards;
+        }
+    }
+
+    .check {
+        transform: translate(-50%, -50%) rotateY(0);
+        transition: transform 0.15s $envelopeAnimationDuration +
+            $planeAnimationDuration + 0.5s ease-out;
+    }
+}
+
 @keyframes buttonAnimation {
     0% {
         background-color: $color-quaternary;
@@ -171,40 +206,6 @@ $planeFlightAnimationDuration: 1s;
     100% {
         content: "Reset";
         opacity: 1;
-    }
-}
-
-.check {
-    position: absolute;
-    padding: 36px;
-    top: 50%;
-    left: 50%;
-    border-radius: 50%;
-    background-color: $color-secondary;
-    transform: translate(-50%, -50%) rotateY(-90deg);
-}
-
-.sendButton:checked ~ .svgContainer {
-    .envelope {
-        animation: planeFlight $planeFlightAnimationDuration
-            $envelopeAnimationDuration + $planeAnimationDuration
-            cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-        path:nth-of-type(1) {
-            animation: envelopeTop $envelopeAnimationDuration linear forwards,
-                planeTop $planeAnimationDuration $envelopeAnimationDuration -
-                    0.25s linear forwards;
-        }
-        path:nth-of-type(2) {
-            animation: envelopeBottom $envelopeAnimationDuration linear forwards,
-                planeBottom $planeAnimationDuration $envelopeAnimationDuration -
-                    0.25s linear forwards;
-        }
-    }
-
-    .check {
-        transform: translate(-50%, -50%) rotateY(0);
-        transition: transform 0.15s $envelopeAnimationDuration +
-            $planeAnimationDuration + 0.5s ease-out;
     }
 }
 
