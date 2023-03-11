@@ -1,6 +1,9 @@
 @import "../../../styles/colors.scss";
 
 $buttonHeight: 40px;
+$envelopeAnimationDuration: 0.75s;
+$planeAnimationDuration: 0.65s;
+$planeFlightAnimationDuration: 1s;
 
 .container {
     display: flex;
@@ -32,11 +35,11 @@ $buttonHeight: 40px;
 
 .sendButton:checked + .background {
     transform: scale(0);
-    transition: transform 0.75s ease-in;
+    transition: transform $envelopeAnimationDuration ease-in;
 
     &::after {
-        inset: -24px;
-        transition: inset 0.25s ease-in;
+        inset: -80px;
+        transition: inset 0.5s ease-in;
     }
 }
 
@@ -80,6 +83,7 @@ $buttonHeight: 40px;
     &:hover {
         background-color: $color-terciary;
         color: white;
+        box-shadow: 0 4px 4px 2px rgba(0, 0, 0, 0.25);
     }
 
     &::before {
@@ -88,10 +92,12 @@ $buttonHeight: 40px;
 
     &:checked {
         transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-        animation: buttonAnimation 2.5s 2s linear forwards;
+        animation: buttonAnimation 1s $envelopeAnimationDuration +
+            $planeAnimationDuration - 0.3s linear forwards;
 
         &::before {
-            animation: buttonAnimationBefore 2.5s 2s linear forwards;
+            animation: buttonAnimationBefore 1s $envelopeAnimationDuration +
+                $planeAnimationDuration - 0.3s linear forwards;
         }
     }
 }
@@ -108,22 +114,23 @@ $buttonHeight: 40px;
         margin-right: auto;
     }
     40%,
-    50% {
+    45% {
         width: $buttonHeight;
         margin-left: auto;
         margin-right: auto;
         background-color: $color-terciary;
         transform: scale(1);
     }
-    60% {
+    50%,
+    55% {
         width: $buttonHeight;
         margin-left: auto;
         margin-right: auto;
         background-color: $color-terciary;
         transform: scale(1.2);
     }
-    70%,
-    75% {
+    65%,
+    66% {
         width: $buttonHeight;
         margin-left: auto;
         margin-right: auto;
@@ -131,11 +138,11 @@ $buttonHeight: 40px;
         transform: scale(0);
         opacity: 1;
     }
-    75% {
+    67% {
         transform: scale(0);
         opacity: 0;
     }
-    76% {
+    85% {
         width: 60%;
         margin-left: auto;
         margin-right: auto;
@@ -167,14 +174,79 @@ $buttonHeight: 40px;
     }
 }
 
+.check {
+    position: absolute;
+    padding: 36px;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    background-color: $color-secondary;
+    transform: translate(-50%, -50%) rotateY(-90deg);
+}
+
 .sendButton:checked ~ .svgContainer {
     .envelope {
+        animation: planeFlight $planeFlightAnimationDuration
+            $envelopeAnimationDuration + $planeAnimationDuration
+            cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
         path:nth-of-type(1) {
-            animation: envelopeTop 1s linear forwards;
+            animation: envelopeTop $envelopeAnimationDuration linear forwards,
+                planeTop $planeAnimationDuration $envelopeAnimationDuration -
+                    0.25s linear forwards;
         }
         path:nth-of-type(2) {
-            animation: envelopeBottom 1s linear forwards;
+            animation: envelopeBottom $envelopeAnimationDuration linear forwards,
+                planeBottom $planeAnimationDuration $envelopeAnimationDuration -
+                    0.25s linear forwards;
         }
+    }
+
+    .check {
+        transform: translate(-50%, -50%) rotateY(0);
+        transition: transform 0.15s $envelopeAnimationDuration +
+            $planeAnimationDuration + 0.5s ease-out;
+    }
+}
+
+@keyframes planeFlight {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    40% {
+        transform: translate(-50px, 35px) scale(1.05);
+    }
+    100% {
+        transform: translate(300px, -200px) scale(0.7);
+    }
+}
+
+@keyframes planeTop {
+    0% {
+        d: path("M 120,25 120,25 120,25 120,25");
+    }
+    33% {
+        d: path("M 120,25 0,50 0,50 0,50");
+    }
+    66% {
+        d: path("M 120,25 0,50 60,90 60,90");
+    }
+    100% {
+        d: path("M 120,25 0,50 60,90 120,25");
+    }
+}
+
+@keyframes planeBottom {
+    0% {
+        d: path("M 120,25 120,25 120,25 120,25");
+    }
+    33% {
+        d: path("M 120,25 25,65 25,65 25,65");
+    }
+    66% {
+        d: path("M 120,25 25,65 25,90 25,90");
+    }
+    100% {
+        d: path("M 120,25 25,65 25,90 45,80");
     }
 }
 

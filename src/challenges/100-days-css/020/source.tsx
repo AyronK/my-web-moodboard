@@ -13,6 +13,10 @@ export const Day20: React.FC = () => {
                         <path d="M 120,25 0,25 60,70 120,25" />
                         <path d="M 0,25 0,95 120,95 120,25" />
                     </svg>
+                    <svg className={styles.check}>
+                        <circle r="52" cx="60" cy="60" />
+                        <path d="M 35,65 52,80 85,45" />
+                    </svg>
                 </div>
             </div>
         </Center>
