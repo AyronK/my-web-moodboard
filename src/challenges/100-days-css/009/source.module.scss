@@ -25,7 +25,6 @@ $color-sun: #fff9d7;
 .forecastAnimationContainer {
     width: 100%;
     height: 75%;
-    background-color: grey;
 }
 
 .forecastContainer {
@@ -134,8 +133,8 @@ $color-sun: #fff9d7;
 
         @for $i from 1 through 10 {
             &:nth-of-type(#{$i}) {
-                top: calc(#{$i} / 4 * 24px);
-                left: calc(#{$i} % 4 * 24px);
+                top: $i * 0.25 * 24px;
+                left: $i % 4 * 24px;
             }
         }
     }
