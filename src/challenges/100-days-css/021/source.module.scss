@@ -53,7 +53,7 @@ $animationSpeed: 0.75s;
         transform: rotate(0deg) translate(0, 0);
     }
     50% {
-        stroke-dashoffset: (50 * 3.14 / 4);
+        stroke-dashoffset: 50 * 3.14 * 0.25;
         transform: rotate(50deg);
     }
 }
