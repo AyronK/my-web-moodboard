@@ -134,8 +134,8 @@ $color-sun: #fff9d7;
 
         @for $i from 1 through 10 {
             &:nth-of-type(#{$i}) {
-                top: ($i / 4) * 24px;
-                left: ($i % 4) * 24px;
+                top: calc(#{$i} / 4 * 24px);
+                left: calc(#{$i} % 4 * 24px);
             }
         }
     }

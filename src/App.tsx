@@ -14,6 +14,7 @@ import {
     Day2,
     Day20,
     Day21,
+    Day22,
     Day3,
     Day4,
     Day5,
@@ -24,17 +25,12 @@ import {
 } from "./challenges/100-days-css/index.t";
 import styles from "./App.module.scss";
 import { FrameSwitch } from "./FrameSwitch/FrameSwitch";
-import { MonitorPlay, FileTsx, FileCss, GithubLogo } from "phosphor-react";
-import { FetchedText } from "./FetchedText/FetchedText";
-import { CodeBlock } from "./CodeBlock/CodeBlock";
+import { MonitorPlay, GithubLogo, Code } from "phosphor-react";
 import { Weather } from "./challenges/100-days-css/009/source";
+import { FetchedText } from "./FetchedText/FetchedText";
 
-const baseRawUrl =
-    "https://raw.githubusercontent.com/AyronK/my-web-moodboard/main/src";
-
-const baseUrl = "https://github.com/AyronK/my-web-moodboard/tree/main/src";
-
-const challengesPath = "/challenges/100-days-css/";
+const stackBlitzBaseUrl =
+    "https://stackblitz.com/github/AyronK/my-web-moodboard?embed=1&hideExplorer=1&hideNavigation=1&view=editor&showSidebar=0&devtoolsheight=0";
 
 const Day9Wrapper: React.FC = () => {
     const frames = useRef([
@@ -308,46 +304,36 @@ const cards = [
                 <p>Waka waka waka waka waka...</p>
             </>
         )
+    },
+    {
+        component: <Day22 />,
+        text: (
+            <>
+                <h2>#22 Fitness Tracker</h2>
+                <p>
+                    Featuring once again custom CSS properties, but also inline
+                    variables for dynamic control of the animation.
+                </p>
+            </>
+        )
     }
 ];
 
 function App() {
     function switchFrame(frameIdx: number, cardIdx: number) {
-        const rawUrl = `${baseRawUrl}${challengesPath}/${(cardIdx + 1)
-            .toString()
-            .padStart(3, "0")}`;
-        const url = `${baseUrl}${challengesPath}/${(cardIdx + 1)
-            .toString()
-            .padStart(3, "0")}`;
+        const affix = (cardIdx + 1).toString().padStart(3, "0");
+        const tsxFilePath = `src/challenges/100-days-css/${affix}/source.tsx`;
+        const sassFilePath = `src/challenges/100-days-css/${affix}/source.module.scss`;
+        const stackBlitzUrl = `${stackBlitzBaseUrl}&file=${tsxFilePath},${sassFilePath}&initialPath=${encodeURIComponent(
+            `#${cardIdx + 1}`
+        )}`;
         switch (frameIdx) {
             case 0:
                 return <>{cards[cardIdx].component}</>;
             case 1:
                 return (
                     <>
-                        <FetchedText url={`${rawUrl}/source.tsx`}>
-                            {(text) => (
-                                <CodeBlock
-                                    code={text?.trim()}
-                                    language={"tsx"}
-                                    githubUrl={`${url}/source.tsx`}
-                                />
-                            )}
-                        </FetchedText>
-                    </>
-                );
-            case 2:
-                return (
-                    <>
-                        <FetchedText url={`${rawUrl}/source.module.scss`}>
-                            {(text) => (
-                                <CodeBlock
-                                    code={text?.trim()}
-                                    language={"sass"}
-                                    githubUrl={`${url}/source.module.scss`}
-                                />
-                            )}
-                        </FetchedText>
+                        <iframe className={styles.iframe} src={stackBlitzUrl} />
                     </>
                 );
         }
@@ -391,9 +377,8 @@ function App() {
                                 text={() => c.text}
                                 overflow={(frameIdx) => frameIdx !== 0}
                                 buttons={[
-                                    <MonitorPlay key="tsx" size={20} />,
-                                    <FileTsx key="tsx" size={20} />,
-                                    <FileCss key="css" size={20} />
+                                    <MonitorPlay key="demo" size={20} />,
+                                    <Code key="code" size={20} />
                                 ]}
                             >
                                 {(frameIdx) => switchFrame(frameIdx, cardIdx)}
