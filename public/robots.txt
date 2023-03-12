@@ -1,5 +1,8 @@
 User-agent: *
 Disallow: /
 
-User-agent: Googlebot
+User-Agent: Googlebot
+Allow: /
+
+User-Agent: Googlebot-Mobile
 Allow: /
