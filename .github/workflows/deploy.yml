@@ -24,26 +24,27 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Setup Node.js environment
         uses: actions/setup-node@v3.6.0
         with:
+          node-version: 18
           cache: npm
-          cache-dependency-path: package-lock.json
       - name: Install dependencies
         run: npm install
-        shell: bash
       - name: Build App
         run: npm run build
-        shell: bash
-      - name: Deploy to gh-pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Setup Pages
+        uses: actions/configure-pages@v3        
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
         with:
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          publish_dir: ./dist
+          # Upload dist repository
+          path: './dist'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1          
       - name: Publish to Chromatic
         uses: chromaui/action@v1
         with:
