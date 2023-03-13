@@ -31,13 +31,13 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v3.6.0
         with:
-          cache: yarn
-          cache-dependency-path: yarn.lock
+          cache: npm
+          cache-dependency-path: package-lock.json
       - name: Install dependencies
-        run: yarn
+        run: npm install
         shell: bash
       - name: Build App
-        run: yarn build
+        run: npm run build
         shell: bash
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
