@@ -1,0 +1,155 @@
+@import "../../../styles/colors.scss";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,500);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,800);
+
+.textContainer {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: row;
+    color: $color-quaternary;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-transform: uppercase;
+
+    h1 {
+        width: 100%;
+        margin: 0;
+        margin-top: 4px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 14px;
+        letter-spacing: 4px;
+
+        .topText {
+            text-align: center;
+            margin-left: 160px;
+            margin-right: 100px;
+            transform: translate(0, -12px);
+            filter: brightness(0.85);
+            opacity: 0;
+            animation: topTextAnimation 0.7s 1.6s ease-out forwards;
+        }
+
+        .centerText {
+            height: 60px;
+            line-height: 60px;
+            font-size: 42px;
+            letter-spacing: 6px;
+            font-weight: 800;
+            transform: rotateX(90deg);
+            animation: centerTextAnimation 0.8s 1.6s ease-out forwards;
+        }
+
+        .bottomText {
+            text-align: center;
+            margin-left: 80px;
+            margin-right: 160px;
+            transform: translate(0, 12px);
+            filter: brightness(0.85);
+            opacity: 0;
+            animation: bottomTextAnimation 0.7s 1.6s ease-out forwards;
+        }
+    }
+
+    .lines {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        stroke: $color-quaternary;
+        fill: none;
+        stroke-width: 4px;
+    }
+
+    .line {
+        stroke-dasharray: 120;
+        stroke-dashoffset: -120;
+        animation: linesAnimation 1s 0.8s ease-in-out forwards;
+        stroke-linecap: round;
+    }
+
+    .bracket {
+        stroke-linecap: butt;
+        stroke-dasharray: 360;
+        stroke-dashoffset: 360;
+        animation: bracketAnimation 1.5s 1.2s ease-in-out forwards;
+    }
+
+    .blob {
+        transform-origin: 50%;
+        animation: blobAnimation 0.9s ease-in-out forwards;
+    }
+}
+
+@keyframes bracketAnimation {
+    from {
+        stroke-dashoffset: 360;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes linesAnimation {
+    0% {
+        stroke-dasharray: 120;
+        stroke-dashoffset: -120;
+    }
+    50% {
+        stroke-dasharray: 100;
+        stroke-dashoffset: 0;
+    }
+    100% {
+        stroke-dasharray: 120;
+        stroke-dashoffset: 120;
+    }
+}
+
+@keyframes topTextAnimation {
+    from {
+        opacity: 0;
+        transform: translate(0, -12px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes bottomTextAnimation {
+    from {
+        opacity: 0;
+        transform: translate(0, 12px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes centerTextAnimation {
+    from {
+        transform: rotateX(90deg);
+    }
+    to {
+        transform: rotateX(0deg);
+    }
+}
+
+@keyframes blobAnimation {
+    0% {
+        transform: scale(1);
+    }
+    70% {
+        transform: scale(2);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
