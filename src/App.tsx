@@ -15,6 +15,7 @@ import {
     Day20,
     Day21,
     Day22,
+    Day23,
     Day3,
     Day4,
     Day5,
@@ -314,6 +315,15 @@ const cards = [
                     Featuring once again custom CSS properties, but also inline
                     variables for dynamic control of the animation.
                 </p>
+            </>
+        )
+    },
+    {
+        component: <Day23 />,
+        text: (
+            <>
+                <h2>#23 Typography animation</h2>
+                <p>Enhance boring headings with smooth transitions.</p>
             </>
         )
     }

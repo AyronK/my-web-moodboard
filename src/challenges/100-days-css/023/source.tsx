@@ -25,7 +25,7 @@ export const Day23: React.FC = () => {
             </svg>
             <h1>
                 <span className={styles.topText}>Branch</span>
-                <span className={styles.centerText}>company</span>
+                <span className={styles.centerText}>Company</span>
                 <span className={styles.bottomText}>Industry</span>
             </h1>
         </div>
