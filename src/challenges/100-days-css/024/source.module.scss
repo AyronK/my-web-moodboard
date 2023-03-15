@@ -1,0 +1,145 @@
+@import "../../../styles/colors.scss";
+
+.buttonWrapper {
+    position: relative;
+    width: 150px;
+    height: 50px;
+
+    .button {
+        position: absolute;
+        margin: auto;
+        inset: 0;
+        z-index: 1;
+        overflow: hidden;
+        border-radius: 100px;
+        border: 2px solid $color-quaternary;
+        transition: background-color 0.3s ease-in-out,
+            box-shadow 0.3s ease-in-out;
+
+        &::before {
+            content: "FINISH";
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $color-quaternary;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+    }
+
+    .lines {
+        visibility: hidden;
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        stroke-width: 2px;
+        stroke: $color-quaternary;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: transparent;
+        stroke-dasharray: 100;
+        stroke-miterlimit: 100;
+    }
+
+    .check {
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: $color-quaternary;
+    }
+
+    input {
+        all: unset;
+        position: absolute;
+        inset: 0;
+        cursor: pointer;
+        z-index: 2;
+
+        &:hover {
+            ~ .button {
+                background-color: rgba(0, 0, 0, 0.35);
+                box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.35);
+            }
+        }
+
+        &:active {
+            ~ .button {
+                background-color: transparent;
+                box-shadow: none;
+            }
+        }
+
+        &:checked {
+            ~ .button {
+                animation: buttonFoldAnimation 0.25s
+                        cubic-bezier(0.075, 0.82, 0.165, 1) forwards,
+                    hide 0.01s 0.25s linear forwards;
+            }
+        }
+
+        &:checked {
+            ~ .lines {
+                animation: show 0.01s 0.2s linear forwards,
+                    circleAnimation 0.75s 0.2s
+                        cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+            }
+        }
+
+        &:checked {
+            ~ .check {
+                animation: fade-in 0.5s 0.2s ease-in-out forwards;
+            }
+        }
+    }
+}
+
+@keyframes buttonFoldAnimation {
+    from {
+        height: 100%;
+    }
+    to {
+        height: 0;
+    }
+}
+
+@keyframes hide {
+    from {
+        visibility: visible;
+    }
+    to {
+        visibility: hidden;
+    }
+}
+
+@keyframes show {
+    from {
+        visibility: hidden;
+    }
+    to {
+        visibility: visible;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes circleAnimation {
+    from {
+        stroke-dashoffset: 2;
+    }
+    to {
+        stroke-dashoffset: 102;
+    }
+}

@@ -16,6 +16,7 @@ import {
     Day21,
     Day22,
     Day23,
+    Day24,
     Day3,
     Day4,
     Day5,
@@ -324,6 +325,18 @@ const cards = [
             <>
                 <h2>#23 Typography animation</h2>
                 <p>Enhance boring headings with smooth transitions.</p>
+            </>
+        )
+    },
+    {
+        component: <Day24 />,
+        text: (
+            <>
+                <h2>#24 Confirmation animation</h2>
+                <p>
+                    Instant feedback. Instant engagement. Animating SVG paths
+                    can do magic.
+                </p>
             </>
         )
     }
