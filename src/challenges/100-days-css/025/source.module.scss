@@ -1,0 +1,167 @@
+@import "../../../styles/colors.scss";
+
+.container {
+    position: relative;
+}
+
+.cardContainer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 1;
+    transition: transform 0.5s 0.4s ease-in, opacity 0.3s 0.6s ease-in;
+}
+
+.card {
+    overflow: hidden;
+    width: 200px;
+    height: 150px;
+    border-radius: 16px;
+    background: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 8px 2px rgb(0, 0, 0, 0.35);
+
+    .header {
+        height: 30px;
+        overflow: hidden;
+    }
+
+    .text {
+        color: $color-primary;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 10px;
+        line-height: 16px;
+        display: flex;
+        flex-direction: column;
+
+        span:first-of-type {
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 24px;
+        }
+    }
+
+    .footer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        font-size: 12px;
+
+        span {
+            width: 1px;
+            height: 50%;
+            background-color: $color-primary;
+        }
+
+        button {
+            all: unset;
+            height: 40px;
+            width: 50%;
+            text-align: center;
+        }
+    }
+}
+
+.map {
+    position: absolute;
+    inset: 0;
+    svg {
+        transform: translate(10px, 30px);
+        margin: auto;
+        fill: rgba($color-quaternary, 0.9);
+        stroke: rgba(0, 0, 0, 0.1);
+    }
+}
+
+.pinContainer {
+    opacity: 1;
+    transition: transform 0.5s 0.7s ease-in, opacity 0.3s 0.9s ease-in;
+}
+
+.pin {
+    width: 60px;
+    height: 70px;
+    stroke-width: 2px;
+    fill: $color-terciary;
+    pointer-events: none;
+    animation: pinAnimation 2s ease-in-out infinite;
+    filter: drop-shadow(0px 0px 1px rgba(0, 0, 0, 0.35));
+}
+
+.shadow {
+    width: 16px;
+    height: 4px;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: auto;
+    margin-top: 8px;
+    border-radius: 50%;
+    animation: shadowAnimation 2s ease-in-out infinite;
+}
+
+.switch {
+    all: unset;
+    position: absolute;
+    top: 5px;
+    bottom: 10%;
+    left: 10%;
+    right: 10%;
+    cursor: pointer;
+
+    &:checked {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    &:first-child:checked ~ .pinContainer {
+        transform: rotateY(90deg);
+        opacity: 0;
+        transition: transform 0.5s ease-in, opacity 0.3s 0.2s ease-in;
+    }
+
+    &:first-child:checked ~ .cardContainer {
+        transition: transform 0.5s ease-in, opacity 0.3s 0.2 ease-in;
+    }
+
+    &:first-child:not(:checked) ~ .cardContainer {
+        transform: rotateY(90deg);
+        opacity: 0;
+        transition: transform 0.5s ease-in, opacity 0.3s 0.2 ease-in;
+    }
+
+    &:nth-child(2) {
+        height: 40px;
+        width: 200px;
+        transform: translate(-75px, 78px);
+    }
+}
+
+@keyframes pinAnimation {
+    0%,
+    100% {
+        transform: translateY(5px);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes shadowAnimation {
+    0%,
+    100% {
+        transform: scale(1.2, 1.4);
+    }
+
+    50% {
+        transform: scale(1, 1);
+    }
+}
