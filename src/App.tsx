@@ -17,6 +17,7 @@ import {
     Day22,
     Day23,
     Day24,
+    Day25,
     Day3,
     Day4,
     Day5,
@@ -337,6 +338,15 @@ const cards = [
                     Instant feedback. Instant engagement. Animating SVG paths
                     can do magic.
                 </p>
+            </>
+        )
+    },
+    {
+        component: <Day25 />,
+        text: (
+            <>
+                <h2>#25 Map location</h2>
+                <p>Where would you go?</p>
             </>
         )
     }
