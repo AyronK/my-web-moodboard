@@ -18,6 +18,7 @@ import {
     Day23,
     Day24,
     Day25,
+    Day26,
     Day3,
     Day4,
     Day5,
@@ -347,6 +348,15 @@ const cards = [
             <>
                 <h2>#25 Map location</h2>
                 <p>Where would you go?</p>
+            </>
+        )
+    },
+    {
+        component: <Day26 />,
+        text: (
+            <>
+                <h2>#26 Deck of cards</h2>
+                <p>Read. Confirm. Shuffle. Repeat.</p>
             </>
         )
     }
