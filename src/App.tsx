@@ -19,6 +19,7 @@ import {
     Day24,
     Day25,
     Day26,
+    Day27,
     Day3,
     Day4,
     Day5,
@@ -357,6 +358,18 @@ const cards = [
             <>
                 <h2>#26 Deck of cards</h2>
                 <p>Read. Confirm. Shuffle. Repeat.</p>
+            </>
+        )
+    },
+    {
+        component: <Day27 />,
+        text: (
+            <>
+                <h2>#27 Checklist</h2>
+                <p>
+                    That feeling when you complete a task, The relief, the
+                    accomplishment...
+                </p>
             </>
         )
     }
