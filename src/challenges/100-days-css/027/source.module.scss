@@ -1,0 +1,126 @@
+@import "../../../styles/colors.scss";
+
+.card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 250px;
+    height: 300px;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    color: $color-secondary;
+    font-size: 14px;
+    gap: 20px;
+
+    div:first-of-type {
+        text-align: center;
+    }
+
+    h1 {
+        all: unset;
+        display: block;
+        font-size: 20px;
+        line-height: 32px;
+        font-weight: 700;
+    }
+
+    hr {
+        width: 100%;
+        opacity: 0.3;
+        border-top: 1px solid $color-secondary;
+    }
+}
+
+.checkbox {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    label {
+        position: relative;
+        margin-right: auto;
+        opacity: 1;
+        transition: opacity 0.3s ease-in-out;
+        cursor: pointer;
+
+        &::before {
+            content: "";
+            display: block;
+            width: 0;
+            height: 1px;
+
+            background-color: $color-secondary;
+
+            position: absolute;
+            top: 50%;
+            left: 0;
+
+            transition: width 0.2s ease-in-out;
+        }
+    }
+
+    svg {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        width: 24px;
+        height: 24px;
+        stroke-width: 2px;
+        stroke: $color-secondary;
+        fill: none;
+        pointer-events: none;
+
+        path {
+            opacity: 0.75;
+            stroke-dasharray: 24;
+            stroke-dashoffset: 24;
+            transition: stroke-dashoffset 0.1s ease-in-out;
+            stroke-linecap: round;
+        }
+    }
+
+    input {
+        all: unset;
+        position: absolute;
+        inset: 0;
+        cursor: pointer;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 4px;
+            border: 1px solid $color-secondary;
+            transition: opacity 0.4s ease-in-out;
+        }
+
+        &:checked {
+            &::after {
+                opacity: 0;
+            }
+
+            + label {
+                opacity: 0.75;
+            }
+
+            + label::before {
+                width: 100%;
+            }
+
+            ~ svg path {
+                stroke-dashoffset: 0;
+                transition: stroke-dashoffset 0.3s 0.2s ease-in-out;
+            }
+        }
+    }
+}
