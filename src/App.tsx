@@ -20,6 +20,7 @@ import {
     Day25,
     Day26,
     Day27,
+    Day28,
     Day3,
     Day4,
     Day5,
@@ -370,6 +371,15 @@ const cards = [
                     That feeling when you complete a task, The relief, the
                     accomplishment...
                 </p>
+            </>
+        )
+    },
+    {
+        component: <Day28 />,
+        text: (
+            <>
+                <h2>#28 Alarm</h2>
+                <p>That should keep you awake!</p>
             </>
         )
     }
