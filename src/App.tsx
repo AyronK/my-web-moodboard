@@ -21,6 +21,7 @@ import {
     Day26,
     Day27,
     Day28,
+    Day29,
     Day3,
     Day4,
     Day5,
@@ -380,6 +381,18 @@ const cards = [
             <>
                 <h2>#28 Alarm</h2>
                 <p>That should keep you awake!</p>
+            </>
+        )
+    },
+    {
+        component: <Day29 />,
+        text: (
+            <>
+                <h2>#29 Search</h2>
+                <p>
+                    Don't use placeholders! Labels can serve the same purpose
+                    while being much more accessible.
+                </p>
             </>
         )
     }
