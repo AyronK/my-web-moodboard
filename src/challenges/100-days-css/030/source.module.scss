@@ -1,0 +1,38 @@
+@import "../../../styles/colors.scss";
+
+.container {
+    position: absolute;
+    inset: 0;
+
+    svg {
+        position: absolute;
+        inset: 0;
+        width: 400px;
+        height: 400px;
+        stroke: $color-quaternary;
+        stroke-width: 3px;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        fill: none;
+    }
+
+    path {
+        stroke-dasharray: 65 800;
+        stroke-dashoffset: 72;
+        animation: knot 5s cubic-bezier(0.075, 0.82, 0.165, 1) infinite;
+    }
+}
+
+@keyframes knot {
+    0% {
+        stroke-dasharray: 65 800;
+        stroke-dashoffset: 72;
+    }
+    25%, 75% {
+        stroke-dasharray: 165 700;
+        stroke-dashoffset: -206;
+    }
+    100% {
+        stroke-dashoffset: 72;
+    }
+}
