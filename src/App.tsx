@@ -23,6 +23,7 @@ import {
     Day28,
     Day29,
     Day3,
+    Day30,
     Day4,
     Day5,
     Day6,
@@ -392,6 +393,17 @@ const cards = [
                 <p>
                     Don't use placeholders! Labels can serve the same purpose
                     while being much more accessible.
+                </p>
+            </>
+        )
+    },
+    {
+        component: <Day30 />,
+        text: (
+            <>
+                <h2>#30 Celtic knot</h2>
+                <p>
+                    Animations are <i>knot</i> meant to be boring.
                 </p>
             </>
         )
