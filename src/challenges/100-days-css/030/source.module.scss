@@ -3,12 +3,15 @@
 .container {
     position: absolute;
     inset: 0;
+    width: 100%;
+    height: 100%;
 
     svg {
         position: absolute;
         inset: 0;
         width: 400px;
         height: 400px;
+        opacity: 0.7;
         stroke: $color-quaternary;
         stroke-width: 3px;
         stroke-linecap: round;
@@ -19,7 +22,31 @@
     path {
         stroke-dasharray: 65 800;
         stroke-dashoffset: 72;
-        animation: knot 5s cubic-bezier(0.075, 0.82, 0.165, 1) infinite;
+        animation: knot 6s cubic-bezier(0.075, 0.82, 0.165, 1) infinite;
+    }
+
+    circle {
+        transform-origin: 50% 50%;
+        stroke-width: 1px;
+
+        stroke: $color-quaternary;
+        fill: $color-quaternary;
+
+        animation: circle 6s cubic-bezier(0.075, 0.82, 0.165, 1) infinite;
+    }
+}
+
+@keyframes circle {
+    0%,
+    70%,
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    15%,
+    50% {
+        transform: scale(1);
+        opacity: 0.35;
     }
 }
 
@@ -28,11 +55,18 @@
         stroke-dasharray: 65 800;
         stroke-dashoffset: 72;
     }
-    25%, 75% {
+    15% {
+        stroke-dasharray: 65 800;
+        stroke-dashoffset: -242;
+    }
+    40%,
+    50% {
         stroke-dasharray: 165 700;
         stroke-dashoffset: -206;
     }
+    80%,
     100% {
-        stroke-dashoffset: 72;
+        stroke-dashoffset: 240;
+        stroke-dasharray: 65 800;
     }
 }
