@@ -1,0 +1,36 @@
+@import "../../../styles/colors.scss";
+
+.container {
+    $numberOfDots: 40;
+
+    position: absolute;
+    inset: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    span {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: $color-quaternary;
+        animation: pendulum 1s ease-in-out infinite;
+    }
+
+    @for $i from 0 through $numberOfDots {
+        span:nth-child(#{$i}) {
+            animation-duration: 1s + $i * 0.01s;
+        }
+    }
+}
+
+@keyframes pendulum {
+    0%,
+    100% {
+        transform: translateX(-32px);
+    }
+    50% {
+        transform: translateX(32px);
+    }
+}
