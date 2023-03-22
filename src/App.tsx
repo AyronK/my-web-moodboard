@@ -24,6 +24,7 @@ import {
     Day29,
     Day3,
     Day30,
+    Day31,
     Day4,
     Day5,
     Day6,
@@ -404,6 +405,18 @@ const cards = [
                 <h2>#30 Celtic knot</h2>
                 <p>
                     Animations are <i>knot</i> meant to be boring.
+                </p>
+            </>
+        )
+    },
+    {
+        component: <Day31 />,
+        text: (
+            <>
+                <h2>#31 Pendulum wave</h2>
+                <p>
+                    Simple math. Everything here is achieved with animation
+                    duration.
                 </p>
             </>
         )
