@@ -25,6 +25,7 @@ import {
     Day3,
     Day30,
     Day31,
+    Day32,
     Day4,
     Day5,
     Day6,
@@ -418,6 +419,15 @@ const cards = [
                     Simple math. Everything here is achieved with animation
                     duration.
                 </p>
+            </>
+        )
+    },
+    {
+        component: <Day32 />,
+        text: (
+            <>
+                <h2>#32 Counter</h2>
+                <p>Flip it. Just let it finish...</p>
             </>
         )
     }
