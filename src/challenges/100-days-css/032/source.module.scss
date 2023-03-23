@@ -1,0 +1,78 @@
+@import "../../../styles/colors.scss";
+
+.counter {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 3px;
+}
+
+.button,
+.digit {
+    all: unset;
+    font-size: 24px;
+    line-height: 1px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+    border-radius: 2px;
+    font-weight: 700;
+    background-color: $color-terciary;
+    color: $color-quaternary;
+    cursor: pointer;
+    margin-left: 5px;
+    margin-right: 5px;
+    transition: transform 0.1s ease-in-out, filter 0.2s ease-in-out;
+    transform: scale(1);
+
+    &:hover {
+        filter: brightness(1.1);
+    }
+
+    &:active {
+        transform: scale(0.97);
+    }
+}
+
+.digitWrapper {
+    display: flex;
+    width: 48px;
+    height: 48px;
+}
+
+.digit {
+    z-index: 1;
+    border-radius: 4px;
+    position: absolute;
+    background-color: $color-quaternary;
+    color: $color-terciary;
+    transform-origin: 50% 0%;
+    transform: rotateX(-360deg);
+    transition: transform 0s 0.9s ease-in-out, z-index 0s 0.75s linear;
+
+    @for $i from 0 through 10 {
+        &:nth-child(#{$i}) {
+            z-index: $i;
+        }
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: $color-quaternary;
+        backface-visibility: hidden;
+        transform: rotateX(180deg);
+    }
+
+    &.visible {
+        z-index: 12;
+        transform: rotateX(0deg);
+        transition: transform 1s ease-in-out, z-index 0s 0.75s linear;
+    }
+}
