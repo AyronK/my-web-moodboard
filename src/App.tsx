@@ -26,6 +26,7 @@ import {
     Day30,
     Day31,
     Day32,
+    Day33,
     Day4,
     Day5,
     Day6,
@@ -428,6 +429,15 @@ const cards = [
             <>
                 <h2>#32 Counter</h2>
                 <p>Flip it. Just let it finish...</p>
+            </>
+        )
+    },
+    {
+        component: <Day33 />,
+        text: (
+            <>
+                <h2>#33 Sunny day</h2>
+                <p>Relax!</p>
             </>
         )
     }
