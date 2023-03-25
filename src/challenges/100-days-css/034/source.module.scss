@@ -1,0 +1,61 @@
+@import "../../../styles/colors.scss";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,700);
+
+$transition: 1.5s cubic-bezier(0.65, -0.7, 0.9, 1);
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.line {
+    width: 100%;
+    height: 4px;
+    background-color: $color-terciary;
+    animation: lineAnimation $transition forwards;
+    border-radius: 16px;
+}
+
+.text {
+    height: 64px;
+    width: 90%;
+    margin: 32px;
+    font-weight: 700;
+    font-size: 72px;
+    line-height: 0;
+    letter-spacing: 4px;
+    stroke: $color-quaternary;
+    stroke-dasharray: 320;
+    fill: transparent;
+    animation: textStrokeAnimation $transition,
+        textFillAnimation 0.5s 1.6s ease-in-out forwards;
+}
+
+@keyframes textStrokeAnimation {
+    from {
+        stroke-dashoffset: 320;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes textFillAnimation {
+    from {
+        fill: transparent;
+    }
+    to {
+        fill: $color-quaternary;
+    }
+}
+
+@keyframes lineAnimation {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
