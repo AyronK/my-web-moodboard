@@ -27,6 +27,7 @@ import {
     Day31,
     Day32,
     Day33,
+    Day34,
     Day4,
     Day5,
     Day6,
@@ -438,6 +439,15 @@ const cards = [
             <>
                 <h2>#33 Sunny day</h2>
                 <p>Relax!</p>
+            </>
+        )
+    },
+    {
+        component: <Day34 />,
+        text: (
+            <>
+                <h2>#34 Text animation</h2>
+                <p>Yet another one!</p>
             </>
         )
     }
