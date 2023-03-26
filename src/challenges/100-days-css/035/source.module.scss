@@ -1,0 +1,40 @@
+@import "../../../styles/colors.scss";
+
+.circle {
+    stroke-width: 6px;
+    fill: none;
+    stroke-dasharray: 360;
+    animation: rotation 4s linear infinite;
+
+    circle:first-of-type {
+        stroke: $color-quaternary;
+        stroke-dashoffset: 0;
+    }
+
+    circle:last-of-type {
+        stroke: $color-terciary;
+        stroke-linecap: round;
+        animation: loading 2s ease-out infinite alternate;
+    }
+}
+
+@keyframes loading {
+    from {
+        stroke-dashoffset: 0;
+    }
+    from {
+        stroke-dashoffset: 360;
+    }
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0);
+    }
+    50% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(1080deg);
+    }
+}

@@ -28,6 +28,7 @@ import {
     Day32,
     Day33,
     Day34,
+    Day35,
     Day4,
     Day5,
     Day6,
@@ -448,6 +449,18 @@ const cards = [
             <>
                 <h2>#34 Text animation</h2>
                 <p>Yet another one!</p>
+            </>
+        )
+    },
+    {
+        component: <Day35 />,
+        text: (
+            <>
+                <h2>#35 Loader</h2>
+                <p>
+                    Not just plain rotation. Adding a bit of spice to spinner is
+                    not that hard!
+                </p>
             </>
         )
     }
