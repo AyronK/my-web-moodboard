@@ -29,6 +29,7 @@ import {
     Day33,
     Day34,
     Day35,
+    Day36,
     Day4,
     Day5,
     Day6,
@@ -460,6 +461,18 @@ const cards = [
                 <p>
                     Not just plain rotation. Adding a bit of spice to spinner is
                     not that hard!
+                </p>
+            </>
+        )
+    },
+    {
+        component: <Day36 />,
+        text: (
+            <>
+                <h2>#36 Tabs</h2>
+                <p>
+                    Entry and exit transitions can enhance the experience when
+                    using tabs.
                 </p>
             </>
         )
