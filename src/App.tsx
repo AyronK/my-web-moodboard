@@ -30,6 +30,7 @@ import {
     Day34,
     Day35,
     Day36,
+    Day37,
     Day4,
     Day5,
     Day6,
@@ -473,6 +474,17 @@ const cards = [
                 <p>
                     Entry and exit transitions can enhance the experience when
                     using tabs.
+                </p>
+            </>
+        )
+    },
+    {
+        component: <Day37 />,
+        text: (
+            <>
+                <h2>#37 Carousel</h2>
+                <p>
+                    If there is any <code>transform</code> property that should get more attenion I sincerely believe it is <code>perspective</code>. 
                 </p>
             </>
         )
