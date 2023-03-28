@@ -7,7 +7,7 @@ import {
     Cube,
     Package,
     Check
-} from "phosphor-react";
+} from "@phosphor-icons/react";
 import React, { useRef, useState } from "react";
 import { Center } from "../../../Frame/Frame";
 import styles from "./source.module.scss";

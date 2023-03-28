@@ -1,4 +1,4 @@
-import { Check } from "phosphor-react";
+import { Check } from "@phosphor-icons/react";
 import React from "react";
 import { Center } from "../../../Frame/Frame";
 import styles from "./source.module.scss";

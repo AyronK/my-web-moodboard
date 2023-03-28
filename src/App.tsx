@@ -41,7 +41,7 @@ import {
 } from "./challenges/100-days-css/index.t";
 import styles from "./App.module.scss";
 import { FrameSwitch } from "./FrameSwitch/FrameSwitch";
-import { MonitorPlay, GithubLogo, Code } from "phosphor-react";
+import { MonitorPlay, GithubLogo, Code } from "@phosphor-icons/react";
 import { Weather } from "./challenges/100-days-css/009/source";
 import { FetchedText } from "./FetchedText/FetchedText";
 

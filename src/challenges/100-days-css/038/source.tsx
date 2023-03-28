@@ -1,5 +1,5 @@
 import React from "react";
-import { GithubLogo } from "phosphor-react";
+import { GithubLogo } from "@phosphor-icons/react";
 import styles from "./source.module.scss";
 
 export const Day38: React.FC = () => {
