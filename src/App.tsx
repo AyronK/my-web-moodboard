@@ -31,6 +31,7 @@ import {
     Day35,
     Day36,
     Day37,
+    Day38,
     Day4,
     Day5,
     Day6,
@@ -484,8 +485,19 @@ const cards = [
             <>
                 <h2>#37 Carousel</h2>
                 <p>
-                    If there is any <code>transform</code> property that should get more attenion I sincerely believe it is <code>perspective</code>. 
+                    If there is any <code>transform</code> property that should
+                    get more attenion I sincerely believe it is{" "}
+                    <code>perspective</code>.
                 </p>
+            </>
+        )
+    },
+    {
+        component: <Day38 />,
+        text: (
+            <>
+                <h2>#38 Logo transition</h2>
+                <p>Sometimes a simple solution just suits the best.</p>
             </>
         )
     }
