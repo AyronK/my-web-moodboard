@@ -11,11 +11,11 @@ export const Day39: React.FC = () => {
                 (open !== null && (open ? styles.open : styles.closed))
             }
         >
-            <div className={styles.line} />
             <button
                 className={styles.button}
                 onClick={!open ? () => setOpen(true) : undefined}
             />
+            <div className={styles.line} />
             <div className={styles.menuItems}>
                 <nav onClick={() => setOpen(false)}>Blog</nav>
                 <nav onClick={() => setOpen(false)}>Design</nav>

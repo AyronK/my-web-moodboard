@@ -1,162 +1,187 @@
 @import "../../../styles/colors.scss";
 
-.line{  
-  width: 100%;
-  height: 2px;
-  background-color: $color-quaternary; 
-  box-shadow: 1px 1px 4px 2px rgba(0,0,0,0.3);
+$lineOffset: 20px;
+$animationStepDuration: 0.65s;
 
-  &:first-child{
-    
-    transform: translateY(28px) scaleX(0.1);
-  }
+.line {
+    height: 2px;
+    background-color: $color-quaternary;
+    box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.1);
+    justify-self: center;
+    align-self: center;
+    width: 10%;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
 
-  &:last-child{
-    
-    transform: translateY(-28px) scaleX(0.1);
-  }
+    &:first-of-type {
+        transform: translateY($lineOffset);
     }
 
-
-.button{
-  all:unset;
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  top:50%;
-  left:50%;
-  transform: translate(-50%,-50%);
-  cursor: pointer;
+    &:last-of-type {
+        transform: translateY(-$lineOffset);
+    }
 }
 
-.menuItems{
-  padding: 24px;
-  display: flex;
-  flex-direction: row;  
-  justify-content: space-between;
-
-  nav {
-    text-transform: uppercase;
-    color: $color-quaternary;
-    font-size: 20px;
+.button {
+    all: unset;
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     cursor: pointer;
-    transition: opacity 0.2s ease-in-out;
+}
 
-    &:hover{
-      opacity: 0.5;
+.menuItems {
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    nav {
+        text-transform: uppercase;
+        color: $color-quaternary;
+        font-size: 18px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: opacity 0.2s ease-in-out;
+
+        &:hover {
+            opacity: 0.5;
+        }
     }
-  }
 }
 
-.menu{
-  position: absolute;
-  width: 85%;
-  height: auto;
-  left:50%;
-  top:50%;
-  display: flex;
-  flex-direction: column;
-  transform: translate(-50%,-50%);
+.menu {
+    position: absolute;
+    width: 85%;
+    height: auto;
+    left: 50%;
+    top: 50%;
+    display: flex;
+    flex-direction: column;
+    transform: translate(-50%, -50%);
 
-  .menuItems{    
-    opacity: 0;
-    visibility:  hidden;
-    transition: opacity 1s ease-in-out, visibility 0.1s 0.9s;  
-  }
-
-  &.open .menuItems{
-    visibility: visible;
-    opacity: 1;
-    transition: opacity 1s 1s ease-in-out, visibility 0.1s;  
-  }
-
-  &.open .button{
-    visibility: hidden;
-  }
-
-&.open .line, &.closed .line{
-     
-
-  &:first-child{
-    animation: line1Open 2s ease-in-out forwards;}
-
-  &:last-child{
-    animation: line2Open 2s ease-in-out forwards;}
-}
-
-  &.open{
-    .line{      
-
-      &:first-child{
-        animation: line1 2s ease-in-out forwards;}
-    
-      &:last-child{
-        animation: line2 2s ease-in-out forwards;}
+    .menuItems {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity calc($animationStepDuration / 2) ease-in-out,
+            visibility 0.1s 0.9s;
     }
-  }
 
-  &.closed .lines{ 
-    
-animation: linesClose 2s ease-in-out forwards;
-  }
+    &.open .menuItems {
+        visibility: visible;
+        opacity: 1;
+        transition: opacity calc($animationStepDuration / 2)
+                $animationStepDuration ease-in-out,
+            visibility 0.1s;
+    }
+
+    &.open .button {
+        visibility: hidden;
+    }
+
+    &.closed {
+        .line {
+            &:first-of-type {
+                animation: lineFoldAnimation calc($animationStepDuration / 2)
+                        ease-in-out forwards,
+                    lineTopRestore calc($animationStepDuration / 2)
+                        calc($animationStepDuration / 2) ease-in-out forwards;
+            }
+
+            &:last-of-type {
+                animation: lineFoldAnimation calc($animationStepDuration / 2)
+                        ease-in-out forwards,
+                    lineBottomRestore calc($animationStepDuration / 2)
+                        calc($animationStepDuration / 2) ease-in-out forwards;
+            }
+        }
+    }
+
+    &.open {
+        .line {
+            &:first-of-type {
+                animation: lineTopElevate $animationStepDuration
+                        cubic-bezier(0.68, -0.55, 0.265, 1) forwards,
+                    lineUnfoldAnimation calc($animationStepDuration / 2)
+                        $animationStepDuration ease-in-out forwards;
+            }
+
+            &:last-of-type {
+                animation: lineBottomElevate $animationStepDuration
+                        cubic-bezier(0.68, -0.55, 0.265, 1) forwards,
+                    lineUnfoldAnimation calc($animationStepDuration / 2)
+                        $animationStepDuration ease-in-out forwards;
+            }
+        }
+    }
 }
 
-
-@keyframes line1{
-  0%{
-    transform: translateY(28px) scaleX(0.1);
-    box-shadow: 1px 1px 4px 2px rgba(0,0,0,0.1);
-  }
-  50%{
-    transform: translateY(0) scaleX(0.1);
-    box-shadow: 1px 1px 4px 2px rgba(0,0,0,0.3);
-    
-  }100%{
-    transform: translateY(0) scaleX(1);
-    box-shadow: 1px 1px 4px 2px rgba(0,0,0,0.3);
-  }
+@keyframes lineUnfoldAnimation {
+    from {
+        transform: translateY(0);
+        width: 10%;
+    }
+    to {
+        transform: translateY(0);
+        width: 100%;
+    }
 }
 
-@keyframes line1Open{
-  100%{
-    transform: translateY(28px) scaleX(0.1);
-    box-shadow: 1px 1px 4px 2px rgba(0,0,0,0.1);
-  }
-  50%{
-    box-shadow: 1px 1px 4px 2px rgba(0,0,0,0.3);
-    transform: translateY(0) scaleX(0.1);
-    
-  }0%{
-    box-shadow: 1px 1px 4px 2px rgba(0,0,0,0.3);
-    transform: translateY(0) scaleX(1);
-  }
+@keyframes lineFoldAnimation {
+    from {
+        transform: translateY(0);
+        width: 100%;
+    }
+    to {
+        transform: translateY(0);
+        width: 10%;
+    }
 }
 
-@keyframes line2{
-  0%{
-    box-shadow: 1px 1px 4px 2px rgba(0,0,0,0.1);
-    transform: translateY(-28px) scaleX(0.1);
-  }
-  50%{
-    box-shadow: 1px 1px 4px 2px rgba(0,0,0,0.3);
-    transform: translateY(0) scaleX(0.1);
-    
-  }100%{
-    box-shadow: 1px 1px 4px 2px rgba(0,0,0,0.3);
-    transform: translateY(0) scaleX(1);
-  }
+@keyframes lineTopElevate {
+    from {
+        transform: translateY($lineOffset);
+        box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.1);
+    }
+    to {
+        transform: translateY(0);
+        box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.3);
+    }
 }
-@keyframes line2Open{
-  100%{
-    box-shadow: 1px 1px 4px 2px rgba(0,0,0,0.1);
-    transform: translateY(-28px) scaleX(0.1);
-  }
-  50%{
-    box-shadow: 1px 1px 4px 2px rgba(0,0,0,0.3);
-    transform: translateY(0) scaleX(0.1);
-    
-  }0%{
-    box-shadow: 1px 1px 4px 2px rgba(0,0,0,0.3);
-    transform: translateY(0) scaleX(1);
-  }
+
+@keyframes lineBottomElevate {
+    from {
+        transform: translateY(-$lineOffset);
+        box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.1);
+    }
+    to {
+        transform: translateY(0);
+        box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.3);
+    }
+}
+
+@keyframes lineTopRestore {
+    from {
+        transform: translateY(0);
+        box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.3);
+    }
+    to {
+        transform: translateY($lineOffset);
+        box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.1);
+    }
+}
+
+@keyframes lineBottomRestore {
+    from {
+        transform: translateY(0);
+        box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.3);
+    }
+    to {
+        transform: translateY(-$lineOffset);
+        box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.1);
+    }
 }
