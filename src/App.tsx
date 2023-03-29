@@ -32,6 +32,7 @@ import {
     Day36,
     Day37,
     Day38,
+    Day39,
     Day4,
     Day5,
     Day6,
@@ -498,6 +499,15 @@ const cards = [
             <>
                 <h2>#38 Logo transition</h2>
                 <p>Sometimes a simple solution just suits the best.</p>
+            </>
+        )
+    },
+    {
+        component: <Day39 />,
+        text: (
+            <>
+                <h2>#39 Menu</h2>
+                <p>Click to unfold!</p>
             </>
         )
     }
