@@ -4,7 +4,7 @@ import {
     TwitterLogo,
     UserFocus,
     X
-} from "phosphor-react";
+} from "@phosphor-icons/react";
 import React, { useState } from "react";
 import styles from "./source.module.scss";
 

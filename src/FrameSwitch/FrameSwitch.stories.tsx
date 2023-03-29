@@ -1,7 +1,7 @@
 import React from "react";
 import { FrameSwitch } from "./FrameSwitch";
 import { ComponentMeta } from "@storybook/react";
-import { FileCss, FileTsx, Play } from "phosphor-react";
+import { FileCss, FileTsx, Play } from "@phosphor-icons/react";
 import { Center } from "../Frame/Frame";
 
 export default {

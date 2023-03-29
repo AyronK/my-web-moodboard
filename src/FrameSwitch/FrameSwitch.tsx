@@ -1,4 +1,4 @@
-import { ArrowsClockwise } from "phosphor-react";
+import { ArrowsClockwise } from "@phosphor-icons/react";
 import React, {
     ReactNode,
     useEffect,

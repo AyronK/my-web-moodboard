@@ -4,7 +4,7 @@ import {
     Gauge,
     Gear,
     MagnifyingGlass
-} from "phosphor-react";
+} from "@phosphor-icons/react";
 import React, { useEffect, useState } from "react";
 import { Center } from "../../../Frame/Frame";
 import styles from "./source.module.scss";

@@ -31,6 +31,8 @@ import {
     Day35,
     Day36,
     Day37,
+    Day38,
+    Day39,
     Day4,
     Day5,
     Day6,
@@ -40,7 +42,7 @@ import {
 } from "./challenges/100-days-css/index.t";
 import styles from "./App.module.scss";
 import { FrameSwitch } from "./FrameSwitch/FrameSwitch";
-import { MonitorPlay, GithubLogo, Code } from "phosphor-react";
+import { MonitorPlay, GithubLogo, Code } from "@phosphor-icons/react";
 import { Weather } from "./challenges/100-days-css/009/source";
 import { FetchedText } from "./FetchedText/FetchedText";
 
@@ -484,8 +486,28 @@ const cards = [
             <>
                 <h2>#37 Carousel</h2>
                 <p>
-                    If there is any <code>transform</code> property that should get more attenion I sincerely believe it is <code>perspective</code>. 
+                    If there is any <code>transform</code> property that should
+                    get more attenion I sincerely believe it is{" "}
+                    <code>perspective</code>.
                 </p>
+            </>
+        )
+    },
+    {
+        component: <Day38 />,
+        text: (
+            <>
+                <h2>#38 Logo transition</h2>
+                <p>Sometimes a simple solution just suits the best.</p>
+            </>
+        )
+    },
+    {
+        component: <Day39 />,
+        text: (
+            <>
+                <h2>#39 Menu</h2>
+                <p>Click to unfold!</p>
             </>
         )
     }

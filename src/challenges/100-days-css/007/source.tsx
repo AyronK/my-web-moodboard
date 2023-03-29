@@ -1,4 +1,4 @@
-import { Bell, ChatsCircle, Gauge, Gear, User } from "phosphor-react";
+import { Bell, ChatsCircle, Gauge, Gear, User } from "@phosphor-icons/react";
 import React, { useState } from "react";
 import { Center } from "../../../Frame/Frame";
 import styles from "./source.module.scss";

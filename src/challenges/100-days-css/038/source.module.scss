@@ -1,0 +1,53 @@
+@import "../../../styles/colors.scss";
+
+.container {
+    position: absolute;
+    inset: 0;
+
+    & > div {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 128px;
+    }
+
+    input {
+        all: unset;
+        position: absolute;
+        inset: 0;
+        cursor: pointer;
+        z-index: 3;
+    }
+
+    .logo1,
+    .logo2 {
+        svg {
+            transition: transform 0.75s ease-in-out;
+        }
+    }
+
+    input:checked ~ .logo1 svg {
+        transform: scale(40);
+    }
+
+    input:checked ~ .logo2 svg {
+        transform: scale(1);
+    }
+
+    input ~ .logo1 svg {
+        transform: scale(1);
+    }
+
+    input ~ .logo2 svg {
+        transform: scale(0);
+    }
+
+    & > .logo1 svg {
+        color: $color-quaternary;
+    }
+
+    & > .logo2 svg {
+        color: $color-secondary;
+    }
+}

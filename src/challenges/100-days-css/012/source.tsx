@@ -1,4 +1,4 @@
-import { SpeakerSimpleHigh } from "phosphor-react";
+import { SpeakerSimpleHigh } from "@phosphor-icons/react";
 import React from "react";
 import styles from "./source.module.scss";
 

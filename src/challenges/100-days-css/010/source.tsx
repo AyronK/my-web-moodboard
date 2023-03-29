@@ -1,4 +1,4 @@
-import { Heart } from "phosphor-react";
+import { Heart } from "@phosphor-icons/react";
 import React from "react";
 import { Center } from "../../../Frame/Frame";
 import styles from "./source.module.scss";
