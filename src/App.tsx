@@ -34,6 +34,7 @@ import {
     Day38,
     Day39,
     Day4,
+    Day40,
     Day5,
     Day6,
     Day7,
@@ -508,6 +509,18 @@ const cards = [
             <>
                 <h2>#39 Menu</h2>
                 <p>Click to unfold!</p>
+            </>
+        )
+    },
+    {
+        component: <Day40 />,
+        text: (
+            <>
+                <h2>#40 Photo gallery</h2>
+                <p>
+                    Click to take a closer look at the picture. All animations
+                    are done with pure CSS using <code>transform-origin</code>.
+                </p>
             </>
         )
     }
