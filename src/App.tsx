@@ -35,6 +35,7 @@ import {
     Day39,
     Day4,
     Day40,
+    Day41,
     Day5,
     Day6,
     Day7,
@@ -521,6 +522,15 @@ const cards = [
                     Click to take a closer look at the picture. All animations
                     are done with pure CSS using <code>transform-origin</code>.
                 </p>
+            </>
+        )
+    },
+    {
+        component: <Day41 />,
+        text: (
+            <>
+                <h2>#41 Error modal</h2>
+                <p>The less you see it the better!</p>
             </>
         )
     }
