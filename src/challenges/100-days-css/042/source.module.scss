@@ -1,0 +1,103 @@
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 75%;
+    height: 75%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 6px solid white;
+    box-shadow: 0px 2px 12px 6px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+$sky-color: rgb(17, 30, 36);
+$numberOfStars: 300;
+
+.sky {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient($sky-color, lighten($sky-color, 30%));
+}
+
+.star {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    border-radius: 50%;
+
+    @for $i from 1 through $numberOfStars {
+        &:nth-child(#{$i}) {
+            top: random() * 100%;
+            left: random() * 100%;
+            opacity: 0.5;
+            background-color: rgba(255, 255, 255, 0.25 + random() * 0.75);
+            animation: blink
+                    (2s + random() * 1s)
+                    (random() * 3s)
+                    infinite
+                    alternate,
+                movement 120s infinite alternate;
+        }
+    }
+}
+
+.shootingStar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120px;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.4),
+        rgba(255, 255, 255, 1)
+    );
+    filter: blur(0.5px);
+    transform-origin: 0% 50%;
+    transform: rotate(25deg) translate(-300px);
+
+    &:nth-last-child(1) {
+        animation: shootingStarFall 12s linear infinite;
+    }
+
+    &:nth-last-child(2) {
+        top: 35%;
+        animation: shootingStarFall 14s 6s linear infinite;
+    }
+
+    &:nth-last-child(3) {
+        top: 75%;
+        animation: shootingStarFall 18s 6s linear infinite;
+    }
+}
+
+@keyframes blink {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0.2;
+    }
+}
+
+@keyframes movement {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(60px, 0);
+    }
+}
+
+@keyframes shootingStarFall {
+    0% {
+        transform: rotate(25deg) translate(-300px);
+    }
+    10%,
+    100% {
+        transform: rotate(25deg) translate(300px);
+    }
+}

@@ -36,6 +36,7 @@ import {
     Day4,
     Day40,
     Day41,
+    Day42,
     Day5,
     Day6,
     Day7,
@@ -531,6 +532,18 @@ const cards = [
             <>
                 <h2>#41 Error modal</h2>
                 <p>The less you see it the better!</p>
+            </>
+        )
+    },
+    {
+        component: <Day42 />,
+        text: (
+            <>
+                <h2>#42 Night sky</h2>
+                <p>
+                    You can create beautiful things using CSS! No need to make a
+                    wish.
+                </p>
             </>
         )
     }
