@@ -1,0 +1,11 @@
+.bulb {
+    position: relative;
+    transition: fill 0.75s ease-out, filter 0.75s ease-out;
+    fill: rgb(255, 241, 113);
+    filter: drop-shadow(0 0 32px rgb(255, 241, 113));
+
+    &:hover {
+        fill: darkgray;
+        filter: drop-shadow(0 0 8px rgba(255, 241, 113, 0));
+    }
+}
