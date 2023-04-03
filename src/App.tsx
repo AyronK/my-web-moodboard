@@ -37,6 +37,7 @@ import {
     Day40,
     Day41,
     Day42,
+    Day43,
     Day5,
     Day6,
     Day7,
@@ -543,6 +544,17 @@ const cards = [
                 <p>
                     You can create beautiful things using CSS! No need to make a
                     wish.
+                </p>
+            </>
+        )
+    },
+    {
+        component: <Day43 />,
+        text: (
+            <>
+                <h2>#43 Lightbulb</h2>
+                <p>
+                    Let <code>drop-shadow</code> bring light upon you!
                 </p>
             </>
         )
