@@ -1,0 +1,40 @@
+@import "../../../styles/colors.scss";
+
+.button {
+    all: unset;
+    margin: auto;
+    text-transform: uppercase;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: background-color 0.4s ease-in-out;
+    border: 1px solid $color-quaternary;
+    letter-spacing: 3px;
+    font-weight: 300;
+    position: relative;
+    text-align: center;
+    width: 160px;
+    height: 64px;
+
+    svg {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        inset: 0;
+        fill: none;
+        stroke: $color-quaternary;
+        stroke-width: 2px;
+        stroke-dasharray: 80 470;
+        stroke-dashoffset: -470;
+        transition: stroke-dashoffset 0.65s cubic-bezier(0.39, 0.575, 0.565, 1);
+        transform: scaleX(-1);
+    }
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.4);
+
+        svg {
+            stroke-dashoffset: 100;
+        }
+    }
+}

@@ -1,0 +1,43 @@
+@import "../../../styles/colors.scss";
+
+.container {
+    width: 60%;
+    height: 60%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    &:hover .rect {
+        animation-play-state: paused;
+    }
+}
+
+.rect {
+    $numberOfRects: 15;
+
+    position: absolute;
+    inset: 0;
+    border: 1px solid $color-quaternary;
+    background-color: $color-quaternary;
+    animation: rotation 6s ease-in-out alternate infinite;
+    box-shadow: 3px 3px 6px 3px rgba(0, 0, 0, 0.3);
+
+    @for $i from 1 through $numberOfRects {
+        &:nth-child(#{$i + 1}) {
+            inset: $i * 8px;
+            animation-delay: calc(0.1s * $i);
+        }
+    }
+}
+
+@keyframes rotation {
+    0%,
+    20% {
+        transform: rotate(0);
+    }
+    80%,
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -38,6 +38,8 @@ import {
     Day41,
     Day42,
     Day43,
+    Day44,
+    Day45,
     Day5,
     Day6,
     Day7,
@@ -556,6 +558,24 @@ const cards = [
                 <p>
                     Let <code>drop-shadow</code> bring light upon you!
                 </p>
+            </>
+        )
+    },
+    {
+        component: <Day44 />,
+        text: (
+            <>
+                <h2>#44 Twisted Pyramid</h2>
+                <p>It's not that hard to trick your mind with a bit of CSS.</p>
+            </>
+        )
+    },
+    {
+        component: <Day45 />,
+        text: (
+            <>
+                <h2>#45 Hover button</h2>
+                <p>Make your interactions shiny!</p>
             </>
         )
     }
