@@ -5,21 +5,21 @@ $numberOfRings: 6;
 
 .ring {
     position: absolute;
+    transform-origin: 50% 50%;
     inset: 0;
 
     @for $i from 0 through $numberOfRings {
-        transform-origin: 50% 50%;
         &:nth-child(#{$i + 1}) {
-            opacity: 1 - 0.1 * $i;
-            animation: 200000s rotate-#{$i} infinite alternate;
+            opacity: 1 - 0.15 * $i;
+            animation: 4s rotate-#{$i} ease-in-out infinite alternate;
         }
 
         @keyframes rotate-#{$i} {
             from {
-                transform: scale(1 - 0.173 * $i) rotate(30deg * $i);
+                transform: scale(1 - 0.05 * $i) rotate($i * 8deg);
             }
             to {
-                transform: scale(1 - 0.13 * $i) rotate(360deg + 30deg * $i);
+                transform: scale(1 - 0.18 * $i) rotate(360deg + 42deg * $i);
             }
         }
     }
@@ -33,10 +33,20 @@ $numberOfRings: 6;
     left: 50%;
     border-radius: 50%;
     background-color: $color-quaternary;
+    animation: 4s colorChange ease-in-out infinite alternate;
 
     @for $i from 0 through $numberOfDots {
         &:nth-child(#{$i + 1}) {
-            transform: rotate($i * 30deg) translate(110px);
+            transform: translate(-50%, -50%) rotate($i * 30deg) translate(90px);
         }
+    }
+}
+
+@keyframes colorChange {
+    from {
+        background-color: $color-terciary;
+    }
+    to {
+        background-color: $color-quaternary;
     }
 }
