@@ -1,0 +1,52 @@
+@import "../../../styles/colors.scss";
+
+$numberOfDots: 12;
+$numberOfRings: 6;
+
+.ring {
+    position: absolute;
+    transform-origin: 50% 50%;
+    inset: 0;
+
+    @for $i from 0 through $numberOfRings {
+        &:nth-child(#{$i + 1}) {
+            opacity: 1 - 0.15 * $i;
+            animation: 4s rotate-#{$i} ease-in-out infinite alternate;
+        }
+
+        @keyframes rotate-#{$i} {
+            from {
+                transform: scale(1 - 0.05 * $i) rotate($i * 8deg);
+            }
+            to {
+                transform: scale(1 - 0.18 * $i) rotate(360deg + 42deg * $i);
+            }
+        }
+    }
+}
+
+.dot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    background-color: $color-quaternary;
+    animation: 4s colorChange ease-in-out infinite alternate;
+
+    @for $i from 0 through $numberOfDots {
+        &:nth-child(#{$i + 1}) {
+            transform: translate(-50%, -50%) rotate($i * 30deg) translate(90px);
+        }
+    }
+}
+
+@keyframes colorChange {
+    from {
+        background-color: $color-terciary;
+    }
+    to {
+        background-color: $color-quaternary;
+    }
+}

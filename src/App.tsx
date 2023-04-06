@@ -40,6 +40,7 @@ import {
     Day43,
     Day44,
     Day45,
+    Day46,
     Day5,
     Day6,
     Day7,
@@ -576,6 +577,15 @@ const cards = [
             <>
                 <h2>#45 Hover button</h2>
                 <p>Make your interactions shiny!</p>
+            </>
+        )
+    },
+    {
+        component: <Day46 />,
+        text: (
+            <>
+                <h2>#46 Iris circles</h2>
+                <p>Swirl!</p>
             </>
         )
     }
