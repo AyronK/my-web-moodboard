@@ -41,6 +41,7 @@ import {
     Day44,
     Day45,
     Day46,
+    Day47,
     Day5,
     Day6,
     Day7,
@@ -586,6 +587,18 @@ const cards = [
             <>
                 <h2>#46 Iris circles</h2>
                 <p>Swirl!</p>
+            </>
+        )
+    },
+    {
+        component: <Day47 />,
+        text: (
+            <>
+                <h2>#47 Pixel Art</h2>
+                <p>
+                    Take a break, have a coffee! Play around and make your own
+                    art!
+                </p>
             </>
         )
     }
