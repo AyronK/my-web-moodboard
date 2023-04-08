@@ -42,6 +42,7 @@ import {
     Day45,
     Day46,
     Day47,
+    Day48,
     Day5,
     Day6,
     Day7,
@@ -598,6 +599,18 @@ const cards = [
                 <p>
                     Take a break, have a coffee! Play around and make your own
                     art!
+                </p>
+            </>
+        )
+    },
+    {
+        component: <Day48 />,
+        text: (
+            <>
+                <h2>#48 Cube</h2>
+                <p>
+                    With CSS 2D is not the limit. Simple 3D objects and
+                    transformations are no problem.
                 </p>
             </>
         )
