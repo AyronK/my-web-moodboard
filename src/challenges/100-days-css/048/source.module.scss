@@ -1,1 +1,51 @@
 @import "../../../styles/colors.scss";
+
+.cube {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: translateZ(-100px) rotateX(70deg) rotateZ(-45deg);
+    transition: all 1s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+        transform: translateZ(-100px) rotateX(-110deg) rotateZ(-135deg);
+    }
+}
+
+.top,
+.bottom,
+.right,
+.left,
+.front,
+.back {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+}
+
+.front {
+    transform: rotateY(-90deg) translateZ(100px);
+    background: darken($color-quaternary, 5%);
+}
+.back {
+    transform: rotateX(180deg) translateZ(100px);
+    background: $color-quaternary;
+}
+.right {
+    transform: rotateX(-90deg) translateZ(100px);
+    background: darken($color-quaternary, 10%);
+}
+.left {
+    transform: rotateX(90deg) translateZ(100px);
+    background: darken($color-quaternary, 5%);
+}
+.top {
+    transform: rotateY(0deg) translateZ(100px);
+    background: $color-quaternary;
+}
+.bottom {
+    transform: rotateY(90deg) translateZ(100px);
+    background: darken($color-quaternary, 5%);
+}
