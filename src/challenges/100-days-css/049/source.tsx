@@ -8,6 +8,9 @@ export const Day49: React.FC = () => {
                 <div />
             ))}
             <div className={styles.pulsar} />
+            <div className={styles.track1} />
+            <div className={styles.track2} />
+            <div className={styles.track3} />
         </div>
     );
 };
