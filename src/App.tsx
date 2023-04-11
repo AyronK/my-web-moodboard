@@ -43,6 +43,7 @@ import {
     Day46,
     Day47,
     Day48,
+    Day49,
     Day5,
     Day6,
     Day7,
@@ -611,6 +612,18 @@ const cards = [
                 <p>
                     With CSS 2D is not the limit. Simple 3D objects and
                     transformations are no problem.
+                </p>
+            </>
+        )
+    },
+    {
+        component: <Day49 />,
+        text: (
+            <>
+                <h2>#49 Mouse tracker</h2>
+                <p>
+                    Creating mouse tracking with pure CSS can be tricky, it is
+                    indeed possible!
                 </p>
             </>
         )

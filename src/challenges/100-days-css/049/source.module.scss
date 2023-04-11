@@ -1,0 +1,117 @@
+@use "sass:math";
+@import "../../../styles/colors.scss";
+
+$grid-size: 12;
+
+.board {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: repeat($grid-size, 1fr);
+    grid-template-rows: repeat($grid-size, 1fr);
+
+    .track1,
+    .track2,
+    .track3,
+    .pulsar {
+        position: absolute;
+        pointer-events: none;
+
+        &:after {
+            inset: 0;
+            position: absolute;
+            content: "";
+            border-radius: 50%;
+            pointer-events: none;
+        }
+    }
+
+    .track1 {
+        z-index: 1;
+        width: 14px;
+        height: 14px;
+        transition: all 0.3s ease-out;
+        transform: translate3d(calc(200px - 50%), calc(200px - 50%), 0);
+
+        &:after {
+            background-color: $color-quaternary;
+        }
+    }
+
+    .track2 {
+        z-index: 1;
+        width: 10px;
+        height: 10px;
+        transition: all 0.4s ease-out;
+        transform: translate3d(calc(200px - 50%), calc(200px - 50%), 0);
+
+        &:after {
+            background-color: $color-quaternary;
+        }
+    }
+
+    .track3 {
+        z-index: 1;
+        width: 6px;
+        height: 6px;
+        transition: all 0.5s ease-out;
+        transform: translate3d(calc(200px - 50%), calc(200px - 50%), 0);
+
+        &:after {
+            background-color: $color-quaternary;
+        }
+    }
+
+    .pulsar {
+        z-index: 2;
+        width: 16px;
+        height: 16px;
+        transition: all 0.2s ease-out;
+        transform: translate3d(calc(200px - 50%), calc(200px - 50%), 0);
+
+        &:after {
+            background-color: $color-terciary;
+        }
+
+        &:before {
+            position: absolute;
+            inset: -4px;
+            content: "";
+            border-radius: 50%;
+            border: 2px solid $color-terciary;
+            animation: pulsate 1.2s ease-out infinite;
+        }
+    }
+
+    div {
+        pointer-events: all;
+        box-sizing: border-box;
+        position: relative;
+        z-index: 1;
+        float: left;
+    }
+
+    $gap: calc(400 / $grid-size) * 1px;
+
+    @for $i from 0 through $grid-size * $grid-size {
+        $a: $i + 1;
+
+        div:nth-child(#{$a}):hover
+            ~ div:is(.track1, .track2, .track3, .pulsar) {
+            $x: ($i % $grid-size) * $gap + 16px;
+            $y: floor($i / $grid-size) * $gap + 16px;
+            transform: translate3d(calc($x - 50%), calc($y - 50%), 0);
+        }
+    }
+}
+
+@keyframes pulsate {
+    from {
+        transform: scale(0);
+        opacity: 1;
+    }
+    to {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
