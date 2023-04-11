@@ -622,8 +622,8 @@ const cards = [
             <>
                 <h2>#49 Mouse tracker</h2>
                 <p>
-                    Creating mouse tracking with pure CSS can be tricky, it is
-                    indeed possible!
+                    Creating mouse tracking with pure CSS can be tricky, but it
+                    is indeed possible!
                 </p>
             </>
         )
