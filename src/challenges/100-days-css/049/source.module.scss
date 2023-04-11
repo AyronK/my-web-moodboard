@@ -1,6 +1,7 @@
+@use "sass:math";
 @import "../../../styles/colors.scss";
 
-$grid-size: 20;
+$grid-size: 12;
 
 .board {
     display: grid;
@@ -97,8 +98,8 @@ $grid-size: 20;
 
         div:nth-child(#{$a}):hover
             ~ div:is(.track1, .track2, .track3, .pulsar) {
-            $x: ($i % $grid-size + 1) * $gap;
-            $y: calc($i / $grid-size) * $gap;
+            $x: ($i % $grid-size) * $gap + 16px;
+            $y: floor($i / $grid-size) * $gap + 16px;
             transform: translate3d(calc($x - 50%), calc($y - 50%), 0);
         }
     }
