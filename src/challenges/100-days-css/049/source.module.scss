@@ -1,6 +1,6 @@
 @import "../../../styles/colors.scss";
 
-$grid-size: 25;
+$grid-size: 20;
 
 .board {
     display: grid;
@@ -13,20 +13,34 @@ $grid-size: 25;
         position: absolute;
         width: 16px;
         height: 16px;
-        border-radius: 50%;
-        background-color: $color-terciary;
+        transition: all 0.3s ease-out;
+        pointer-events: none;
         transform: translate3d(calc(200px - 50%), calc(200px - 50%), 0);
-        transition: transform 0.5s ease-in-out;
+
+        &:after {
+            position: absolute;
+            inset: 0;
+            content: "";
+            border-radius: 50%;
+            background-color: $color-terciary;
+        }
     }
+
+    div {
+        pointer-events: all;
+        box-sizing: border-box;
+        position: relative;
+        z-index: 1;
+        float: left;
+    }
+
+    $gap: 400 / $grid-size * 1px;
 
     @for $i from 0 through $grid-size * $grid-size {
         div:nth-child(#{$i}):hover ~ .pulsar {
-            $a: $i % $grid-size;
-            transform: translate3d(
-                calc($a * 400px / $grid-size - 50%),
-                calc(calc($i / $grid-size) * 400px / $grid-size - 50%),
-                0
-            );
+            $x: $i % $grid-size * $gap;
+            $y: calc($i / $grid-size) * $gap;
+            transform: translate3d(calc($x - 50%), calc($y - 50%), 0);
         }
     }
 }
