@@ -7,6 +7,7 @@ export const Day49: React.FC = () => {
             {Array.from({ length: 50 * 50 }).map((_, i) => (
                 <div />
             ))}
+            <div className={styles.pulsar} />
         </div>
     );
 };
