@@ -99,7 +99,7 @@ $grid-size: 12;
         div:nth-child(#{$a}):hover
             ~ div:is(.track1, .track2, .track3, .pulsar) {
             $x: ($i % $grid-size) * $gap + 16px;
-            $y: floor(div($i / $grid-size)) * $gap + 16px;
+            $y: floor(math.div($i, $grid-size)) * $gap + 16px;
             transform: translate3d(calc($x - 50%), calc($y - 50%), 0);
         }
     }
