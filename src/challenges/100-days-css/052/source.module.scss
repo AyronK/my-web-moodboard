@@ -1,1 +1,30 @@
 @import "../../../styles/colors.scss";
+
+.circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@for $circle from 0 through 10 {
+    .circle:nth-child(#{$circle}) {
+        .dot {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border-radius: 50%;
+            width: 6px;
+            height: 6px;
+            background-color: $color-quaternary;
+
+            @for $i from 0 through 80 {
+                &:nth-child(#{$i}) {
+                    transform: translate(-50%, -50%)
+                        rotate(6deg * $i)
+                        translate(50px + $circle * 10px);
+                }
+            }
+        }
+    }
+}
