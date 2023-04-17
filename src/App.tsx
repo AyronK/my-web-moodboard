@@ -46,6 +46,7 @@ import {
     Day49,
     Day5,
     Day50,
+    Day51,
     Day6,
     Day7,
     Day8,
@@ -637,6 +638,19 @@ const cards = [
                 <p>
                     Following the 12 principles of animation can bring anything
                     into motion!
+                </p>
+            </>
+        )
+    },
+    {
+        component: <Day51 />,
+        text: (
+            <>
+                <h2>#51 Timer</h2>
+                <p>
+                    Incrementing a counter each second and play/pause button can
+                    only be done with JavaScript, right? Wrong! It's possible
+                    with pure HTML and CSS.
                 </p>
             </>
         )
