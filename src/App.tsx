@@ -47,6 +47,7 @@ import {
     Day5,
     Day50,
     Day51,
+    Day52,
     Day6,
     Day7,
     Day8,
@@ -652,6 +653,15 @@ const cards = [
                     only be done with JavaScript, right? Wrong! It's possible
                     with pure HTML and CSS.
                 </p>
+            </>
+        )
+    },
+    {
+        component: <Day52 />,
+        text: (
+            <>
+                <h2>#52 Hypnosis</h2>
+                <p>Don't look at it for too long!</p>
             </>
         )
     }

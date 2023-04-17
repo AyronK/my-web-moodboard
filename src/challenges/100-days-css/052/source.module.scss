@@ -1,3 +1,4 @@
+@use "sass:math";
 @import "../../../styles/colors.scss";
 
 .circle {
@@ -5,26 +6,71 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    animation: rotation 60s linear infinite;
+
+    .dot::after {
+        animation: scaleAnimation 5s ease-in-out infinite;
+    }
 }
 
 @for $circle from 0 through 10 {
+    .circle:nth-child(#{$circle}) {
+        @if (($circle % 2) == 0) {
+            animation-direction: reverse;
+        } @else {
+            animation-direction: normal;
+        }
+    }
     .circle:nth-child(#{$circle}) {
         .dot {
             position: absolute;
             top: 50%;
             left: 50%;
-            border-radius: 50%;
-            width: 6px;
-            height: 6px;
-            background-color: $color-quaternary;
+            width: 8px;
+            height: 8px;
+            transform-origin: 50% 50%;
 
-            @for $i from 0 through 80 {
+            &::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                border-radius: 50%;
+                animation-delay: 0.3s * $circle;
+                animation-duration: 3s;
+                background-color: $color-quaternary;
+                transform: scale(0);
+            }
+
+            @for $i from 0 through 120 {
                 &:nth-child(#{$i}) {
                     transform: translate(-50%, -50%)
-                        rotate(6deg * $i)
-                        translate(50px + $circle * 10px);
+                        rotate(calc(12deg / ceil(math.div($circle, 4))) * $i)
+                        translate(50px + $circle * 12px);
                 }
             }
         }
+    }
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes scaleAnimation {
+    0%,
+    20% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1);
+    }
+    80%,
+    100% {
+        transform: scale(0);
     }
 }
