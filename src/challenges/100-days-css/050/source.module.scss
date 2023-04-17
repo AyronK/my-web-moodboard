@@ -1,1 +1,105 @@
 @import "../../../styles/colors.scss";
+
+$animationDuration: 2s;
+
+.container {
+    position: absolute;
+    left: 50%;
+    top: 85%;
+    transform: translate(-50%, -50%);
+}
+
+.ball {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    background-color: $color-quaternary;
+}
+
+.y {
+    animation: movementY $animationDuration ease-in-out infinite;
+}
+
+.yScale {
+    animation: scaleY $animationDuration ease-in-out infinite;
+}
+
+.x {
+    //animation: movementX $animationDuration ease-in-out infinite;
+}
+
+.xScale {
+    //animation: scaleX $animationDuration ease-in-out infinite;
+}
+
+@keyframes movementX {
+    0% {
+        transform: translateX(-300px);
+    }
+    50% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(300px);
+    }
+}
+
+@keyframes movementY {
+    0%,
+    100% {
+        transform: translateY(-275px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleX {
+    0%,
+    10%,
+    75%,
+    100% {
+        transform: scale(1, 1);
+    }
+    30%,
+    35% {
+        transform: scale(1, 1);
+    }
+    50% {
+        transform: scale(1, 1);
+    }
+}
+
+@keyframes scaleY {
+    0%,
+    100% {
+        transform-origin: 50% 0%;
+        transform: scale(1, 1);
+    }
+    30%,
+    35% {
+        transform-origin: 50% 100%;
+        transform: scale(0.9, 1.1);
+    }
+    50% {
+        transform-origin: 50% 100%;
+        transform: scale(1.4, 0.6);
+    }
+    75% {
+        transform-origin: 50% 0%;
+        transform: scale(0.9, 1.1);
+    }
+}
+
+@keyframes scaleX {
+    0% {
+        transform: rotate(-90deg);
+    }
+    55% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(90deg);
+    }
+}
