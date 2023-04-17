@@ -45,6 +45,7 @@ import {
     Day48,
     Day49,
     Day5,
+    Day50,
     Day6,
     Day7,
     Day8,
@@ -624,6 +625,18 @@ const cards = [
                 <p>
                     Creating mouse tracking with pure CSS can be tricky, but it
                     is indeed possible!
+                </p>
+            </>
+        )
+    },
+    {
+        component: <Day50 />,
+        text: (
+            <>
+                <h2>#50 Bounce</h2>
+                <p>
+                    Following the 12 principles of animation can bring anything
+                    into motion!
                 </p>
             </>
         )

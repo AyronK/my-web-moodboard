@@ -1,12 +1,22 @@
 @import "../../../styles/colors.scss";
 
-$animationDuration: 2s;
+$animationDuration: 1.2s;
 
 .container {
     position: absolute;
     left: 50%;
     top: 85%;
     transform: translate(-50%, -50%);
+}
+
+.shadow {
+    position: absolute;
+    bottom: -50px;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(darken($color-primary, 10%), 0.5);
+    animation: shadow $animationDuration ease-in-out infinite;
 }
 
 .ball {
@@ -24,26 +34,6 @@ $animationDuration: 2s;
     animation: scaleY $animationDuration ease-in-out infinite;
 }
 
-.x {
-    //animation: movementX $animationDuration ease-in-out infinite;
-}
-
-.xScale {
-    //animation: scaleX $animationDuration ease-in-out infinite;
-}
-
-@keyframes movementX {
-    0% {
-        transform: translateX(-300px);
-    }
-    50% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(300px);
-    }
-}
-
 @keyframes movementY {
     0%,
     100% {
@@ -51,22 +41,6 @@ $animationDuration: 2s;
     }
     50% {
         transform: translateY(0);
-    }
-}
-
-@keyframes scaleX {
-    0%,
-    10%,
-    75%,
-    100% {
-        transform: scale(1, 1);
-    }
-    30%,
-    35% {
-        transform: scale(1, 1);
-    }
-    50% {
-        transform: scale(1, 1);
     }
 }
 
@@ -91,15 +65,12 @@ $animationDuration: 2s;
     }
 }
 
-@keyframes scaleX {
-    0% {
-        transform: rotate(-90deg);
-    }
-    55% {
-        transform: rotate(0);
-    }
-
+@keyframes shadow {
+    0%,
     100% {
-        transform: rotate(90deg);
+        transform: scale(0.25, 0.1);
+    }
+    50% {
+        transform: scale(1.5, 0.05);
     }
 }
