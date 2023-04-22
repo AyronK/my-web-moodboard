@@ -49,6 +49,7 @@ import {
     Day51,
     Day52,
     Day53,
+    Day54,
     Day6,
     Day7,
     Day8,
@@ -675,6 +676,15 @@ const cards = [
                     Default browser inputs can be pretty borring if not they are
                     not styled using CSS.
                 </p>
+            </>
+        )
+    },
+    {
+        component: <Day54 />,
+        text: (
+            <>
+                <h2>#54 Waves</h2>
+                <p>Enjoy a calming view!</p>
             </>
         )
     }
