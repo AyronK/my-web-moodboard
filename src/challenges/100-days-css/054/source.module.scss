@@ -1,0 +1,41 @@
+@import "../../../styles/colors.scss";
+
+.waves {
+    svg {
+        position: absolute;
+        inset: 0;
+
+        &:nth-child(1) {
+            fill: $color-primary;
+            animation: waveMovements 5s ease-in-out infinite alternate;
+        }
+
+        &:nth-child(2) {
+            fill: $color-terciary;
+            animation: waveMovements 5s ease-in-out infinite alternate-reverse;
+        }
+
+        &:nth-child(3) {
+            fill: $color-quaternary;
+            animation: waveMovements2 5s ease-in-out infinite alternate;
+        }
+    }
+}
+
+@keyframes waveMovements {
+    from {
+        transform: translateX(-100px);
+    }
+    to {
+        transform: translateX(0px);
+    }
+}
+
+@keyframes waveMovements2 {
+    from {
+        transform: translateX(-200px);
+    }
+    to {
+        transform: translateX(0px);
+    }
+}
