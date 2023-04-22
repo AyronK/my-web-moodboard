@@ -1,1 +1,59 @@
 @import "../../../styles/colors.scss";
+
+@mixin track() {
+    background: $color-terciary;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 1;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    height: 4px;
+}
+
+@mixin thumb() {
+    border-radius: 50%;
+    height: 24px;
+    width: 24px;
+    border: 2px solid $color-terciary;
+    background-color: white;
+    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.2);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin-top: -10px;
+}
+
+.range {
+    padding: 16px 24px;
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    border-radius: 4px;
+    background-color: white;
+    box-shadow: 3px 3px 8px 4px rgba(0, 0, 0, 0.35);
+
+    input {
+        width: 100%;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+
+        &::-moz-focus-outer {
+            border: 0;
+        }
+
+        &::-webkit-slider-runnable-track {
+            @include track();
+        }
+
+        &::-moz-range-track {
+            @include track();
+        }
+
+        &::-webkit-slider-thumb {
+            @include thumb();
+        }
+
+        &::-moz-range-thumb {
+            @include thumb();
+        }
+    }
+}

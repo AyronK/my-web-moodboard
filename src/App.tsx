@@ -48,6 +48,7 @@ import {
     Day50,
     Day51,
     Day52,
+    Day53,
     Day6,
     Day7,
     Day8,
@@ -662,6 +663,18 @@ const cards = [
             <>
                 <h2>#52 Hypnosis</h2>
                 <p>Don't look at it for too long!</p>
+            </>
+        )
+    },
+    {
+        component: <Day53 />,
+        text: (
+            <>
+                <h2>#53 Slider</h2>
+                <p>
+                    Default browser inputs can be pretty borring if not they are
+                    not styled using CSS.
+                </p>
             </>
         )
     }
