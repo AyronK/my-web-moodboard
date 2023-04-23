@@ -7,6 +7,17 @@ export const Day55: React.FC = () => {
         <Center>
             <div className={styles.thermostat}>
                 <div className={styles.border}></div>
+                <div className={styles.screen}>
+                    <span>23</span>
+                    <div>
+                        <span>19</span>
+                        <span>20</span>
+                    </div>
+                    <div>
+                        <span>Bedroom</span>
+                        <span>Kitchen</span>
+                    </div>
+                </div>
                 <div className={styles.temperature}></div>
             </div>
         </Center>
