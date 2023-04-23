@@ -694,7 +694,7 @@ const cards = [
         text: (
             <>
                 <h2>#55 Thermostat</h2>
-                <p></p>
+                <p>Keep it cool!</p>
             </>
         )
     }
