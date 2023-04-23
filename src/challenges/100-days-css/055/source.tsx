@@ -7,6 +7,7 @@ export const Day55: React.FC = () => {
         <Center>
             <div className={styles.thermostat}>
                 <div className={styles.border}></div>
+                <div className={styles.square}></div>
                 <div className={styles.screen}>
                     <span>23</span>
                     <div>

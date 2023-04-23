@@ -9,6 +9,7 @@
     box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.35);
     display: grid;
     place-items: center;
+    overflow: hidden;
 }
 
 .screen {
@@ -31,6 +32,17 @@
     box-sizing: border-box;
     border: 12px solid white;
     box-shadow: inset 2px 2px 8px 4px rgba(0, 0, 0, 0.35);
+}
+
+.square {
+    z-index: 2;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    transform: rotate(45deg);
 }
 
 .temperature {
