@@ -1,5 +1,17 @@
 @import "../../../styles/colors.scss";
 
+.scale {
+    position: absolute;
+    z-index: 200;
+    top: 50%;
+    left: 50%;
+    width: 15px;
+    height: 1px;
+    background-color: black;
+    transform: translate(-50%, -50%) rotate(45deg) translate(-65px);
+    transition: all 0.3s ease-in-out;
+}
+
 .thermostat {
     position: relative;
     border-radius: 50%;
@@ -19,8 +31,38 @@
     height: 65%;
     border-radius: 50%;
     background-color: white;
-    box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 32px 2px rgba(0, 0, 0, 0.25);
     cursor: pointer;
+
+    > span:first-of-type {
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%);
+        font-size: 14px;
+        color: gray;
+    }
+
+    .second {
+        transform: translate(-120px) scale(0.5);
+        opacity: 0;
+    }
+
+    &:hover {
+        .first {
+            transform: scale(0.5);
+            opacity: 0;
+        }
+
+        .second {
+            transform: translate(-50%);
+            opacity: 1;
+        }
+
+        ~ .scale {
+            transform: translate(-50%, -50%) rotate(55deg) translate(-65px);
+        }
+    }
 }
 
 .border {
@@ -42,7 +84,7 @@
     width: 100px;
     height: 100px;
     background-color: white;
-    transform: rotate(45deg);
+    transform: translate(-50%) rotate(45deg);
 }
 
 .temperature {
@@ -50,6 +92,43 @@
     z-index: 1;
     width: 90%;
     height: 90%;
-    background: linear-gradient(-90deg, rgb(255, 17, 0), rgb(34, 83, 175));
+    background: linear-gradient(-90deg, #d44437, rgb(34, 83, 175));
     border-radius: 50%;
+}
+
+.first,
+.second {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%);
+    transition: all 0.3s ease-in-out;
+
+    span:first-of-type {
+        font-size: 48px;
+        line-height: 64px;
+        letter-spacing: -1px;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+
+        span {
+            font-size: 20px;
+            margin-top: -12px;
+        }
+    }
+}
+
+.room {
+    position: absolute;
+    bottom: 17%;
+    left: 50%;
+    font-size: 14px;
+    color: gray;
+    transform: translate(-50%);
 }

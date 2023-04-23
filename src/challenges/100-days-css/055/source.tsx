@@ -9,17 +9,21 @@ export const Day55: React.FC = () => {
                 <div className={styles.border}></div>
                 <div className={styles.square}></div>
                 <div className={styles.screen}>
-                    <span>23</span>
-                    <div>
-                        <span>19</span>
-                        <span>20</span>
+                    <span>23°</span>
+                    <div className={styles.first}>
+                        <span>
+                            19<span>°</span>
+                        </span>
                     </div>
-                    <div>
-                        <span>Bedroom</span>
-                        <span>Kitchen</span>
+                    <div className={styles.second}>
+                        <span>
+                            20<span>°</span>
+                        </span>
                     </div>
+                    <span className={styles.room}>Bedroom</span>
                 </div>
                 <div className={styles.temperature}></div>
+                <div className={styles.scale}></div>
             </div>
         </Center>
     );
