@@ -1,1 +1,40 @@
 @import "../../../styles/colors.scss";
+
+.thermostat {
+    position: relative;
+    border-radius: 50%;
+    background-color: white;
+    width: 75%;
+    height: 75%;
+    box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.35);
+    display: grid;
+    place-items: center;
+}
+
+.screen {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.border {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-sizing: border-box;
+    border: 16px solid white;
+    box-shadow: inset 2px 2px 8px 4px rgba(0, 0, 0, 0.35);
+}
+
+.temperature {
+    position: absolute;
+    z-index: 1;
+    width: 85%;
+    height: 85%;
+    background: linear-gradient(-90deg, rgb(255, 17, 0), rgb(34, 83, 175));
+    border-radius: 50%;
+}
