@@ -5,7 +5,7 @@
     z-index: 1;
     width: 50px;
     height: 75px;
-    background: #fff;
+    background: $color-quaternary;
     border-radius: 2px 50px;
     opacity: 0.8;
     transition: all 0.5s ease-in-out;
@@ -14,7 +14,17 @@
 
     @for $petal from 0 through 15 {
         &:nth-child(#{$petal}) {
-            transform: rotate($petal * 30deg);
+            animation: petalScale-#{$petal} 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes petalScale-#{$petal} {
+            from {
+                transform: scale(0) rotate($petal * 45deg + 180deg);
+            }
+
+            to {
+                transform: scale(1) rotate($petal * 30deg);
+            }
         }
     }
 }
@@ -26,12 +36,16 @@
     left: 50%;
     width: 40px;
     height: 40px;
-    background-color: red;
+    background-color: $color-terciary;
     border-radius: 50%;
-    transform: translate(-50%, -50%);
+    animation: centerScale 3s ease-in-out infinite alternate;
 }
 
-@keyframes petalScale {
+@keyframes centerScale {
     from {
+        transform: translate(-50%, -50%) scale(0);
+    }
+    to {
+        transform: translate(-50%, -50%) scale(1);
     }
 }
