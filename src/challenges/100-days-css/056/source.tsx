@@ -9,6 +9,7 @@ export const Day56: React.FC = () => {
                 {Array.from({ length: 15 }).map((_, i) => (
                     <div className={styles.petal} key={i} />
                 ))}
+                <div className={styles.center} />
             </div>
         </Center>
     );
