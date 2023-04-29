@@ -1,0 +1,51 @@
+@import "../../../styles/colors.scss";
+
+.petal {
+    position: absolute;
+    z-index: 1;
+    width: 50px;
+    height: 75px;
+    background: $color-quaternary;
+    border-radius: 2px 50px;
+    opacity: 0.8;
+    transition: all 0.5s ease-in-out;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    transform-origin: 0 0;
+
+    @for $petal from 0 through 15 {
+        &:nth-child(#{$petal}) {
+            animation: petalScale-#{$petal} 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes petalScale-#{$petal} {
+            from {
+                transform: scale(0) rotate($petal * 45deg + 180deg);
+            }
+
+            to {
+                transform: scale(1) rotate($petal * 30deg);
+            }
+        }
+    }
+}
+
+.center {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: $color-terciary;
+    border-radius: 50%;
+    animation: centerScale 3s ease-in-out infinite alternate;
+}
+
+@keyframes centerScale {
+    from {
+        transform: translate(-50%, -50%) scale(0);
+    }
+    to {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}

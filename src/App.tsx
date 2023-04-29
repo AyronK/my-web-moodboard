@@ -51,6 +51,7 @@ import {
     Day53,
     Day54,
     Day55,
+    Day56,
     Day6,
     Day7,
     Day8,
@@ -695,6 +696,15 @@ const cards = [
             <>
                 <h2>#55 Thermostat</h2>
                 <p>Keep it cool!</p>
+            </>
+        )
+    },
+    {
+        component: <Day56 />,
+        text: (
+            <>
+                <h2>#56 Flower</h2>
+                <p>🏵️</p>
             </>
         )
     }
