@@ -53,6 +53,7 @@ import {
     Day55,
     Day56,
     Day57,
+    Day58,
     Day6,
     Day7,
     Day8,
@@ -718,6 +719,14 @@ const cards = [
                     Creating complex 3D object with plain CSS can be quite
                     tidoues, yet possible...
                 </p>
+            </>
+        )
+    },
+    {
+        component: <Day58 />,
+        text: (
+            <>
+                <h2>#58 Sliced sphere</h2>
             </>
         )
     }
