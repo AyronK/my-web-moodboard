@@ -1,1 +1,179 @@
 @import "../../../styles/colors.scss";
+
+$radius: 200;
+$speed: 6s;
+$fill: $color-quaternary;
+$border: $color-terciary;
+
+.sphere {
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    transform: rotateX(-25deg);
+    transition: all 1s ease-in-out;
+}
+
+@for $i from 1 through 9 {
+    $size: $radius - (2 * ($i * $i));
+    $offset: ($i * 15) - (($i * $i) / 2);
+
+    .slice#{$i} {
+        box-sizing: border-box;
+        position: absolute;
+        border-radius: 50%;
+        background: $fill;
+        border: 2px solid $border;
+        opacity: 1;
+        transition: all 1s ease-in-out;
+        width: $size + px;
+        height: $size + px;
+        left: (($radius - $size) / 2) + px;
+        top: (($radius - $size) / 2) + px;
+        transform: translateY(($offset) + px) rotateX(90deg);
+        animation: slice#{$i} $speed ease-in-out infinite;
+    }
+
+    $id: $i + 9;
+    .slice#{$id} {
+        box-sizing: border-box;
+        position: absolute;
+        border-radius: 50%;
+        background: $fill;
+        border: 2px solid $border;
+        opacity: 1;
+        transition: all 1s ease-in-out;
+        width: $size + px;
+        height: $size + px;
+        left: (($radius - $size) / 2) + px;
+        top: (($radius - $size) / 2) + px;
+        transform: translateY((-1 * $offset) + px) rotateX(90deg);
+        animation: slice#{$id} $speed ease-in-out infinite;
+    }
+
+    @keyframes slice#{$i} {
+        0%,
+        19% {
+            transform: translateY(0) rotateX(90deg);
+            opacity: 0;
+        }
+        20% {
+            transform: translateY(0) rotateX(90deg);
+            opacity: 1;
+            border: 2px solid $fill;
+        }
+        30% {
+            transform: translateY(($offset + ($i * 4)) + px) rotateX(90deg);
+            border: 2px solid $border;
+        }
+        35% {
+            transform: translateY(($offset - ($i * 2)) + px) rotateX(90deg);
+        }
+        40% {
+            transform: translateY(($offset + ($i * 1)) + px) rotateX(90deg);
+        }
+        45% {
+            transform: translateY(($offset - ($i * 0.5)) + px) rotateX(90deg);
+        }
+        50%,
+        65% {
+            transform: translateY(($offset) + px) rotateX(90deg);
+        }
+        70% {
+            transform: translateY(($offset + ($i * 4)) + px) rotateX(90deg);
+            border: 2px solid $border;
+        }
+        80% {
+            transform: translateY(0) rotateX(90deg);
+            opacity: 1;
+            border: 2px solid $fill;
+        }
+        81%,
+        100% {
+            transform: translateY(0) rotateX(90deg);
+            opacity: 0;
+        }
+    }
+
+    @keyframes slice#{$id} {
+        0%,
+        19% {
+            transform: translateY(0) rotateX(90deg);
+            opacity: 0;
+        }
+        20% {
+            transform: translateY(0) rotateX(90deg);
+            opacity: 1;
+            border: 2px solid $fill;
+        }
+        30% {
+            transform: translateY((-1 * $offset - ($i * 4)) + px) rotateX(90deg);
+            border: 2px solid $border;
+        }
+        35% {
+            transform: translateY((-1 * $offset + ($i * 2)) + px) rotateX(90deg);
+        }
+        40% {
+            transform: translateY((-1 * $offset - ($i * 1)) + px) rotateX(90deg);
+        }
+        45% {
+            transform: translateY((-1 * $offset + ($i * 0.5)) + px)
+                rotateX(90deg);
+        }
+        50%,
+        65% {
+            transform: translateY((-1 * $offset) + px) rotateX(90deg);
+        }
+        70% {
+            transform: translateY((-1 * $offset - ($i * 4)) + px) rotateX(90deg);
+            border: 2px solid $border;
+        }
+        80% {
+            transform: translateY(0) rotateX(90deg);
+            opacity: 1;
+            border: 2px solid $fill;
+        }
+        81%,
+        100% {
+            transform: translateY(0) rotateX(90deg);
+            opacity: 0;
+        }
+    }
+}
+
+.slice19 {
+    box-sizing: border-box;
+    position: absolute;
+    border-radius: 50%;
+    background: $fill;
+    border: 2px solid $border;
+    opacity: 1;
+    width: $radius + px;
+    height: $radius + px;
+    left: 0;
+    top: 0;
+    transform: rotateX(90deg);
+    animation: slice19 $speed ease-in-out infinite;
+}
+
+@keyframes slice19 {
+    0% {
+        transform: rotateX(90deg) scale(0);
+    }
+    10% {
+        transform: rotateX(90deg) scale(1.2);
+    }
+    15% {
+        transform: rotateX(90deg) scale(0.9);
+    }
+    20%,
+    75% {
+        transform: rotateX(90deg) scale(1);
+    }
+    80% {
+        transform: rotateX(90deg) scale(1.2);
+    }
+    90%,
+    100% {
+        transform: rotateX(90deg) scale(0);
+    }
+}
