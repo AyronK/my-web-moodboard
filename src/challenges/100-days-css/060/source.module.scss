@@ -1,0 +1,19 @@
+@import "../../../styles/colors.scss";
+
+.container {
+    position: absolute;
+    inset: 0;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(20px);
+}
+
+.text {
+    font-weight: 700;
+    font-size: 48px;
+    color: white;
+    text-transform: uppercase;
+}
