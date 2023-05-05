@@ -56,6 +56,7 @@ import {
     Day58,
     Day59,
     Day6,
+    Day60,
     Day7,
     Day8,
     Day9
@@ -739,6 +740,18 @@ const cards = [
                 <p>
                     Use your space, put more content on interactive elements and
                     engage user with smooth transitions.
+                </p>
+            </>
+        )
+    },
+    {
+        component: <Day60 />,
+        text: (
+            <>
+                <h2>#60 Blur overlay</h2>
+                <p>
+                    Relatively easy blur backdrop overlay can be tricky to do
+                    with just CSS.
                 </p>
             </>
         )

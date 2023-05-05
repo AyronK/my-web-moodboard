@@ -1,0 +1,60 @@
+@import "../../../styles/colors.scss";
+
+.container {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    display: flex;
+    flex-direction: column-reverse;
+
+    * {
+        pointer-events: none;
+    }
+}
+
+.overlay {
+    position: absolute;
+    pointer-events: none;
+    z-index: 5;
+    inset: 0;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
+    background: linear-gradient(45deg, $color-terciary, $color-quaternary);
+    box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.3);
+    transform: translateY(-250px);
+
+    & > div > div {
+        filter: blur(3px);
+        color: $color-secondary;
+        text-shadow: 3px 3px rgba(0, 0, 0, 0.3);
+        transition: all 0.4s ease-in-out;
+        transform: translateY(250px);
+    }
+}
+
+.trigger {
+    position: relative;
+    pointer-events: all;
+    flex: 1;
+    width: 100%;
+
+    @for $i from 1 through 200 {
+        $offset: $i * 2px;
+
+        &:nth-child(#{$i}):hover ~ .overlay {
+            transform: translateY(-1 * $offset);
+            transition: initial;
+            & > div > div {
+                transform: translateY($offset);
+                transition: initial;
+            }
+        }
+    }
+}
+
+.text {
+    font-weight: 700;
+    font-size: 48px;
+    color: white;
+    text-transform: uppercase;
+}
