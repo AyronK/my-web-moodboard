@@ -9,11 +9,11 @@ export const Day60: React.FC = () => {
                 <div className={styles.trigger} key={i}></div>
             ))}
             <Center>
-                <div className={styles.text}>Hover</div>
+                <div className={styles.text}>cover me</div>
             </Center>
             <div className={styles.overlay}>
                 <Center>
-                    <div className={styles.text}>Hover</div>
+                    <div className={styles.text}>cover me</div>
                 </Center>
             </div>
         </div>
