@@ -1,1 +1,44 @@
 @import "../../../styles/colors.scss";
+
+.image {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.stripe {
+    position: relative;
+    height: 100%;
+    width: 12.5%;
+    transition: all 0.8s ease-in-out;
+    pointer-events: none;
+}
+
+.image:nth-of-type(2) {
+    .stripe {
+        background-color: blue;
+    }
+
+    .stripe:nth-of-type(2n) {
+        opacity: 0;
+        transform: translateY(-200px);
+    }
+    .stripe:nth-of-type(2n + 1) {
+        opacity: 0;
+        transform: translateY(200px);
+    }
+
+    &:hover {
+        .stripe:nth-of-type(2n) {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .stripe:nth-of-type(2n + 1) {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
