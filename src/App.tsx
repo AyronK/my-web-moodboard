@@ -54,6 +54,7 @@ import {
     Day56,
     Day57,
     Day58,
+    Day59,
     Day6,
     Day7,
     Day8,
@@ -727,6 +728,18 @@ const cards = [
         text: (
             <>
                 <h2>#58 Sliced sphere</h2>
+            </>
+        )
+    },
+    {
+        component: <Day59 />,
+        text: (
+            <>
+                <h2>#59 Slice transition</h2>
+                <p>
+                    Use your space, put more content on interactive elements and
+                    engage user with smooth transitions.
+                </p>
             </>
         )
     }

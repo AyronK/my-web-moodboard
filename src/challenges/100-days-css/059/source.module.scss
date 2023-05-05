@@ -1,44 +1,98 @@
 @import "../../../styles/colors.scss";
 
-.image {
+.container {
     position: absolute;
     inset: 0;
-    height: 100%;
-    width: 100%;
+}
+
+.image {
+    position: absolute;
+    inset: -1px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    z-index: 2;
 }
 
 .stripe {
     position: relative;
-    height: 100%;
-    width: 12.5%;
-    transition: all 0.8s ease-in-out;
+    width: 100%;
+    height: 25%;
+    transition: all 0.5s ease-in-out;
     pointer-events: none;
+    margin-left: -1px;
+    margin-right: -1px;
+    z-index: 2;
+}
+
+.textContainer {
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    color: white;
+    font-weight: 700;
+    text-align: center;
+}
+
+.text {
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: all 0.5s ease-in-out, opacity 0.3s 0.2s ease-in-out;
+
+    &:first-of-type {
+        font-size: 48px;
+        line-height: 42px;
+        transform: translateY(-24px);
+    }
+
+    &:last-of-type {
+        font-size: 36px;
+        transform: translateY(24px);
+    }
 }
 
 .image:nth-of-type(2) {
     .stripe {
-        background-color: blue;
+        background: linear-gradient(-45deg, $color-quaternary, $color-terciary);
+        background-size: 2000px 4000px;
+        border-radius: 48px;
     }
 
     .stripe:nth-of-type(2n) {
         opacity: 0;
-        transform: translateY(-200px);
+        transform: translateX(50%);
+        filter: brightness(0.9);
     }
     .stripe:nth-of-type(2n + 1) {
         opacity: 0;
-        transform: translateY(200px);
+        transform: translateX(-50%);
     }
 
     &:hover {
         .stripe:nth-of-type(2n) {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateX(0);
+            filter: brightness(1);
+            border-radius: 0;
         }
         .stripe:nth-of-type(2n + 1) {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateX(0);
+            border-radius: 0;
+        }
+
+        .textContainer .text {
+            &:first-of-type {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            &:last-of-type {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     }
 }
