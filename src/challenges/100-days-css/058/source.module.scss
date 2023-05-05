@@ -14,8 +14,8 @@ $border: $color-terciary;
 }
 
 @for $i from 1 through 9 {
-    $size: $radius - (2 * ($i * $i));
-    $offset: ($i * 15) - (($i * $i) / 2);
+    $size: $radius - calc(2 * calc($i * $i));
+    $offset: calc($i * 15) - calc(calc($i * $i) / 2);
 
     .slice#{$i} {
         box-sizing: border-box;
@@ -27,9 +27,9 @@ $border: $color-terciary;
         transition: all 1s ease-in-out;
         width: $size + px;
         height: $size + px;
-        left: (($radius - $size) / 2) + px;
-        top: (($radius - $size) / 2) + px;
-        transform: translateY(($offset) + px) rotateX(90deg);
+        left: calc(calc($radius - $size) / 2) + px;
+        top: calc(calc($radius - $size) / 2) + px;
+        transform: translateY(calc($offset) + px) rotateX(90deg);
         animation: slice#{$i} $speed ease-in-out infinite;
     }
 
@@ -44,9 +44,9 @@ $border: $color-terciary;
         transition: all 1s ease-in-out;
         width: $size + px;
         height: $size + px;
-        left: (($radius - $size) / 2) + px;
-        top: (($radius - $size) / 2) + px;
-        transform: translateY((-1 * $offset) + px) rotateX(90deg);
+        left: calc(calc($radius - $size) / 2) + px;
+        top: calc(calc($radius - $size) / 2) + px;
+        transform: translateY(calc(-1 * $offset) + px) rotateX(90deg);
         animation: slice#{$id} $speed ease-in-out infinite;
     }
 
@@ -62,24 +62,25 @@ $border: $color-terciary;
             border: 2px solid $fill;
         }
         30% {
-            transform: translateY(($offset + ($i * 4)) + px) rotateX(90deg);
+            transform: translateY(calc($offset + ($i * 4)) + px) rotateX(90deg);
             border: 2px solid $border;
         }
         35% {
-            transform: translateY(($offset - ($i * 2)) + px) rotateX(90deg);
+            transform: translateY(calc($offset - ($i * 2)) + px) rotateX(90deg);
         }
         40% {
-            transform: translateY(($offset + ($i * 1)) + px) rotateX(90deg);
+            transform: translateY(calc($offset + ($i * 1)) + px) rotateX(90deg);
         }
         45% {
-            transform: translateY(($offset - ($i * 0.5)) + px) rotateX(90deg);
+            transform: translateY(calc($offset - ($i * 0.5)) + px)
+                rotateX(90deg);
         }
         50%,
         65% {
-            transform: translateY(($offset) + px) rotateX(90deg);
+            transform: translateY(calc($offset) + px) rotateX(90deg);
         }
         70% {
-            transform: translateY(($offset + ($i * 4)) + px) rotateX(90deg);
+            transform: translateY(calc($offset + ($i * 4)) + px) rotateX(90deg);
             border: 2px solid $border;
         }
         80% {
