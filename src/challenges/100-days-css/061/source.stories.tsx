@@ -1,6 +1,17 @@
-import React from "react";
-import styles from "./source.module.scss";
+import { StoryObj } from "@storybook/react";
+import { Frame } from "../../../Frame/Frame";
+import { Day61 as Component } from "./source";
 
-export const Day61: React.FC = () => {
-    return <div className={styles.gradient}></div>;
-};
+export default {
+    title: "Challenges/100 Days of CSS",
+    component: Component,
+    decorators: [
+        (Story) => (
+            <Frame>
+                <Story />
+            </Frame>
+        )
+    ]
+} as StoryObj;
+
+export const Day61 = {};
