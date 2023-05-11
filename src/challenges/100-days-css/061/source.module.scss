@@ -1,1 +1,42 @@
 @import "../../../styles/colors.scss";
+
+$size: 2000px;
+$containerWidth: 400px;
+
+.gradient {
+    position: absolute;
+    inset: calc(-1 * $size);
+    background: linear-gradient(
+        #d9ed92,
+        #b5e48c,
+        #99d98c,
+        #76c893,
+        #52b69a,
+        #34a0a4,
+        #168aad,
+        #1a759f,
+        #1e6091,
+        #184e77,
+        #1e6091,
+        #1a759f,
+        #168aad,
+        #34a0a4,
+        #52b69a,
+        #76c893,
+        #99d98c,
+        #b5e48c,
+        #d9ed92
+    );
+    filter: blur($containerWidth);
+    transform: rotate(-45deg);
+    animation: moveGradient 7s linear infinite forwards;
+}
+
+@keyframes moveGradient {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 0 calc($size * 2 + $containerWidth);
+    }
+}
