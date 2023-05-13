@@ -58,6 +58,7 @@ import {
     Day6,
     Day60,
     Day61,
+    Day62,
     Day7,
     Day8,
     Day9
@@ -763,6 +764,15 @@ const cards = [
             <>
                 <h2>#61 Animated gradient</h2>
                 <p>Is it a trend now? Will it be again?</p>
+            </>
+        )
+    },
+    {
+        component: <Day62 />,
+        text: (
+            <>
+                <h2>#62 Pricing dashboard</h2>
+                <p>How much would you pay from your pocket for web services?</p>
             </>
         )
     }

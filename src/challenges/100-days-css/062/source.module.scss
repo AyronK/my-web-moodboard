@@ -17,19 +17,58 @@
     display: flex;
     flex-direction: column;
     box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.2);
-    margin-left: 10px;
-    margin-right: 10px;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
 
     &:nth-child(1) {
         margin-right: 0;
         margin-left: 20px;
+
+        &:hover ~ .quotas {
+            .quota:nth-child(1) .bar::after {
+                width: 10%;
+            }
+            .quota:nth-child(2) .bar::after {
+                width: 15%;
+            }
+            .quota:nth-child(3) .bar::after {
+                width: 12%;
+            }
+        }
+    }
+
+    &:nth-child(2) {
+        margin-left: 10px;
+        margin-right: 10px;
+
+        &:hover ~ .quotas {
+            .quota:nth-child(1) .bar::after {
+                width: 70%;
+            }
+            .quota:nth-child(2) .bar::after {
+                width: 50%;
+            }
+            .quota:nth-child(3) .bar::after {
+                width: 60%;
+            }
+        }
     }
 
     &:nth-child(3) {
         margin-left: 0;
         margin-right: 20px;
+
+        &:hover ~ .quotas {
+            .quota:nth-child(1) .bar::after {
+                width: 95%;
+            }
+            .quota:nth-child(2) .bar::after {
+                width: 95%;
+            }
+            .quota:nth-child(3) .bar::after {
+                width: 95%;
+            }
+        }
     }
 
     .name {
@@ -139,5 +178,18 @@
         height: 8px;
         background-color: rgb(225, 225, 225);
         border-radius: 100px;
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            top: 0;
+            width: 0%;
+            background-color: $color-terciary;
+            border-radius: 100px;
+            transition: all 0.3s ease-in-out;
+        }
     }
 }
