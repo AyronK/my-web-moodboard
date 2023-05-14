@@ -59,6 +59,7 @@ import {
     Day60,
     Day61,
     Day62,
+    Day63,
     Day7,
     Day8,
     Day9
@@ -773,6 +774,15 @@ const cards = [
             <>
                 <h2>#62 Pricing dashboard</h2>
                 <p>How much would you pay from your pocket for web services?</p>
+            </>
+        )
+    },
+    {
+        component: <Day63 />,
+        text: (
+            <>
+                <h2>#63 Infinite tunnel</h2>
+                <p>What if there is a light at the end?</p>
             </>
         )
     }
