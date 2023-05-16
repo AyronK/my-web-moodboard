@@ -1,0 +1,46 @@
+@import "../../../styles/colors.scss";
+
+.button {
+    all: unset;
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 160px;
+    transform: translate(-40%, -40%);
+    text-align: center;
+    background-color: $color-quaternary;
+    font-size: 20px;
+    padding: 16px 20px;
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+    font-weight: 600;
+
+    &::after {
+        content: "Hover me";
+        padding: 16px 20px;
+        text-align: center;
+        position: absolute;
+        text-transform: uppercase;
+        inset: 0;
+        transform: translate(-6%, -14%);
+        background-color: $color-terciary;
+        box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease-in-out;
+        color: $color-quaternary;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    &:hover {
+        transform: translate(calc(-40% - 10px), calc(-40% - 10px));
+        background-color: $color-terciary;
+
+        &::after {
+            transform: translate(calc(-6% + 20px), calc(-14% + 20px));
+            background-color: $color-quaternary;
+            color: $color-terciary;
+            text-shadow: 1px 1px rgba(0, 0, 0, 0);
+        }
+    }
+}
