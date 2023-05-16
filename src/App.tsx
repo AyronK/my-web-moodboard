@@ -60,6 +60,7 @@ import {
     Day61,
     Day62,
     Day63,
+    Day64,
     Day7,
     Day8,
     Day9
@@ -783,6 +784,15 @@ const cards = [
             <>
                 <h2>#63 Infinite tunnel</h2>
                 <p>What if there is a light at the end?</p>
+            </>
+        )
+    },
+    {
+        component: <Day64 />,
+        text: (
+            <>
+                <h2>#64 Button</h2>
+                <p>Hover over it!</p>
             </>
         )
     }
