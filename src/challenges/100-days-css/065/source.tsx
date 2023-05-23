@@ -3,10 +3,12 @@ import styles from "./source.module.scss";
 
 export const Day65: React.FC = () => {
     return (
-        <>
-            {Array.from({ length: 1 }).map((_, i) => (
-                <div key={i} className={styles.ellipse} />
+        <div className={styles.container}>
+            {Array.from({ length: 10 }).map((_, i) => (
+                <div key={i} className={styles.ellipseContainer}>
+                    <div key={i} className={styles.ellipse} />
+                </div>
             ))}
-        </>
+        </div>
     );
 };
