@@ -1,0 +1,53 @@
+@import "../../../styles/colors.scss";
+
+$animationDurationUnit: 3s;
+
+.container {
+    position: absolute;
+    inset: 0;
+    transform: rotate(360deg);
+    animation: rotate 2 * $animationDurationUnit
+        cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+}
+
+.ellipseContainer {
+    transform-origin: 50% 50%;
+    position: absolute;
+    inset: 64px;
+}
+
+@for $i from 1 through 10 {
+    .ellipseContainer:nth-child(#{$i}) {
+        transform: rotate($i * 18deg);
+        animation: rotate
+            $animationDurationUnit
+            cubic-bezier(0.445, 0.05, 0.55, 0.95)
+            infinite
+            alternate;
+    }
+}
+
+.ellipse {
+    position: absolute;
+    inset: 0;
+    border: 3px solid $color-quaternary;
+    animation: roundify $animationDurationUnit
+        cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite alternate;
+}
+
+@keyframes roundify {
+    from {
+        border-radius: 0%;
+        transform: scaleX(1);
+    }
+    to {
+        border-radius: 50%;
+        transform: scaleX(0.3);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0);
+    }
+}

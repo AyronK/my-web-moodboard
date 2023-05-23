@@ -61,6 +61,8 @@ import {
     Day62,
     Day63,
     Day64,
+    Day65,
+    Day66,
     Day7,
     Day8,
     Day9
@@ -793,6 +795,27 @@ const cards = [
             <>
                 <h2>#64 Button</h2>
                 <p>Hover over it!</p>
+            </>
+        )
+    },
+    {
+        component: <Day65 />,
+        text: (
+            <>
+                <h2>#65 Ellipse animation</h2>
+                <p>
+                    How about using it as your loading scree? Or a transition
+                    between pages?
+                </p>
+            </>
+        )
+    },
+    {
+        component: <Day66 />,
+        text: (
+            <>
+                <h2>#66 Checkbox ripple</h2>
+                <p>Give users more feedback on the actions they take!</p>
             </>
         )
     }
