@@ -63,6 +63,8 @@ import {
     Day64,
     Day65,
     Day66,
+    Day67,
+    Day68,
     Day7,
     Day8,
     Day9
@@ -816,6 +818,24 @@ const cards = [
             <>
                 <h2>#66 Checkbox ripple</h2>
                 <p>Give users more feedback on the actions they take!</p>
+            </>
+        )
+    },
+    {
+        component: <Day67 />,
+        text: (
+            <>
+                <h2>#67 Sunshade</h2>
+                <p>Enjoy the weather!</p>
+            </>
+        )
+    },
+    {
+        component: <Day68 />,
+        text: (
+            <>
+                <h2>#68 Audio recording button</h2>
+                <p>Quickly, start recording! You're on the air!</p>
             </>
         )
     }

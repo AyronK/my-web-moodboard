@@ -1,0 +1,141 @@
+@import "../../../styles/colors.scss";
+
+$transitionDuration: 0.7s;
+$cubicBezier: cubic-bezier(0.75, -0.5, 0.5, 1.2);
+
+.recording {
+    position: absolute;
+    inset: 0;
+    width: 96px;
+    height: 96px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .circle {
+        z-index: 1;
+        position: absolute;
+        width: 96px;
+        height: 96px;
+        fill: rgba($color-terciary, 0.25);
+        stroke: $color-quaternary;
+        stroke-width: 4px;
+        stroke-dasharray: 280;
+        stroke-dashoffset: 0;
+        transform-origin: 50%, 50%;
+        transition: all $transitionDuration $cubicBezier;
+    }
+
+    .micro {
+        z-index: 2;
+        fill: $color-quaternary;
+        transition: all $transitionDuration $cubicBezier;
+        transition-delay: calc($transitionDuration / 2);
+    }
+
+    .dots {
+        z-index: 2;
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        transform: scale(0);
+        transition: all $transitionDuration $cubicBezier;
+        transition-delay: 0;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: $color-quaternary;
+    }
+
+    input {
+        all: unset;
+        position: absolute;
+        inset: 0;
+        z-index: 3;
+        cursor: pointer;
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 4px;
+            border-radius: 50%;
+            border: 2px solid rgba($color-quaternary, 0.2);
+        }
+
+        &:checked {
+            ~ .micro {
+                transition-delay: 0 !important;
+                transform: scale(0);
+            }
+
+            &::before {
+                animation: ripple 2.5s 0.15s ease-out infinite;
+            }
+
+            ~ .circle {
+                animation: loader 5s calc($transitionDuration / 2) linear
+                    infinite;
+                fill: rgba(#8b2635, 0.6);
+            }
+
+            ~ .dots {
+                transition-delay: $transitionDuration;
+                transform: scale(1);
+
+                .dot:nth-child(1) {
+                    animation: dotBounce 0.6s ease-in-out infinite alternate;
+                }
+
+                .dot:nth-child(2) {
+                    animation: dotBounce 0.6s 0.15s ease-in-out infinite
+                        alternate;
+                }
+
+                .dot:nth-child(3) {
+                    animation: dotBounce 0.6s 0.3s ease-in-out infinite
+                        alternate;
+                }
+            }
+        }
+    }
+}
+
+@keyframes loader {
+    from {
+        transform: rotate(0);
+        stroke-dashoffset: 0;
+    }
+    to {
+        transform: rotate(360deg);
+        stroke-dashoffset: -560;
+    }
+}
+
+@keyframes dotBounce {
+    from {
+        transform: translateY(-4px);
+    }
+    to {
+        transform: translateY(4px);
+    }
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.05;
+    }
+    75%,
+    100% {
+        opacity: 0;
+        transform: scale(2);
+        opacity: 0;
+    }
+}
