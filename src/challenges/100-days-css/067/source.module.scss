@@ -62,7 +62,7 @@ $numberOfTriangles: 12;
 
         @for $i from 1 through $numberOfTriangles {
             $nullBase: $i - 1;
-            $degree: (360 / $numberOfTriangles) * $nullBase;
+            $degree: calc(360 / $numberOfTriangles) * $nullBase;
 
             .triangle:nth-child(#{$i}) {
                 transform: rotateZ(($degree) + deg)
@@ -93,7 +93,7 @@ $numberOfTriangles: 12;
         }
 
         @for $i from 1 through $numberOfTriangles {
-            $angle: (360 / $numberOfTriangles) * ($i - 1);
+            $angle: calc(360 / $numberOfTriangles) * ($i - 1);
 
             .triangle:nth-child(#{$i}) {
                 transform: rotateZ(($angle) * 1deg) rotateX(-24deg);
