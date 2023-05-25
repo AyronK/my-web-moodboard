@@ -1,0 +1,127 @@
+@import "../../../styles/colors.scss";
+$numberOfTriangles: 12;
+
+.umbrella {
+    position: absolute;
+    top: 8%;
+    left: 13%;
+    transform-style: preserve-3d;
+    transform: rotateX(65deg) rotateY(-10deg) rotateZ(10deg);
+
+    .poleShadow {
+        position: absolute;
+        z-index: -1;
+        width: 6px;
+        height: 50px;
+        top: 100px;
+        left: 97px;
+        background: black;
+        transform-origin: 50% 0%;
+        transform: translateZ(-150px) rotateZ(-90deg) rotateZ(-15deg);
+        box-shadow: 0 0 2px 1px black;
+        border-radius: 2px;
+    }
+
+    .pole {
+        position: absolute;
+        z-index: 2;
+        width: 6px;
+        height: 150px;
+        top: 100px;
+        left: 97px;
+        background: $color-terciary;
+        transform-origin: 50% 0;
+        transform: translateZ(-1px) rotateX(-90deg);
+        border-radius: 2px;
+    }
+
+    .topShadow {
+        position: absolute;
+        z-index: -1;
+        width: 200px;
+        height: 200px;
+        top: 0;
+        left: 0;
+        border-radius: 50%;
+        transform: translateZ(-150px) translateX(120px) translateY(-40px)
+            scale(0.9);
+        animation: rotateTopShadow 10s linear infinite;
+
+        .triangle {
+            position: absolute;
+            top: 100px;
+            left: 77px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 25px 98px 25px;
+            border-color: transparent transparent black transparent;
+            transform-origin: 50% 0;
+            box-shadow: 0 0 4px 2px black;
+        }
+
+        @for $i from 1 through $numberOfTriangles {
+            $nullBase: $i - 1;
+            $degree: (360 / $numberOfTriangles) * $nullBase;
+
+            .triangle:nth-child(#{$i}) {
+                transform: rotateZ(($degree) + deg)
+                    rotateX(-24deg)
+                    translateY(-1px);
+            }
+        }
+    }
+
+    .top {
+        position: relative;
+        z-index: 3;
+        width: 200px;
+        height: 200px;
+        transform-style: preserve-3d;
+        animation: rotateTop 10s linear infinite;
+
+        .triangle {
+            position: absolute;
+            top: 100px;
+            left: 77px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 24px 98px 24px;
+            border-color: transparent transparent $color-terciary transparent;
+            transform-origin: 50% 0;
+        }
+
+        @for $i from 1 through $numberOfTriangles {
+            $angle: (360 / $numberOfTriangles) * ($i - 1);
+
+            .triangle:nth-child(#{$i}) {
+                transform: rotateZ(($angle) * 1deg) rotateX(-24deg);
+            }
+        }
+
+        .triangle:nth-child(2n) {
+            border-color: transparent transparent $color-quaternary transparent;
+        }
+    }
+}
+
+@keyframes rotateTop {
+    from {
+        transform: rotateZ(0deg);
+    }
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+
+@keyframes rotateTopShadow {
+    from {
+        transform: translateZ(-150px) translateX(120px) translateY(-40px)
+            scale(0.9) rotateZ(0deg);
+    }
+    to {
+        transform: translateZ(-150px) translateX(120px) translateY(-40px)
+            scale(0.9) rotateZ(360deg);
+    }
+}
