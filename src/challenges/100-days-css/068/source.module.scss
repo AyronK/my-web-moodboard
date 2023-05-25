@@ -1,1 +1,89 @@
 @import "../../../styles/colors.scss";
+
+$scaleTransitionDuration: 0.5s;
+
+.recording {
+    position: absolute;
+    inset: 0;
+    width: 96px;
+    height: 96px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .circle {
+        z-index: 1;
+        position: absolute;
+        width: 96px;
+        height: 96px;
+        fill: rgba($color-terciary, 0.25);
+        stroke: $color-quaternary;
+        stroke-width: 4px;
+        stroke-dasharray: 280;
+        stroke-dashoffset: 0;
+        transform-origin: 50%, 50%;
+    }
+
+    .micro {
+        z-index: 2;
+        fill: $color-quaternary;
+        transition: all $scaleTransitionDuration
+            cubic-bezier(0.5, -0.25, 0.5, 1.25);
+        transition-delay: $scaleTransitionDuration;
+    }
+
+    .dots {
+        z-index: 2;
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        transform: scale(0);
+        transition: all $scaleTransitionDuration
+            cubic-bezier(0.5, -0.25, 0.5, 1.25);
+        transition-delay: 0;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: $color-quaternary;
+    }
+
+    input {
+        all: unset;
+        position: absolute;
+        inset: 0;
+        z-index: 3;
+        cursor: pointer;
+
+        &:checked {
+            ~ .micro {
+                transform: scale(0);
+                transition-delay: 0;
+            }
+
+            ~ .circle {
+                animation: loader 5s calc($scaleTransitionDuration / 2) linear
+                    infinite;
+            }
+
+            ~ .dots {
+                transition-delay: $scaleTransitionDuration;
+                transform: scale(1);
+            }
+        }
+    }
+}
+
+@keyframes loader {
+    from {
+        transform: rotate(0);
+        stroke-dashoffset: 0;
+    }
+    to {
+        transform: rotate(-360deg);
+        stroke-dashoffset: 560;
+    }
+}
