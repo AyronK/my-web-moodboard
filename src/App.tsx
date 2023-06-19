@@ -844,8 +844,8 @@ const cards = [
         component: <Day69 />,
         text: (
             <>
-                <h2>#69 Eye</h2>
-                <p>It constantly watches you!</p>
+                <h2>#69 Eyes</h2>
+                <p>They're constantly watching you!</p>
             </>
         )
     }

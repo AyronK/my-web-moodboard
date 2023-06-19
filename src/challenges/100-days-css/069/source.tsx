@@ -1,11 +1,13 @@
 import { Center } from "../../../Frame/Frame";
 import styles from "./source.module.scss";
 
-export const Day69: React.FC = () => {
+const Eye: React.FC = () => {
     return (
-        <Center>
+        <>
             <div className={styles.eye}>
-                <span />
+                <div className={styles.ball}>
+                    <div className={styles.iris} />
+                </div>
             </div>
             <div className={styles.top}>
                 <svg width="240px" height="106px" viewBox="0 0 240 106">
@@ -23,6 +25,21 @@ export const Day69: React.FC = () => {
                     />
                 </svg>
             </div>
-        </Center>
+        </>
+    );
+};
+
+export const Day69: React.FC = () => {
+    return (
+        <div className={styles.container}>
+            <div className={styles.eyes}>
+                <div>
+                    <Eye />
+                </div>
+                <div>
+                    <Eye />
+                </div>
+            </div>
+        </div>
     );
 };
