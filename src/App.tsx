@@ -65,6 +65,7 @@ import {
     Day66,
     Day67,
     Day68,
+    Day69,
     Day7,
     Day8,
     Day9
@@ -836,6 +837,15 @@ const cards = [
             <>
                 <h2>#68 Audio recording button</h2>
                 <p>Quickly, start recording! You're on the air!</p>
+            </>
+        )
+    },
+    {
+        component: <Day69 />,
+        text: (
+            <>
+                <h2>#69 Eye</h2>
+                <p>It constantly watches you!</p>
             </>
         )
     }
