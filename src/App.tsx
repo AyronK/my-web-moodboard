@@ -67,6 +67,7 @@ import {
     Day68,
     Day69,
     Day7,
+    Day70,
     Day8,
     Day9
 } from "./challenges/100-days-css/index.t";
@@ -846,6 +847,15 @@ const cards = [
             <>
                 <h2>#69 Eyes</h2>
                 <p>They're constantly watching you!</p>
+            </>
+        )
+    },
+    {
+        component: <Day70 />,
+        text: (
+            <>
+                <h2>#70 Calendar</h2>
+                <p>What are your plans for the weekend?</p>
             </>
         )
     }
