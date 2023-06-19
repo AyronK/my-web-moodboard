@@ -1,1 +1,43 @@
 @import "../../../styles/colors.scss";
+
+.calendar {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.day {
+    cursor: pointer;
+    color: $color-quaternary;
+    transition: all 0.3s ease-in-out;
+
+    div {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease-in-out;
+
+        > :first-child {
+        }
+
+        > :last-child {
+            font-size: 64px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            line-height: 72px;
+        }
+    }
+
+    &:hover {
+        box-shadow: inset 1px 1px 4px 8px rgba(0, 0, 0, 0.25);
+
+        div {
+            transform: scale(0.85);
+        }
+    }
+}
