@@ -858,6 +858,14 @@ const cards = [
                 <p>What are your plans for the weekend?</p>
             </>
         )
+    },
+    {
+        component: <Day71 />,
+        text: (
+            <>
+                <h2>#71 Morse code keyboard</h2>
+            </>
+        )
     }
 ];
 
