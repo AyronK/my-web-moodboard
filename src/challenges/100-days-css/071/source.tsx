@@ -1,6 +1,6 @@
 import styles from "./source.module.scss";
 
-const qwerty = ["qwertyuiop", "asdfghjkl", "zxcvbnm,.!?"];
+const qwerty = ["1234567890","qwertyuiop", "asdfghjkl", "zxcvbnm,.!?"];
 
 const mapCharacterToClassName = (character: string) => {
     if (character === ".") {
@@ -23,22 +23,22 @@ export const Day71: React.FC = () => {
     return (
         <div className={styles.container}>
             <div className={styles.keyboard}>
-                {qwerty.map((row) => {
+                {qwerty.map((row) => (
                     <div key={row} className={styles.row}>
-                        {row.map((character) => {
+                        {row.split("").map((character) => (
                             <div
                                 className={
                                     styles.key +
                                     " " +
                                     mapCharacterToClassName(character)
                                 }
+                                tabIndex={0}
                                 key={character}
                             >
                                 {character}
-                            </div>;
-                        })}
-                    </div>;
-                })}
+                            </div>
+                        ))}
+                    </div>))}                
             </div>
         </div>
     );
