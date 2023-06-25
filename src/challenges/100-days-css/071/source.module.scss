@@ -1,0 +1,196 @@
+@import "../../../styles/colors.scss";
+
+$morseCode: (
+    a: ".-",
+    b: "-...",
+    c: "-.-.",
+    d: "-..",
+    e: ".",
+    f: "..-.",
+    g: "--.",
+    h: "....",
+    i: "..",
+    j: ".---",
+    k: "-.-",
+    l: ".-..",
+    m: "--",
+    n: "-.",
+    o: "---",
+    p: ".--.",
+    q: "--.-",
+    r: ".-.",
+    s: "...",
+    t: "-",
+    u: "..-",
+    v: "...-",
+    w: ".--",
+    x: "-..-",
+    y: "-.--",
+    z: "--..",
+    0: "-----",
+    1: ".----",
+    2: "..---",
+    3: "...--",
+    4: "....-",
+    5: ".....",
+    6: "-....",
+    7: "--...",
+    8: "---..",
+    9: "----.",
+    "dot": ".-.-.-",
+    "comma": "--..--",
+    "question": "..--..",
+    "exclamation": "-.-.--",
+);
+
+.keyboard {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: $color-quaternary;
+    padding: 12px;
+    gap: 4px;
+}
+
+.row {
+    display: flex;
+    gap: 4px;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.key {
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    padding: 4px;
+    border-radius: 50%;
+    color: $color-primary;
+    cursor: pointer;
+
+    &:hover {
+        background-color: darken($color-quaternary, 20%);
+    }
+
+    &::after {
+        position: absolute;
+        content: "";
+        top: -65%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: $color-quaternary;
+        box-shadow: 0 0 48px 32px $color-quaternary;
+        border: none;
+        opacity: 0;
+    }
+}
+
+$frameDuration: 1.5s;
+
+// Function to generate animation frame properties based on the Morse code token
+@function generateMorseCodeFrame($morseSymbol) {
+    @if $morseSymbol == "." {
+        @return (
+            0%: (
+                opacity: 0
+            ),
+            40%: (
+                opacity: 0
+            ),
+            41%: (
+                opacity: 1
+            ),
+            59%: (
+                opacity: 1
+            ),
+            60%: (
+                opacity: 0
+            ),
+            100%: (
+                opacity: 0
+            )
+        );
+    } @else {
+        @return (
+            0%: (
+                opacity: 0
+            ),
+            10%: (
+                width: 60px,
+                height: 20px,
+                border-radius: 4px
+            ),
+            15%: (
+                opacity: 0
+            ),
+            16%: (
+                opacity: 1
+            ),
+            84%: (
+                opacity: 1
+            ),
+            85%: (
+                opacity: 0
+            ),
+            90%: (
+                width: 60px,
+                height: 20px,
+                border-radius: 4px
+            ),
+            100%: (
+                opacity: 0
+            )
+        );
+    }
+}
+
+@each $character, $code in $morseCode {
+    $animation: null;
+
+    @for $i from 1 through str-length($code) {
+        // Frame name for the current token in the Morse code for the character
+        $frameName: frame-#{$character}-#{$i};
+
+        // Current Morse code token
+        $morseCodeToken: str-slice($code, $i, $i);
+
+        // Animation frame properties for the current token
+        $morseCodeFrame: generateMorseCodeFrame($morseCodeToken);
+
+        // Delay based on the token index
+        $delay: calc((#{$i} - 1) * #{$frameDuration});
+
+        // Append the current frame to the animation (with proper delay)
+        $animation: append(
+            $animation,
+            #{$frameName} #{$frameDuration} #{$delay} forwards,
+            comma
+        );
+
+        // Generate keyframes for the current token in the character's Morse code value
+        @keyframes #{$frameName} {
+            @each $percentage, $style in $morseCodeFrame {
+                #{$percentage} {
+                    @each $property, $value in $style {
+                        #{$property}: $value;
+                    }
+                }
+            }
+        }
+    }
+
+    // Add animation to the proper character key class
+    .key-#{$character} {
+        &:focus-within:not(:active) {
+            &::after {
+                animation: $animation;
+            }
+        }
+    }
+}
