@@ -891,6 +891,7 @@ const cards = [
         text: (
             <>
                 <h2>#73 World carousel</h2>
+                <p>Sometimes you just need to spoil yourself!</p>
             </>
         )
     }

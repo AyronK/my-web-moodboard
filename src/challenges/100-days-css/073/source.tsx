@@ -5,13 +5,14 @@ export const Day73: React.FC = () => {
     return (
         <Center>
             <div className={styles.text}>
-                I'm a&nbsp;
+                Time&nbsp;for&nbsp;a
                 <div>
-                    <span>Leopard</span>
-                    <span>Tiger</span>
-                    <span>Panther</span>
-                    <span>Jaguar</span>
+                    <span>break</span>
+                    <span>coffee</span>
+                    <span>cookie</span>
+                    <span>smile</span>
                 </div>
+                .
             </div>
         </Center>
     );
