@@ -69,6 +69,7 @@ import {
     Day7,
     Day70,
     Day71,
+    Day72,
     Day8,
     Day9
 } from "./challenges/100-days-css/index.t";
@@ -866,6 +867,14 @@ const cards = [
             <>
                 <h2>#71 Morse code keyboard</h2>
                 <p>It would be extremely difficult without a preprocessor like SASS. Thankfully it is possible!</p>
+            </>
+        )
+    },
+    {
+        component: <Day72 />,
+        text: (
+            <>
+                <h2>#72 Circles animation</h2>
             </>
         )
     }
