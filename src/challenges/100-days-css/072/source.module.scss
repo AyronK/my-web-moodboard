@@ -1,1 +1,33 @@
 @import "../../../styles/colors.scss";
+
+$ringsCount: 36;
+
+.ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 2px solid $color-quaternary;
+    animation-name: ringRotate;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-duration: 3s;
+    transform-style: preserve-3d;
+
+    @for $i from 1 through $ringsCount {
+        &:nth-child(#{$i}) {
+            animation-timing-function: cubic-bezier(
+                -0.9 + 0.1 * $i,
+                -0.2 + 0.01 * $i,
+                0.1 + 0.03 * $i,
+                0.5
+            );
+        }
+    }
+}
+
+@keyframes ringRotate {
+    to {
+        transform: rotateY(180deg) rotateX(-180deg);
+    }
+}

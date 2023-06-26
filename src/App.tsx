@@ -866,7 +866,10 @@ const cards = [
         text: (
             <>
                 <h2>#71 Morse code keyboard</h2>
-                <p>It would be extremely difficult without a preprocessor like SASS. Thankfully it is possible!</p>
+                <p>
+                    It would be extremely difficult without a preprocessor like
+                    SASS. Thankfully it is possible!
+                </p>
             </>
         )
     },
@@ -875,6 +878,10 @@ const cards = [
         text: (
             <>
                 <h2>#72 Circles animation</h2>
+                <p>
+                    A simple and meditative animation made of circles. What
+                    geometric patterns of circles come to your mind?
+                </p>
             </>
         )
     }
