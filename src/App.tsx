@@ -70,6 +70,7 @@ import {
     Day70,
     Day71,
     Day72,
+    Day73,
     Day8,
     Day9
 } from "./challenges/100-days-css/index.t";
@@ -882,6 +883,14 @@ const cards = [
                     A simple and meditative animation made of circles. What
                     geometric patterns of circles come to your mind?
                 </p>
+            </>
+        )
+    },
+    {
+        component: <Day73 />,
+        text: (
+            <>
+                <h2>#73 World carousel</h2>
             </>
         )
     }
