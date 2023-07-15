@@ -71,6 +71,7 @@ import {
     Day71,
     Day72,
     Day73,
+    Day74,
     Day8,
     Day9
 } from "./challenges/100-days-css/index.t";
@@ -892,6 +893,14 @@ const cards = [
             <>
                 <h2>#73 World carousel</h2>
                 <p>Sometimes you just need to spoil yourself!</p>
+            </>
+        )
+    },
+    {
+        component: <Day74 />,
+        text: (
+            <>
+                <h2>#74 Pagination</h2>
             </>
         )
     }

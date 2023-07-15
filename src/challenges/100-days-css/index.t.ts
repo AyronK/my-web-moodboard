@@ -71,6 +71,7 @@ import { Day70 } from "./070/source";
 import { Day71 } from "./071/source";
 import { Day72 } from "./072/source";
 import { Day73 } from "./073/source";
+import { Day74 } from "./074/source";
 
 export {
     Day1,
@@ -145,5 +146,6 @@ export {
     Day70,
     Day71,
     Day72,
-    Day73
+    Day73,
+    Day74,
 };
