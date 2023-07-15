@@ -1,1 +1,61 @@
 @import "../../../styles/colors.scss";
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+
+    div {
+        flex: 1;
+        display: flex;
+        position: relative;
+        pointer-events: none;
+    }
+}
+
+.radio {
+    all: unset;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid $color-terciary;
+    cursor: pointer;
+    pointer-events: all;
+    transition: all .3s ease-in-out;
+
+    + span {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        color: $color-quaternary;
+        font-size: 14px;
+        line-height: 0;
+        pointer-events: none;
+
+        &::before{
+            content: '';
+            z-index: -1;
+            border-radius: 50%;
+            position: absolute;
+            inset: 0;
+            background-color: $color-terciary;
+            transform: scale(0);
+            transition: all .3s ease-out;
+        }
+    }
+
+    &:hover{
+        background-color: rgba($color-terciary, 0.35);
+    }
+
+    &:checked {        
+        cursor: auto;
+
+        + span::before{            
+            transform: scale(1);
+        }
+    }
+}
