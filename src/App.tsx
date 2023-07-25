@@ -74,6 +74,7 @@ import {
     Day74,
     Day75,
     Day76,
+    Day77,
     Day8,
     Day9
 } from "./challenges/100-days-css/index.t";
@@ -922,6 +923,15 @@ const cards = [
             <>
                 <h2>#76 Password input</h2>
                 <p>Shush, keep it secret!</p>
+            </>
+        )
+    },
+    {
+        component: <Day77 />,
+        text: (
+            <>
+                <h2>#77 Motion blur</h2>
+                <p>Well, not literally... at least until there's native support in web browsers.</p>
             </>
         )
     }
