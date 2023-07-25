@@ -1,0 +1,56 @@
+@import "../../../styles/colors.scss";
+
+$transition: all 0.35s ease-in-out; 
+
+.container {
+    position: relative;
+    box-shadow: 2px 2px 8px 4px rgba(0,0,0,0.3);
+    transition: $transition;    
+}
+
+input.input {
+    all: unset;
+    display: flex;
+    background-color: white;
+    transition: $transition;    
+    transform-origin: 50% 0%;
+    position: relative;
+    z-index: 2;
+}
+
+input.input, .secretLabel, .secretValue{
+    padding: 18px 14px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.secretValue {
+    position: absolute;
+    inset:0;
+    z-index: 1;
+    background-color: $color-green;
+    color: white;
+}
+
+.secretLabel {
+    position: absolute;
+    inset:0;
+    z-index: 1;
+    background-color: white;
+    transition: $transition;    
+    transform-origin: 50% 0%;
+    font-weight: 700;
+    color: $color-secondary;
+}
+
+.pass {
+    transform: translateY(50%);
+
+    .secretLabel, .input {
+        transform: rotateX(180deg) scaleY(-1) translateY(-100%);
+    }
+
+    .secretLabel{
+        z-index: 3;
+    }
+}

@@ -1,0 +1,55 @@
+@import "../../../styles/colors.scss";
+
+.button {
+    all: unset;
+    cursor: pointer;
+    padding: 6px 8px;
+    margin: 8px;
+    background-color: $color-quaternary;
+    border-radius: 4px;
+    font-size: 14px;
+    color: $color-primary;
+    text-align: center;
+    width: 100px;
+    transition: all 0.2s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: calc(100% - 16px);
+    transform: translateX(-100%);
+
+    &:hover{
+        filter: brightness(1.15);
+    }
+}
+
+.ball {
+    width: 64px;
+    height: 64px;
+    background-color: $color-quaternary;
+    border-radius: 50%;
+    position: absolute;
+    top:50%;
+    left:50%;
+    animation: bounce 1s cubic-bezier(0.5, 0.1, 0.6, 1) infinite alternate;
+    transform: rotateZ(-45deg) translate(calc(-120px - 100%), -50%);
+
+    @for $i from 1 through 8 {
+        &:nth-child(#{$i}) {
+            animation-delay: $i * 0.01s;
+            filter: blur($i * 0.5px);
+            opacity: (100% - $i * 10%);
+            z-index: 5 - $i;
+            width: 64px - $i * 1px;
+            height: 64px - $i * 1px;
+        }
+    }
+}
+
+@keyframes bounce {
+    0% {
+        transform: rotateZ(-45deg) translate(calc(-120px - 100%), -50%);
+    }
+    100% {
+        transform: rotateZ(420deg) translate(calc(-120px + 100%), -100%);
+    }
+}
