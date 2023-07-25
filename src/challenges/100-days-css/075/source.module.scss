@@ -1,1 +1,33 @@
 @import "../../../styles/colors.scss";
+
+$numberOfCircles: 12;
+
+.sphere {
+    position: absolute;
+    inset: 0;
+    animation: sphereRotation 4.5s ease-in-out infinite alternate;
+    transform-style: preserve-3d;
+}
+
+.circle {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background-color: rgba($color-quaternary, 0.1);
+    transform-style: preserve-3d;
+
+    @for $i from 0 through $numberOfCircles {
+        &:nth-child(#{$i}) {
+            transform: rotateY(calc(180deg / $numberOfCircles) * ($i - 1)); 
+        }
+    }
+}
+
+@keyframes sphereRotation {
+    from {
+        transform: rotate3d(1,1,1,0)
+    }
+    to {
+        transform: rotate3d(-3.5, 3.5, 0.75, 360deg);
+    }    
+}
