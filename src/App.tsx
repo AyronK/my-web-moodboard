@@ -72,6 +72,7 @@ import {
     Day72,
     Day73,
     Day74,
+    Day75,
     Day8,
     Day9
 } from "./challenges/100-days-css/index.t";
@@ -902,6 +903,15 @@ const cards = [
             <>
                 <h2>#74 Pagination</h2>
                 <p>Is there what you're looking for on the next page?</p>
+            </>
+        )
+    }    ,
+    {
+        component: <Day75 />,
+        text: (
+            <>
+                <h2>#75 Spinning discs</h2>
+                <p>Even though 3D sphere is not possible in pure CSS, we can make an illusion of it!</p>
             </>
         )
     }
