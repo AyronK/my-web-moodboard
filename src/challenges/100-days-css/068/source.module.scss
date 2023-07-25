@@ -79,7 +79,7 @@ $cubicBezier: cubic-bezier(0.75, -0.5, 0.5, 1.2);
             ~ .circle {
                 animation: loader 5s calc($transitionDuration / 2) linear
                     infinite;
-                fill: rgba(#8b2635, 0.6);
+                fill: rgba($color-red, 0.6);
             }
 
             ~ .dots {
