@@ -931,7 +931,7 @@ const cards = [
         text: (
             <>
                 <h2>#77 Motion blur</h2>
-                <p>Well, not literally... at least until there's native support in web browsers.</p>
+                <p>Well, not literally... at least until there's native support in web browsers. Looks smooth though!</p>
             </>
         )
     }
