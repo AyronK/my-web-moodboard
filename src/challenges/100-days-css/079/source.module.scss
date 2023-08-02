@@ -27,27 +27,27 @@ $defaultSize: 16px;
                 border-radius: 25%;
             }
             10% {
-                transform: rotate(36deg * $i) translateY(36px) scale(1);
+                transform: rotate(36deg * $i - 90deg) translateY(40px) scale(1);
                 border-radius: 25%;
             }
             15% {
-                transform: rotate(36deg * $i) translateY(100px) scale(1);
+                transform: rotate(36deg * $i + 30deg) translateY(100px) scale(1);
                 border-radius: 25%;
             }
             20% {
-                transform: rotate(36deg * $i + 110deg) translateY(100px) scale(2, 0.25);
+                transform: rotate(36deg * $i - 60deg) translateY(100px) scale(2, 0.25);
                 border-radius: 25%;
             }
             25% {
-                transform: rotate(36deg * $i + 60deg) translateY(120px) scale(2, 0.5) skew(20deg, 10deg);
+                transform: rotate(36deg * $i + 120deg) translateY(120px) scale(2, 0.5) skew(20deg, 10deg);
                 border-radius: 25%;
             }
             30% {
-                transform: rotate(36deg * $i + 110deg) translateY(80px) scale(2, 0.5) skew(-20deg, -10deg);
+                transform: rotate(36deg * $i) translateY(80px) scale(2, 0.5) skew(-20deg, -10deg);
                 border-radius: 25%;
             }
             35% {
-                transform: rotate(36deg * $i) translateY(60px) scale(1);
+                transform: rotate(36deg * $i - 90deg) translateY(60px) scale(1);
                 border-radius: 0%;
             }
             40% {
@@ -71,7 +71,7 @@ $defaultSize: 16px;
                 border-radius: 50%;
             }
             65% {
-                transform: rotate(36deg * $i) translateY(0) scale(1, 1);
+                transform: rotate(36deg * $i - 90deg) translateY(0) scale(1, 1);
                 border-radius: 50%;
             }
             70% {
@@ -83,11 +83,11 @@ $defaultSize: 16px;
                 border-radius: 0%;
             }
             80% {
-                transform: rotate(36deg * $i + 180deg) translateY(60px) translateX(40px);
+                transform: rotate(36deg * $i + 180deg) translateY(40px) translateX(40px);
                 border-radius: 0%;
             }
             85% {
-                transform: rotate(36deg * $i) translateY(80px);
+                transform: rotate(36deg * $i) translateY(120px);
                 border-radius: 0%;
             }
             90% {
