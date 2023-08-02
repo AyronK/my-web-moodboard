@@ -76,6 +76,7 @@ import {
     Day76,
     Day77,
     Day78,
+    Day79,
     Day8,
     Day9
 } from "./challenges/100-days-css/index.t";
@@ -942,6 +943,15 @@ const cards = [
             <>
                 <h2>#78 Hover states</h2>
                 <p>How elevation can affect perception of the element?</p>
+            </>
+        )
+    },
+    {
+        component: <Day79 />,
+        text: (
+            <>
+                <h2>#79 Animated lines</h2>
+                <p>I kind of love how creative you can be with some basic geometry.</p>
             </>
         )
     }
