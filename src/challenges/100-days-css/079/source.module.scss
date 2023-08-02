@@ -1,1 +1,70 @@
 @import "../../../styles/colors.scss";
+
+$defaultSize: 16px;
+
+.line {
+    position: absolute;
+    top:calc(50% - $defaultSize / 2);
+    left:calc(50% - $defaultSize / 2);
+    width: $defaultSize;
+    height: $defaultSize;
+
+    background-color: $color-quaternary;
+
+    @for $i from 1 through 10 {
+        &:nth-child(#{$i}) {
+            animation: animation#{$i} 10s ease-in-out infinite;
+        }
+
+        @keyframes animation#{$i} {
+            0% {
+                transform: rotate(54deg * $i) scale(0.1);
+                border-radius: 50%;            
+            }
+            5% {
+                transform: rotate(54deg * $i) scale(3);
+                border-radius: 50%;
+            }
+            10% {
+                transform: rotate(36deg * $i) scale(3);
+                border-radius: 0%;
+            }
+            15% {
+                transform: rotate(36deg * $i) translateY(100px) scale(1);
+                border-radius: 0%;
+            }
+            20% {
+                transform: rotate(36deg * $i) translateY(100px) scale(2, 0.25);
+                border-radius: 0%;
+            }
+            25% {
+                transform: rotate(36deg * $i) translateY(100px) scale(3, 1) skew(20deg, 10deg);
+                border-radius: 0%;
+            }
+            30% {
+                transform: rotate(36deg * $i) translateY(100px) scale(3, 1) skew(-20deg, -10deg);
+                border-radius: 0%;
+            }
+            35% {
+                transform: rotate(36deg * $i) translateY(60px) scale(1);
+                border-radius: 0%;
+            }
+            40% {
+                transform: rotate(36deg * $i) translateY(100px) rotate(180deg);
+                border-radius: 0%;
+            }
+            45% {
+                transform: rotate(36deg * $i) translateY(40px);
+                border-radius: 0%;
+            }
+            95% {
+                transform: rotate(36deg * $i) scale(0.25, 0.25);
+                border-radius: 0%;
+            }
+            100% {
+                transform: rotate(36deg * $i) translateY(800px) scale(0.2, 10);
+                border-radius: 0%;
+            }
+        }
+    }
+}
