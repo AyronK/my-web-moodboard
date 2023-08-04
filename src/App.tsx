@@ -75,6 +75,8 @@ import {
     Day75,
     Day76,
     Day77,
+    Day78,
+    Day79,
     Day8,
     Day9
 } from "./challenges/100-days-css/index.t";
@@ -932,6 +934,24 @@ const cards = [
             <>
                 <h2>#77 Motion blur</h2>
                 <p>Well, not literally... at least until there's native support in web browsers. Looks smooth though!</p>
+            </>
+        )
+    },
+    {
+        component: <Day78 />,
+        text: (
+            <>
+                <h2>#78 Hover states</h2>
+                <p>How elevation can affect perception of the element?</p>
+            </>
+        )
+    },
+    {
+        component: <Day79 />,
+        text: (
+            <>
+                <h2>#79 Animated lines</h2>
+                <p>I kind of love how creative you can be with some basic geometry.</p>
             </>
         )
     }

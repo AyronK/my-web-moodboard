@@ -1,0 +1,107 @@
+@import "../../../styles/colors.scss";
+
+$defaultSize: 16px;
+
+.line {
+    position: absolute;
+    top:calc(50% - $defaultSize / 2);
+    left:calc(50% - $defaultSize / 2);
+    width: $defaultSize;
+    height: $defaultSize;
+
+    background-color: $color-quaternary;
+
+    @for $i from 1 through 10 {
+        &:nth-child(#{$i}) {
+            animation: animation#{$i} 12s cubic-bezier(0.645, 0.045, 0.355, 1) infinite;
+            filter: hue-rotate($i * 36deg) saturate(2);
+        }
+
+        @keyframes animation#{$i} {
+            0% {
+                transform: scale(0.1);
+                border-radius: 50%;            
+            }
+            5% {
+                transform: rotate(72deg * $i) translateY(4px) scale(3);
+                border-radius: 25%;
+            }
+            10% {
+                transform: rotate(36deg * $i - 90deg) translateY(40px) scale(1);
+                border-radius: 25%;
+            }
+            15% {
+                transform: rotate(36deg * $i + 30deg) translateY(100px) scale(1);
+                border-radius: 25%;
+            }
+            20% {
+                transform: rotate(36deg * $i - 60deg) translateY(100px) scale(2, 0.25);
+                border-radius: 25%;
+            }
+            25% {
+                transform: rotate(36deg * $i + 120deg) translateY(120px) scale(2, 0.5) skew(20deg, 10deg);
+                border-radius: 25%;
+            }
+            30% {
+                transform: rotate(36deg * $i) translateY(80px) scale(2, 0.5) skew(-20deg, -10deg);
+                border-radius: 25%;
+            }
+            35% {
+                transform: rotate(36deg * $i - 90deg) translateY(60px) scale(1);
+                border-radius: 0%;
+            }
+            40% {
+                transform: rotate(36deg * $i) translateY(100px) rotate(180deg);
+                border-radius: 0%;
+            }
+            45% {
+                transform: rotate(36deg * $i) translateY(40px);
+                border-radius: 0%;
+            }
+            50% {
+                transform: rotate(36deg * $i) translateY(120px) scale(1, 3);
+                border-radius: 0%;
+            }
+            55% {
+                transform: rotate(36deg * $i) translateY(70px) scale(1, 1);
+                border-radius: 0%;
+            }
+            60% {
+                transform: rotate(36deg * $i) translateY(40px) scale(1, 1);
+                border-radius: 50%;
+            }
+            65% {
+                transform: rotate(36deg * $i - 90deg) translateY(0) scale(1, 1);
+                border-radius: 50%;
+            }
+            70% {
+                transform: rotate(36deg * $i) translateY(100px) rotate(180deg);
+                border-radius: 0%;
+            }
+            75% {
+                transform: rotate(36deg * $i) translateY(60px);
+                border-radius: 0%;
+            }
+            80% {
+                transform: rotate(36deg * $i + 180deg) translateY(40px) translateX(40px);
+                border-radius: 0%;
+            }
+            85% {
+                transform: rotate(36deg * $i) translateY(120px);
+                border-radius: 0%;
+            }
+            90% {
+                transform: rotate(36deg * $i - 180deg) translateY(40px) translateX(-40px);
+                border-radius: 0%;
+            }
+            95% {
+                transform: rotate(36deg * $i) scale(0.25, 0.25);
+                border-radius: 0%;
+            }
+            100% {
+                transform: rotate(36deg * $i) translateY(400px) scale(0.2, 10);
+                border-radius: 0%;
+            }
+        }
+    }
+}
