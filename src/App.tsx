@@ -78,6 +78,7 @@ import {
     Day78,
     Day79,
     Day8,
+    Day80,
     Day9
 } from "./challenges/100-days-css/index.t";
 import styles from "./App.module.scss";
@@ -952,6 +953,15 @@ const cards = [
             <>
                 <h2>#79 Animated lines</h2>
                 <p>I kind of love how creative you can be with some basic geometry.</p>
+            </>
+        )
+    },
+    {
+        component: <Day80 />,
+        text: (
+            <>
+                <h2>#80 Flexbox accordeon</h2>
+                <p></p>
             </>
         )
     }

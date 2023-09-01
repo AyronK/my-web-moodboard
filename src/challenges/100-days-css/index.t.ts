@@ -77,6 +77,7 @@ import { Day76 } from "./076/source";
 import { Day77 } from "./077/source";
 import { Day78 } from "./078/source";
 import { Day79 } from "./079/source";
+import { Day80 } from "./080/source";
 
 export {
     Day1,
@@ -158,4 +159,5 @@ export {
     Day77,
     Day78,
     Day79,
+    Day80
 };
