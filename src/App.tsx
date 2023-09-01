@@ -79,6 +79,7 @@ import {
     Day79,
     Day8,
     Day80,
+    Day81,
     Day9
 } from "./challenges/100-days-css/index.t";
 import styles from "./App.module.scss";
@@ -962,6 +963,15 @@ const cards = [
             <>
                 <h2>#80 Flexbox accordion</h2>
                 <p>Simple accordion using flex properties.</p>
+            </>
+        )
+    },
+    {
+        component: <Day81 />,
+        text: (
+            <>
+                <h2>#81 Jumping ball</h2>
+                <p>Following the principles of animation even physics is possible with CSS.</p>
             </>
         )
     }
