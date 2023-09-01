@@ -80,6 +80,7 @@ import {
     Day8,
     Day80,
     Day81,
+    Day82,
     Day9
 } from "./challenges/100-days-css/index.t";
 import styles from "./App.module.scss";
@@ -972,6 +973,15 @@ const cards = [
             <>
                 <h2>#81 Jumping ball</h2>
                 <p>Following the principles of animation even physics is possible with CSS.</p>
+            </>
+        )
+    },
+    {
+        component: <Day82 />,
+        text: (
+            <>
+                <h2>#82 Action Button</h2>
+                <p>Make sure that the user gets instant action feedback.</p>
             </>
         )
     }
