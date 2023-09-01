@@ -1,0 +1,44 @@
+@import "../../../styles/colors.scss";
+
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    width: 100%;
+    height: 100%;
+
+    & div {
+        flex: 1 1 auto;
+        width: 10%;
+        display: grid;
+        place-items: center;
+        color: $color-quaternary;
+        font-weight: 700;
+        font-size: 24px;
+        transition: all .5s ease-in-out;
+
+        &:nth-of-type(2n) {
+            background-color: $color-terciary;
+        }
+
+        &:nth-of-type(2n + 1) {
+            background-color: $color-secondary;
+        }
+
+        & span {
+            opacity: 0;
+            transition: all .5s ease-in-out;
+            text-align: center;
+            transform: scale(0.5);
+        }
+
+        &:hover {
+            width: 100%;
+        }
+
+        &:hover span {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+}

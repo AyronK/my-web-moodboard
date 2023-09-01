@@ -1,0 +1,58 @@
+@import "../../../styles/colors.scss";
+
+.button {
+    all: unset;
+    cursor: pointer;
+    position: relative;
+    display: block;
+    width: 120px;
+    height: 60px;
+    border-radius: 100px;
+    margin: auto;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 18px;
+    color: transparent;
+    z-index: 1;
+
+    &::after,
+    &::before {
+        position: absolute;
+        inset: 0;
+        border-radius: 100px;
+        z-index: -1;
+        backface-visibility: hidden;
+        color: $color-primary;
+        display: grid;
+        place-items: center;
+        transform-style: preserve-3d;
+        transition: all 500ms ease-in-out;
+        backface-visibility: hidden;
+        box-shadow: 3px 3px 4px 0 rgba(0, 0, 0, 0.3);
+    }
+
+    &::after {
+        content: 'Send';
+        color: $color-primary;
+        background-color: $color-quaternary;
+    }
+
+    &::before {
+        content: 'DONE!';
+        transform: rotateX(-180deg);
+        border: 2px solid $color-quaternary;
+        color: white;
+        background-color: $color-green;
+    }
+
+    &.clicked {
+        &::after {
+            transform: rotateX(-180deg);
+        }
+
+        &::before {
+            transform: rotateX(0);
+        }
+    }
+}
