@@ -960,8 +960,8 @@ const cards = [
         component: <Day80 />,
         text: (
             <>
-                <h2>#80 Flexbox accordeon</h2>
-                <p></p>
+                <h2>#80 Flexbox accordion</h2>
+                <p>Simple accordion using flex properties.</p>
             </>
         )
     }
