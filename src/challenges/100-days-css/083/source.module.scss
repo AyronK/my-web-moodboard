@@ -1,0 +1,72 @@
+@import "../../../styles/colors.scss";
+
+$numberOfLines: 24;
+$numberOfSets: 30;
+
+.container {
+    position: absolute;
+    background: linear-gradient(45deg, black, rgb(1, 14, 49));
+    inset: -100px;
+    animation: rotate 24s linear infinite forwards;
+}
+
+.line {
+    width: 2px;
+    height: 15px;
+    background-color: $color-quaternary;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: 50% 50%;
+
+    @for $i from 0 through $numberOfLines {
+        &:nth-of-type(#{$i+1}) {
+            transform: skew(-10deg) rotate(calc(360deg / $numberOfLines) * $i + random() * 5deg + 5deg) translateY(110px - random() * 40px) scaleY(2 - random() * 2);
+            filter: hue-rotate(calc(360deg / $numberOfLines) * $i + random() * 5deg + 5deg);
+        }
+    }
+}
+
+.setOfLines {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: scale(0);
+    opacity: 0;
+    animation: scaleUp 4s cubic-bezier(0.98, 0.02, 0.97, 0.12) infinite;
+
+    @for $i from 0 through $numberOfSets {
+        &:nth-of-type(#{$i+1}) {
+            animation-delay: 150ms * $i;
+
+            &>div {
+                transform: rotate(calc(360deg / $numberOfLines) * $i + random() * 5deg + 5deg);
+            }
+        }
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes scaleUp {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(5);
+    }
+}
