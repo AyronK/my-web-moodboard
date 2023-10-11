@@ -1001,7 +1001,7 @@ const cards = [
         text: (
             <>
                 <h2>#84 Book</h2>
-                <p></p>
+                <p>No image, no SVG, just CSS and gradients.</p>
             </>
         )
     }

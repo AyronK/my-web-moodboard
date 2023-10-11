@@ -1,1 +1,66 @@
 @import "../../../styles/colors.scss";
+
+.book {
+    width: 200px;
+    height: 300px;
+    border-radius: 2px;
+    box-shadow: 1px 1px 6px 2px rgba(0, 0, 0, 0.3);
+    position: relative;
+    background: linear-gradient(
+        90deg, 
+        darken($color-green, 10%) 0%, 
+        $color-green 1%, 
+        lighten($color-green, 3%) 3%, 
+        darken($color-green, 4%) 5%,
+        $color-green 8%, 
+        $color-green 100%
+    );
+
+    &:after {
+        content:'';
+        position: absolute;
+        top: -1px;
+        bottom: -1px;
+        right: 24px;
+        width: 12px;
+        background: $color-terciary;
+        box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.2);
+
+        background: linear-gradient(
+            90deg, 
+            $color-terciary 0%, 
+            darken($color-terciary, 7%) 10%, 
+            $color-terciary 20%, 
+            darken($color-terciary, 7%) 30%, 
+            $color-terciary 40%, 
+            darken($color-terciary, 7%) 50%, 
+            $color-terciary 60%, 
+            darken($color-terciary, 7%) 70%, 
+            $color-terciary 80%, 
+            darken($color-terciary, 7%) 90%, 
+            $color-terciary 100%
+        );
+
+    }
+}
+
+.title {
+    padding: 36px 30px;
+    
+    & h1 {
+        font-weight: 900;
+        font-size: 36px;
+        line-height: 42px;
+        text-transform: uppercase;
+        color: white;
+        position: relative;
+        margin-bottom: 8px;
+    }
+
+    & h2 {
+        color: $color-quaternary;
+        font-style: italic;
+        font-weight: 300;
+        font-size: 14px;
+    }
+}
