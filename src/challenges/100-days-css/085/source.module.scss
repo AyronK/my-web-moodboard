@@ -1,1 +1,51 @@
 @import "../../../styles/colors.scss";
+
+.dot {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    top: 50%;
+    left: 0;
+    background-color: $color-quaternary;
+
+    @for $i from 1 through 100 {
+        &:nth-child(#{$i}) {
+            left: ($i - 1) * 4px;
+        }
+    }
+
+    @for $i from 1 through 50 {
+
+        &:nth-child(#{$i}),
+        &:nth-child(#{100 - $i}) {
+            animation: movement#{$i} 3.5s ease-in-out infinite;
+            $amplitude: $i * 1px + 0.03px * $i * $i;
+
+            @keyframes movement#{$i} {
+
+                0%,
+                50% {
+                    transform: translateY(0);
+                }
+
+                25% {
+                    transform: translateY($amplitude);
+                }
+
+                75% {
+                    transform: translateY(-1 * $amplitude);
+                }
+            }
+        }
+    }
+
+    &:nth-child(50) {
+        width: 24px;
+        height: 24px;
+        left: calc(50% - 14px);
+        top: calc(50% - 12px);
+        background-color: $color-terciary;
+        z-index: 2;
+    }
+}

@@ -1011,7 +1011,7 @@ const cards = [
         text: (
             <>
                 <h2>#85 Plop</h2>
-                <p></p>
+                <p>Let's say it's gravity warping the space. Why not?</p>
             </>
         )
     }
