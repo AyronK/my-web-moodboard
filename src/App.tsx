@@ -83,6 +83,7 @@ import {
     Day82,
     Day83,
     Day84,
+    Day85,
     Day9
 } from "./challenges/100-days-css/index.t";
 import styles from "./App.module.scss";
@@ -1002,6 +1003,15 @@ const cards = [
             <>
                 <h2>#84 Book</h2>
                 <p>No image, no SVG, just CSS and gradients.</p>
+            </>
+        )
+    },
+    {
+        component: <Day85 />,
+        text: (
+            <>
+                <h2>#85 Plop</h2>
+                <p></p>
             </>
         )
     }
