@@ -1,1 +1,74 @@
 @import "../../../styles/colors.scss";
+
+$stringLength: 128px;
+
+.cradle {
+    position: relative;
+    width: 240px;
+    height: 40px;
+    padding-top: $stringLength;
+      
+      &:before {
+          content: '';
+          display: block;
+          position: absolute;
+          width: 240px;
+          height: 4px;
+          top: 0;
+          left: 0;
+          border-radius: 100px;
+          background: $color-terciary;
+    }
+}
+
+.ball {
+    position: relative;
+    top: 4px;
+    float: left;
+    width: 48px;
+    height: 48px;
+    background: radial-gradient($color-quaternary, darken($color-quaternary, 20%));
+    border-radius: 50%;
+    transform-origin: 50% calc(-1 * $stringLength);
+    
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        height: $stringLength;
+        width: 1px;
+        top: -1 * $stringLength;
+        left: 23px;
+        background: $color-quaternary;
+    }
+
+    $animationDuration: 1s;
+    $animation: $animationDuration ease-out infinite alternate;
+    
+    &:nth-child(1) {
+		animation: ball-left $animation;
+    }
+    
+    &:nth-child(5) {
+		animation: ball-right $animation;   
+        animation-delay: $animationDuration;
+    }
+}
+
+@keyframes ball-left {
+	0%, 50% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(30deg);		
+	}
+}
+
+@keyframes ball-right {
+	0%, 50% {
+		transform: rotate(0);
+	}
+	100% {
+		transform: rotate(-30deg);		
+	}
+}
