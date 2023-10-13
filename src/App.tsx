@@ -82,6 +82,9 @@ import {
     Day81,
     Day82,
     Day83,
+    Day84,
+    Day85,
+    Day86,
     Day9
 } from "./challenges/100-days-css/index.t";
 import styles from "./App.module.scss";
@@ -992,6 +995,33 @@ const cards = [
             <>
                 <h2>#83 Warp Drive</h2>
                 <p>Let's travel to another galaxy. Do they have CSS there?</p>
+            </>
+        )
+    },
+    {
+        component: <Day84 />,
+        text: (
+            <>
+                <h2>#84 Book</h2>
+                <p>No image, no SVG, just CSS and gradients.</p>
+            </>
+        )
+    },
+    {
+        component: <Day85 />,
+        text: (
+            <>
+                <h2>#85 Plop</h2>
+                <p>Let's say it's gravity warping the space. Why not?</p>
+            </>
+        )
+    },
+    {
+        component: <Day86 />,
+        text: (
+            <>
+                <h2>#86 Newton's Cradle</h2>
+                <p>Just let it click and clack.</p>
             </>
         )
     }
