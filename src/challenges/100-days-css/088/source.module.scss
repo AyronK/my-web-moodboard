@@ -1,0 +1,117 @@
+@import "../../../styles/colors.scss";
+
+
+
+.candle {
+	width: 60px;
+	height: 100px;
+	background: $color-quaternary;
+	border-radius: 3px;
+	box-shadow: inset -10px 0 0 0 darken($color-quaternary, 10%);
+	position: absolute;
+	top: 60%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.plate {
+	position: absolute;
+	top: calc(60% + 50px);
+	left: 50%;
+	transform: translateX(-50%);
+	width: 120px;
+	height: 8px;
+	background: $color-terciary;
+	border-radius: 3px;
+}
+
+.wick {
+	position: absolute;
+	width: 4px;
+	height: 15px;
+	top: 115px;
+	left: 50%;
+	transform: translateX(-50%);
+	background: darken($color-terciary, 20%);
+	border-radius: 2px 2px 0 0;
+}
+
+.flame {
+	position: absolute;
+	width: 16px;
+	height: 26px;
+	top: 97px;
+	left: 142px;
+	transform: translateX(-50%);
+	background: radial-gradient(ellipse at bottom,
+			#ff3300 10%,
+			#ff6600 30%,
+			#ff9900 60%,
+			#ffcc00 100%);
+	border-radius: 8px 8px 8px 8px / 20px 20px 8px 8px;
+	animation:
+		wind 20s ease-in-out infinite,
+		scale 12s ease-in-out infinite,
+		glow 2s ease-in-out infinite;
+	transform-origin: 50% 100%;
+}
+
+@keyframes wind {
+
+	0%,
+	22%,
+	49%,
+	62%,
+	81%,
+	100% {
+		border-radius: 3px 15px 2px 2px / 20px 20px 8px 8px;
+	}
+
+	14%,
+	32%,
+	56%,
+	70%,
+	89% {
+		border-radius: 15px 3px 2px 2px / 20px 20px 8px 8px;
+	}
+}
+
+@keyframes scale {
+
+	0%,
+	22%,
+	49%,
+	62%,
+	81%,
+	100% {
+		transform: scale(1, 1);
+	}
+
+	14%,
+	32%,
+	56%,
+	70%,
+	89% {
+		transform: scale(0.9, 1.1);
+	}
+}
+
+@keyframes glow {
+
+	0%,
+	22%,
+	49%,
+	62%,
+	81%,
+	100% {
+		box-shadow: 0 0 20px 0 rgba(#ffcc00, 0.7);
+	}
+
+	14%,
+	32%,
+	56%,
+	70%,
+	89% {
+		box-shadow: 0 0 20px 0 rgba(#ffcc00, 0.8);
+	}
+}
