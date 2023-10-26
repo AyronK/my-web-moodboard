@@ -85,6 +85,7 @@ import {
     Day84,
     Day85,
     Day86,
+    Day87,
     Day9
 } from "./challenges/100-days-css/index.t";
 import styles from "./App.module.scss";
@@ -92,6 +93,7 @@ import { FrameSwitch } from "./FrameSwitch/FrameSwitch";
 import { MonitorPlay, GithubLogo, Code } from "@phosphor-icons/react";
 import { Weather } from "./challenges/100-days-css/009/source";
 import { FetchedText } from "./FetchedText/FetchedText";
+import { Day88 } from "./challenges/100-days-css/088/source";
 
 const stackBlitzBaseUrl =
     "https://stackblitz.com/github/AyronK/my-web-moodboard?embed=1&hideExplorer=1&hideNavigation=1&view=editor&showSidebar=0&devtoolsheight=0";
@@ -1022,6 +1024,24 @@ const cards = [
             <>
                 <h2>#86 Newton's Cradle</h2>
                 <p>Just let it click and clack.</p>
+            </>
+        )
+    },
+    {
+        component: <Day87 />,
+        text: (
+            <>
+                <h2>#87 Emerald</h2>
+                <p>It shines!</p>
+            </>
+        )
+    },
+    {
+        component: <Day88 />,
+        text: (
+            <>
+                <h2>#88 Candle</h2>
+                <p>The flame is animated using CSS border radius.</p>
             </>
         )
     }
