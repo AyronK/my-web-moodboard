@@ -85,6 +85,7 @@ import {
     Day84,
     Day85,
     Day86,
+    Day87,
     Day9
 } from "./challenges/100-days-css/index.t";
 import styles from "./App.module.scss";
@@ -1022,6 +1023,15 @@ const cards = [
             <>
                 <h2>#86 Newton's Cradle</h2>
                 <p>Just let it click and clack.</p>
+            </>
+        )
+    },
+    {
+        component: <Day87 />,
+        text: (
+            <>
+                <h2>#87 Emerald</h2>
+                <p>It shines!</p>
             </>
         )
     }
