@@ -1,0 +1,12 @@
+@import "../../../styles/colors.scss";
+
+.container {
+	display: grid;
+	grid-template-columns: repeat(10, 1fr);
+	grid-template-rows: repeat(10, 1fr);
+}
+
+.pattern {
+	width: 40px;
+	height: 40px;
+}
