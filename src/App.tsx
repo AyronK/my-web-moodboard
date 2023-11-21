@@ -88,7 +88,8 @@ import {
     Day87,
     Day88,
     Day89,
-    Day9
+    Day9,
+    Day90
 } from "./challenges/100-days-css/index.t";
 import styles from "./App.module.scss";
 import { FrameSwitch } from "./FrameSwitch/FrameSwitch";
@@ -1052,6 +1053,15 @@ const cards = [
             <>
                 <h2>#89 Animated pattern</h2>
                 <p>Don't stare for too long!</p>
+            </>
+        )
+    },
+    {
+        component: <Day90 />,
+        text: (
+            <>
+                <h2>#90 Cursor trap</h2>
+                <p>It won't lock your movement but certainly will keep you embraced.</p>
             </>
         )
     }
