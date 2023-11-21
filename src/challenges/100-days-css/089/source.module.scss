@@ -1,0 +1,113 @@
+@import "../../../styles/colors.scss";
+
+.container {
+	display: grid;
+	grid-template-columns: repeat(10, 1fr);
+	grid-template-rows: repeat(10, 1fr);
+}
+
+.pattern {
+	width: 40px;
+	height: 40px;
+	position: relative;
+
+	&::before, &::after {
+		content: '';
+		position: absolute;
+		width: 20px;
+		height: 20px;
+		left: 10px;
+		top: 10px;
+		transform: rotate(45deg);
+		box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1);
+	}
+
+	&::before {
+		animation: animation1 10s ease-in-out forwards infinite;
+		background-color: $color-terciary;
+	}
+
+	&::after {
+		animation: animation2 10s ease-in-out forwards infinite;
+		background-color: $color-quaternary;
+	}
+}
+
+@keyframes animation1 {
+	0% {
+		transform: rotate(45deg);		
+	}
+	10% {
+		transform: rotate(45deg) scale(2, 0.5);	
+	}
+	20% {
+		transform: rotate(45deg) translateX(30px) scale(2, 0.5);		
+	}
+	30% {
+		transform: rotate(45deg) scale(2, 0.5);	
+	}
+	40% {
+		transform: rotate(45deg);		
+	}
+	50% {
+		transform: rotate(0deg);		
+		border-radius: 0%;	
+	}
+	60% {
+		transform: rotate(0deg) scale(0.85);	
+		border-radius: 50%;		
+	}
+	70% {
+		transform: rotate(0deg);		
+		border-radius: 0%;		
+	}
+	80% {
+		transform: rotate(90deg);		
+	}
+	90% {
+		transform: rotate(90deg) scale(2, 0.5);		
+	}
+	100% {
+		transform: rotate(45deg);		
+	}
+}
+
+@keyframes animation2 {
+	0% {	
+		transform: rotate(45deg);		
+	}
+	10% {
+		transform: rotate(45deg) scale(0.5, 2);		
+	}
+	20% {
+		transform: rotate(45deg) translateX(-5px)  scale(0.5, 2);		
+	}	
+	30% {
+		transform: rotate(45deg) scale(0.5, 2);	
+	}
+	40% {
+		transform: rotate(45deg);			
+	}
+	50% {
+		transform: rotate(-45deg);		
+		border-radius: 0%;	
+	}
+	60% {
+		transform: rotate(-45deg) scale(0.4);	
+		border-radius: 50%;		
+	}
+	70% {
+		transform: rotate(-45deg);		
+		border-radius: 0%;		
+	}
+	80% {
+		transform: rotate(0deg);		
+		border-radius: 0%;		
+	}
+	90% {
+		transform: rotate(0deg) scale(2, 0.5);		
+	}
+	100% {
+		transform: rotate(45deg);		
+	}
+}
