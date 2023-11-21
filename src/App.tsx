@@ -1051,6 +1051,7 @@ const cards = [
         text: (
             <>
                 <h2>#89 Animated pattern</h2>
+                <p>Don't stare for too long!</p>
             </>
         )
     }
