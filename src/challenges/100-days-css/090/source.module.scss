@@ -37,9 +37,9 @@ $cellHeight: calc(400px / $rowCount);
 	position: relative;
 	top: calc(50% - 1px);
 	background-color: $color-quaternary;
-	transform: scaleX(0);
+	transform: translateX(0) scaleX(0);
 	pointer-events: none;
-	transition: all 0.3s ease-out;
+	transition: all 0.6s ease-out;
 }
 
 .left {
@@ -53,17 +53,74 @@ $cellHeight: calc(400px / $rowCount);
 .trigger {
 	width: $cellWidth;
 	height: $cellHeight;
+	position: relative;
+
+	&::after {
+		position: absolute;
+		inset: 0;
+		content: '';
+		border-radius: 50%;
+		width: $cellWidth;
+		height: $cellHeight;
+		transition: all .3s ease-in-out;
+	}
 
 	@for $column from 1 through $columnCount {
 		@for $row from 1 through $rowCount {
 			&:nth-child(#{($row - 1) * $rowCount + $column}):hover {
+
+				&::after {
+					background-color: rgba($color-terciary, 0.3);
+				}
+
 				~.lines {
+					.line:nth-child(#{calc($row - 2)}) {
+						.left {
+							transform: translateX(-24px) scaleX($column * 10%);
+						}
+
+						.right {
+							transform: translateX(24px) scaleX(($columnCount - $column) * 10%);
+						}
+					}
+
+					.line:nth-child(#{calc($row - 1)}) {
+						.left {
+							transform: translateX(-64px) scaleX($column * 10%);
+						}
+
+						.right {
+							transform: translateX(64px) scaleX(($columnCount - $column) * 10%);
+						}
+					}
+
 					.line:nth-child(#{$row}) {
 						.left {
-							transform: scaleX($column * 10%) translateX(-20px - calc($cellWidth / 2));
+							transform: translateX(-80px) scaleX($column * 10%);
 						}
+
 						.right {
-							transform: scaleX(($columnCount - $column) * 10%) translateX(20px);
+							transform: translateX(80px) scaleX(($columnCount - $column) * 10%);
+						}
+					}
+
+					.line:nth-child(#{calc($row + 1)}) {
+						.left {
+							transform: translateX(-64px) scaleX($column * 10%);
+						}
+
+						.right {
+							transform: translateX(64px) scaleX(($columnCount - $column) * 10%);
+						}
+					}
+
+					.line:nth-child(#{calc($row + 2)}) {
+						.left {
+							transform: translateX(-24px) scaleX($column * 10%);
+						}
+
+						.right {
+							transform: translateX(24px) scaleX(($columnCount - $column) * 10%);
 						}
 					}
 				}
