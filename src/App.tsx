@@ -1070,8 +1070,8 @@ const cards = [
         component: <Day91 />,
         text: (
             <>
-                <h2>#91 3D Loader</h2>
-                <p>Bring more depth into your UI.</p>
+                <h2>#91 Cube loader</h2>
+                <p>In case you need to bring more depth into your application.</p>
             </>
         )
     }

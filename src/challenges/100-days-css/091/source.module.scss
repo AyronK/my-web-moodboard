@@ -1,33 +1,106 @@
 @import "../../../styles/colors.scss";
 
-$sideSize: 120px;
+$sideSize: 140px;
 
 .cube {
-    position: absolute;
     width: $sideSize;
     height: $sideSize;
-    transform: translate(-50%, -25%) rotateX(-25deg) rotateY(45deg);
-    top: 50%;
-    left: 50%;
     transform-style: preserve-3d;
+    animation: load 1s ease-in-out forwards;
+    transform: none;
+    transform-style: preserve-3d;
+    transition: all 1s ease-in-out;
 }
 
 .side {
     position: absolute;
+    display: block;
     width: $sideSize;
     height: $sideSize;
-    background-color: rgba(0, 0, 0, 0.3);
-}
-
-.right {
-    transform: rotateY(180deg) translateX(calc($sideSize / -2));
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.15);
 }
 
 .top {
-    transform: rotateX(90deg) translateZ(calc($sideSize / 1.2));
+    transform: rotateX(90deg) translateZ(calc($sideSize / 2));
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.bottom {
+    transform: rotateX(90deg) translateZ(calc($sideSize / -2));
     background-color: rgba(0, 0, 0, 0.25);
+    box-shadow: 8px 8px 48px 16px rgba(0, 0, 0, 0.3);
 }
 
 .left {
-    transform: rotateY(-90deg) translateX(calc($sideSize / -2));
+    transform: rotateY(-90deg) translateZ(calc($sideSize / 2));
+}
+
+.right {
+    transform: rotateY(90deg) translateZ(calc($sideSize / 2));
+}
+
+.front {
+    transform: rotateY(0deg) translateZ(calc($sideSize / 2));
+}
+
+.back {
+    transform: rotateY(180deg) translateZ(calc($sideSize / 2));
+}
+
+.topFill {
+    transform: rotateX(90deg) translateZ(calc($sideSize / -2));
+    animation: fillInTop 3s 0.25s ease-in-out alternate infinite;
+    background-color: $color-green;
+}
+
+.right,
+.front,
+.back,
+.left {
+    &::before {
+        content: '';
+        transform-origin: 0% 100%;
+        position: absolute;
+        inset: 0px;
+        animation: fillIn 3s 0.25s ease-in-out alternate infinite;
+        background-color: $color-green;
+        transform: scaleY(0%);
+    }
+}
+
+@keyframes fillInTop {
+
+    0%,
+    20% {
+        transform: rotateX(90deg) translateZ(calc($sideSize / -2));
+    }
+
+    80%,
+    100% {
+        transform: rotateX(90deg) translateZ(calc($sideSize / 2) - 1px);
+    }
+}
+
+@keyframes fillIn {
+
+    0%,
+    20% {
+        transform: scaleY(0%);
+    }
+
+    80%,
+    100% {
+        transform: scaleY(100%);
+    }
+}
+
+@keyframes load {
+    from {
+        transform: none;
+    }
+
+    to {
+        transform: rotateX(-25deg) rotateY(45deg);
+    }
 }
