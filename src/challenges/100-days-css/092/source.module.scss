@@ -1,1 +1,182 @@
 @import "../../../styles/colors.scss";
+
+.container {
+    transform-origin: 50% 50%;
+    animation: containerAnimation 6s linear infinite forwards;
+    position: absolute;
+    inset: 0;
+}
+
+.point {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: $color-quaternary;
+    position: absolute;
+
+    &:nth-child(1),
+    &:nth-child(9) {
+        top: 92px;
+        left: 0px;
+    }
+
+    &:nth-child(2),
+    &:nth-child(10) {
+        top: 300px;
+        left: 0px;
+    }
+
+    &:nth-child(3),
+    &:nth-child(11) {
+        top: 0px;
+        left: 100px;
+    }
+
+    &:nth-child(4),
+    &:nth-child(12) {
+        top: 0px;
+        left: 300px;
+    }
+
+    &:nth-child(5),
+    &:nth-child(13) {
+        top: 100px;
+        left: 392px;
+    }
+
+    &:nth-child(6),
+    &:nth-child(14) {
+        top: 300px;
+        left: 392px;
+    }
+
+    &:nth-child(7),
+    &:nth-child(15) {
+        top: 392px;
+        left: 100px;
+    }
+
+    &:nth-child(8),
+    &:nth-child(16) {
+        top: 392px;
+        left: 300px;
+    }
+
+    @for $i from 1 through 8 {
+        &:nth-child(#{$i}) {
+            animation: point-#{$i} 7s ease-in-out infinite;
+        }
+    }
+
+    @for $i from 9 through 16 {
+        &:nth-child(#{$i}) {
+            animation: point-#{$i - 8} 5s ease-in-out infinite;
+        }
+    }
+}
+
+@keyframes point-1 {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(300px, 300px);
+    }
+}
+
+@keyframes point-2 {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(300px, -300px);
+    }
+}
+
+@keyframes point-3 {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(300px, 300px);
+    }
+}
+
+@keyframes point-4 {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(-300px, 300px);
+    }
+}
+
+@keyframes point-5 {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(-300px, 300px);
+    }
+}
+
+@keyframes point-6 {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(-300px, -300px);
+    }
+}
+
+@keyframes point-7 {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(300px, -300px);
+    }
+}
+
+@keyframes point-8 {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(-300px, -300px);
+    }
+}
+
+@keyframes containerAnimation {
+    from {
+        transform: rotateZ(0);
+    }
+
+    to {
+        transform: rotateZ(360deg);
+    }
+}
