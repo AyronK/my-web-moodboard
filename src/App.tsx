@@ -90,7 +90,8 @@ import {
     Day89,
     Day9,
     Day90,
-    Day91
+    Day91,
+    Day92
 } from "./challenges/100-days-css/index.t";
 import styles from "./App.module.scss";
 import { FrameSwitch } from "./FrameSwitch/FrameSwitch";
@@ -1072,6 +1073,15 @@ const cards = [
             <>
                 <h2>#91 Cube loader</h2>
                 <p>In case you need to bring more depth into your application.</p>
+            </>
+        )
+    },
+    {
+        component: <Day92 />,
+        text: (
+            <>
+                <h2>#92 Dancing dots</h2>
+                <p>Combining simple routes can add up to an interesting pattern.</p>
             </>
         )
     }
