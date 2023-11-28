@@ -1,1 +1,156 @@
 @import "../../../styles/colors.scss";
+
+.tree {
+    position: absolute;
+    z-index: 2;
+    top: 132px;
+    left: 198px;
+
+    &:after {
+        position: absolute;
+        content: '';
+        width: 64px;
+        height: 4px;
+        background: $color-quaternary;
+        bottom: 0px;
+        left: -31px;
+        border-radius: 2px;
+        animation: scaleX 0.7s ease-in-out both;
+    }
+}
+
+$leavesWidth: 68px;
+$leavesHeight: 230px;
+
+.leaves {
+    position: absolute;
+    z-index: -1;
+    width: 0;
+    height: 0;
+    top: -64px;
+    left: -1 * $leavesWidth;
+    border-style: solid;
+    border-width: 0 $leavesWidth $leavesHeight $leavesWidth;
+    border-color: transparent transparent $color-green transparent;
+    animation: scaleX 1s ease-in-out .7s both;
+
+    &:before {
+        position: absolute;
+        content: '';
+        display: block;
+        width: 0;
+        height: 0;
+        top: 0;
+        left: -1 * $leavesWidth;
+        border-style: solid;
+        border-width: 0 0px $leavesHeight $leavesWidth;
+        border-color: transparent transparent rgba(0, 0, 0, 0.2) transparent;
+    }
+
+}
+
+.trunk {
+    position: relative;
+    width: 4px;
+    height: 200px;
+    background: $color-terciary;
+    border-radius: 2px;
+    transform-origin: 50% 100%;
+    animation: scaleY .7s ease-in-out both;
+}
+
+.branch {
+    position: absolute;
+    width: 4px;
+    height: 60px;
+    background: $color-terciary;
+    border-radius: 2px;
+    transform-origin: 50% 100%;
+    transform: rotate(-35deg);
+
+    &:nth-child(2n) {
+        transform: rotate(35deg);
+    }
+
+    @for $i from 1 through 7 {
+        &:nth-child(#{$i}) {
+            top: (16px * $i) - 16;
+            height: (8px * $i) + 12px;
+        }
+    }
+}
+
+.star {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: -88px;
+  left: -20px;
+  animation: scaleY .7s 1.2s ease-in-out both;
+}
+
+.balls{
+    position: absolute;
+    left: -12px;
+    top: 0;
+}
+
+.ball {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: $color-red;
+    animation: scaleX .7s 1.2s ease-in-out both;
+
+    --direction: 1;
+
+
+    &:nth-child(2n) {
+        --direction: -1;
+    }
+
+    @for $i from 1 through 7 {
+        &:nth-child(#{$i}) {
+            top: (26px * $i) - 38px;
+            left: calc((4px + $i * 4px) * var(--direction));
+            animation-delay: 1.2s + $i * 0.05s;
+        }
+    }
+}
+
+@keyframes scaleY {
+    0% {
+        transform: scaleY(0);
+    }
+
+    60% {
+        transform: scaleY(1.1);
+    }
+
+    80% {
+        transform: scaleY(0.95);
+    }
+
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+@keyframes scaleX {
+    0% {
+        transform: scaleX(0);
+    }
+
+    60% {
+        transform: scaleX(1.1);
+    }
+
+    80% {
+        transform: scaleX(0.95);
+    }
+
+    100% {
+        transform: scaleX(1);
+    }
+}
