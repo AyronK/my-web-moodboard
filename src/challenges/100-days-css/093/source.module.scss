@@ -10,7 +10,7 @@
 }
 
 .top {
-    border: 6px solid whitesmoke;
+    border: 6px solid white;
     height: 120px;
     width: 128px;
     border-top-left-radius: 50%;
@@ -18,7 +18,7 @@
     position: relative;
     left: 50%;
     transform: translate(-50%, 30%);
-    box-shadow: inset 4px 4px 1px 0 rgba(255, 255, 255, 0.8), inset -3px -2px 1px 0 rgba(0, 0, 0, 0.3), 4px 8px 12px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: inset 2px 2px 1px 0 rgba(255, 255, 255, 0.8), inset -4px -2px 1px 0 rgba(0, 0, 0, 0.3), 4px 8px 2px 0 rgba(0, 0, 0, 0.2);
 
     &::after{
         content: '';
@@ -34,12 +34,12 @@
     width: 164px;
     height: 164px;
     border-radius: 50%;
-    background-color: whitesmoke;
+    background-color: white;
     position: relative;
 
     &:hover {
         .lines {
-            transform: translate(-50%, -50%) rotateZ(360deg);
+            transform: translate(-50%, -50%) rotateZ(295deg);
         }
     }
 }
@@ -56,7 +56,7 @@
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background-color: whitesmoke;
+    background-color: white;
     box-shadow: inset 2px 4px 1px 0 rgba(255, 255, 255, 0.8), inset -1px -2px 1px 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -71,7 +71,7 @@
 .line {
     width: 8px;
     height: 2px;
-    background-color: whitesmoke;
+    background-color: white;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -81,6 +81,12 @@
     &:nth-child(5n) {
         width: 14px;
         --offset: 56px;
+    }
+
+    &:nth-child(30) {
+        background-color: $color-red;
+        width: 18px;
+        --offset: 52px;
     }
 }
 
