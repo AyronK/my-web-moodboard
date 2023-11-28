@@ -1,0 +1,97 @@
+@import "../../../styles/colors.scss";
+
+.container,
+.inner,
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.top {
+    border: 6px solid white;
+    height: 120px;
+    width: 128px;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 30%);
+    box-shadow: inset 2px 2px 1px 0 rgba(255, 255, 255, 0.8), inset -4px -2px 1px 0 rgba(0, 0, 0, 0.3), 4px 8px 2px 0 rgba(0, 0, 0, 0.2);
+
+    &::after{
+        content: '';
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        position: absolute;
+        inset: 0;
+        box-shadow: 4px 4px 1px 0 rgba(255, 255, 255, 0.8), -3px -2px 1px 0 rgba(0, 0, 0, 0.3), inset 4px 8px 12px 0 rgba(0, 0, 0, 0.2);
+    }
+}
+
+.bottom {
+    width: 164px;
+    height: 164px;
+    border-radius: 50%;
+    background-color: white;
+    position: relative;
+
+    &:hover {
+        .lines {
+            transform: translate(-50%, -50%) rotateZ(295deg);
+        }
+    }
+}
+
+.inner {
+    width: 152px;
+    height: 152px;
+    border-radius: 50%;
+    background-color: darken($color-primary, 7%);
+    box-shadow: 4px 8px 12px 0 rgba(0, 0, 0, 0.2), inset 2px 1px 1px 0 rgba(255, 255, 255, 0.8), inset -1px -2px 1px 0 rgba(0, 0, 0, 0);
+}
+
+.center {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: inset 2px 4px 1px 0 rgba(255, 255, 255, 0.8), inset -1px -2px 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.lines {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 1.5s ease-in-out;
+}
+
+.line {
+    width: 8px;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: 0% 0%;
+    --offset: 62px;
+
+    &:nth-child(5n) {
+        width: 14px;
+        --offset: 56px;
+    }
+
+    &:nth-child(30) {
+        background-color: $color-red;
+        width: 18px;
+        --offset: 52px;
+    }
+}
+
+@for $i from 1 through 40 {
+    .line:nth-child(#{$i}) {
+        transform: rotateZ($i * 9deg) translateX(var(--offset));
+    }
+}
