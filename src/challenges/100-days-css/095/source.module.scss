@@ -1,6 +1,7 @@
 @import "../../../styles/colors.scss";
 
 $darkColor: darken($color-secondary, 17%);
+$darkOnWhiteColor: darken($color-secondary, 15%);
 $lightColor: lighten($color-secondary, 20%);
 
 .panda {
@@ -14,7 +15,8 @@ $lightColor: lighten($color-secondary, 20%);
     background-color: white;
     border-radius: 50%;
     border: 8px solid $darkColor;
-    z-index: 10;
+    z-index: 2;
+    transform: scaleY(0.975);
 }
 
 .ear {
@@ -51,11 +53,18 @@ $lightColor: lighten($color-secondary, 20%);
     }
 }
 
+.eyes {
+    position: absolute;
+    inset: 0;
+    transform-origin: 50% 50%;
+    animation: eyes 10s ease-in-out infinite;
+}
+
 .eye {
     position: absolute;
     width: 60px;
     height: 60px;
-    background-color: lighten($darkColor, 3%);
+    background-color: $darkOnWhiteColor;
     border-radius: 50%;
     z-index: 1;
     top: 72px;
@@ -99,4 +108,49 @@ $lightColor: lighten($color-secondary, 20%);
         top: 9px;
         left: 13px;
     }
+}
+
+.nose {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+
+    .center {
+        width: 12px;
+        height: 12px;
+        background-color: $darkOnWhiteColor;
+        border-radius: 50%;
+    }
+
+    .left,
+    .right {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 32px;
+        height: 48px;
+        border-width: 6px;
+        border-style: solid;
+        border-radius: 50%;
+        border-color: $darkOnWhiteColor transparent transparent transparent;
+    }
+
+    .left {
+        transform: rotateX(180deg) translateX(-23px) translateY(36px);
+    }
+
+    .right {
+        transform: rotateX(180deg) translateX(-7px) translateY(36px);
+    }
+}
+
+@keyframes eyes {
+	0%, 23%, 25%, 65%, 67%, 89%, 91%, 100%  {
+		transform: scaleY(1);
+	}
+	24%, 66%, 90% {
+		transform: scaleY(0);
+	}
 }
