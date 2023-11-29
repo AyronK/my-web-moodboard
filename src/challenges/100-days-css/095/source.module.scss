@@ -1,1 +1,102 @@
 @import "../../../styles/colors.scss";
+
+$darkColor: darken($color-secondary, 17%);
+$lightColor: lighten($color-secondary, 20%);
+
+.panda {
+    position: relative;
+}
+
+.head {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    border-radius: 50%;
+    border: 8px solid $darkColor;
+    z-index: 10;
+}
+
+.ear {
+    position: absolute;
+    width: 72px;
+    height: 72px;
+    background-color: $darkColor;
+    border-radius: 50%;
+    z-index: 1;
+    top: -8px;
+    left: 50%;
+
+    $earOffset: 64px;
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        border: 5px solid $lightColor;
+    }
+
+    &.left {
+        transform: translateX(calc(-50% - $earOffset));
+    }
+
+    &.right {
+        transform: translateX(calc(-50% + $earOffset));
+    }
+}
+
+.eye {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: lighten($darkColor, 3%);
+    border-radius: 50%;
+    z-index: 1;
+    top: 72px;
+    left: 50%;
+
+    $eyeOffset: 42px;
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: white;
+        transform: translate(-50%, -50%);
+        top: 54%;
+    }
+
+    &.left {
+        transform: translateX(calc(-50% - $eyeOffset));
+
+        &::after {
+            left: 51%;
+        }
+    }
+
+    &.right {
+        transform: translateX(calc(-50% + $eyeOffset));
+
+        &::after {
+            left: 49%;
+        }
+    }
+
+    .flash {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: white;
+        top: 9px;
+        left: 13px;
+    }
+}
