@@ -146,6 +146,98 @@ $lightColor: lighten($color-secondary, 20%);
     }
 }
 
+.foot {
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    background-color: $darkColor;
+    border-radius: 50%;
+    z-index: 1;
+    top: 200px;
+    left: 50%;
+
+    $footOffset: 80px;
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        border: 14px solid $lightColor;
+    }
+
+    &.left {
+        transform: translateX(calc(-50% - $footOffset));
+    }
+
+    &.right {
+        transform: translateX(calc(-50% + $footOffset));
+    }
+}
+
+.butt {
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 222px;
+    height: 64px;
+    border-radius: 100px;
+    background-color: $darkColor;
+}
+
+.belly {
+    position: absolute;
+    top: 156px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 96px;
+    height: 100px;
+    border-radius: 24px 24px 32px 32px;
+    background-color: white;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: -24px;
+        right: -24px;
+        top: 0;
+        bottom: 24px;
+        background-color: white;
+        border: 6px solid $darkOnWhiteColor;
+        border-bottom: 6px solid transparent;
+        border-radius: 200px;
+    }
+}
+
+.arm {
+    &.left,
+    &.right {
+        position: absolute;
+        top: 200px;
+        left: 50%;
+        width: 32px;
+        height: 48px;
+        border-width: 6px;
+        border-style: solid;
+        border-radius: 50%;
+        border-color: $darkOnWhiteColor transparent transparent transparent;
+    }
+
+    &.left {
+        transform: rotateX(180deg) translateX(-23px) translateY(36px);
+    }
+
+    &.right {
+        transform: rotateX(180deg) translateX(-7px) translateY(36px);
+    }
+}
+
 @keyframes eyes {
 	0%, 23%, 25%, 65%, 67%, 89%, 91%, 100%  {
 		transform: scaleY(1);

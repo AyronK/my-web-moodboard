@@ -18,6 +18,12 @@ export const Day95: React.FC = () => {
                 </div>
                 <div className={styles.ear + " " + styles.left} />
                 <div className={styles.ear + " " + styles.right} />
+                <div className={styles.foot + " " + styles.left} />
+                <div className={styles.foot + " " + styles.right} />
+                <div className={styles.butt} />
+                <div className={styles.belly} />
+                <div className={styles.arm + " " + styles.left} />
+                <div className={styles.arm + " " + styles.right} />
             </div>
         </Center>
     );
