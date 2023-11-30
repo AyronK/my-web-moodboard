@@ -93,7 +93,8 @@ import {
     Day91,
     Day92,
     Day93,
-    Day94
+    Day94,
+    Day95
 } from "./challenges/100-days-css/index.t";
 import styles from "./App.module.scss";
 import { FrameSwitch } from "./FrameSwitch/FrameSwitch";
@@ -1102,6 +1103,15 @@ const cards = [
             <>
                 <h2>#94 Christmas tree</h2>
                 <p>🎶 It begins to look a lot like christmas... 🎵</p>
+            </>
+        )
+    },
+    {
+        component: <Day95 />,
+        text: (
+            <>
+                <h2>#95 Panda</h2>
+                <p>Innocent, cute and consists entirely of simple basic shapes. Fancy a bamboo?</p>
             </>
         )
     }
