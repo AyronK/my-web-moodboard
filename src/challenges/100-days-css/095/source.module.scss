@@ -6,6 +6,7 @@ $lightColor: lighten($color-secondary, 20%);
 
 .panda {
     position: relative;
+    transform: translateY(-18px);
 }
 
 .head {
@@ -217,6 +218,7 @@ $lightColor: lighten($color-secondary, 20%);
 }
 
 .arm {
+
     &.left,
     &.right {
         position: absolute;
@@ -231,7 +233,7 @@ $lightColor: lighten($color-secondary, 20%);
     }
 
     &.left {
-        transform: translateX(-40px) rotateZ(55deg) ;
+        transform: translateX(-40px) rotateZ(55deg);
     }
 
     &.right {
@@ -240,10 +242,21 @@ $lightColor: lighten($color-secondary, 20%);
 }
 
 @keyframes eyes {
-	0%, 23%, 25%, 65%, 67%, 89%, 91%, 100%  {
-		transform: scaleY(1);
-	}
-	24%, 66%, 90% {
-		transform: scaleY(0);
-	}
+
+    0%,
+    23%,
+    25%,
+    65%,
+    67%,
+    89%,
+    91%,
+    100% {
+        transform: scaleY(1);
+    }
+
+    24%,
+    66%,
+    90% {
+        transform: scaleY(0);
+    }
 }
