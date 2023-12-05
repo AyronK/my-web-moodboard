@@ -1120,7 +1120,7 @@ const cards = [
         component: <Day96 />,
         text: (
             <>
-                <h2>#96 Jumping Square</h2>
+                <h2>#96 Jumping Marshmallow</h2>
                 <p>Squashed and stretched, this is how objects in motion should look like.</p>
             </>
         )

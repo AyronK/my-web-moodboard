@@ -1,1 +1,118 @@
 @import "../../../styles/colors.scss";
+
+$duration: 1.5s;
+$easing: cubic-bezier(.6, .05, .3, 0.8);
+
+.down {
+    position: relative;
+    top: 32px;
+    animation: down $duration ease-in infinite both;
+}
+
+.up {
+    animation: up $duration ease-in-out infinite both;
+}
+
+.squeeze {
+    transform-origin: 50% 100%;
+    animation: squeeze $duration $easing infinite both;
+}
+
+.rotate1 {
+    animation: rotate-in $duration ease-out infinite both;
+}
+
+.rotate2 {
+    animation: rotate-out $duration ease-in infinite both;
+}
+
+.marshmallow {
+    width: 90px;
+    height: 120px;
+    background: $color-quaternary;
+    border-radius: 4px;
+}
+
+.shadow {
+    position: absolute;
+    z-index: -1;
+    bottom: 54px;
+    left: 72px;
+    right: 72px;
+    height: 2px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 2px 4px rgba(0, 0, 0, 0.2);
+    animation: shadow $duration ease-in-out infinite both;
+}
+
+@keyframes down {
+    0% {
+        transform: translateY(-100px);
+    }
+
+    20%,
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes up {
+    0%,
+    75% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-100px);
+    }
+}
+
+@keyframes squeeze {
+    0%,
+    4% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.85, 0.4);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes rotate-in {
+    0% {
+        transform: rotate(-135deg);
+    }
+
+    20%,
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes rotate-out {
+    0%,
+    80% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(135deg);
+    }
+}
+
+@keyframes shadow {
+    0%,
+    100% {
+        transform: scaleX(.5);
+    }
+
+    45%,
+    50% {
+        transform: scaleX(1.8);
+    }
+}
