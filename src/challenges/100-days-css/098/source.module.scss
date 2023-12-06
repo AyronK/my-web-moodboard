@@ -1,1 +1,100 @@
 @import "../../../styles/colors.scss";
+
+$duration: 1.5s;
+$easingBox: cubic-bezier(.25, .75, .2, 1);
+
+.box {
+    position: absolute;
+    z-index: 10;
+    width: 160px;
+    height: 160px;
+    top: 120px;
+    left: 120px;
+
+    >div {
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-style: solid;
+    }
+
+    .top {
+        top: 0;
+        left: 0;
+        border-width: 80px 80px 0 80px;
+        border-color: $color-quaternary transparent transparent transparent;
+        animation: box-top $duration $easingBox infinite alternate;
+    }
+
+    .left {
+        top: 0;
+        left: 0;
+        border-width: 80px 0 80px 80px;
+        border-color: transparent transparent transparent lighten($color-quaternary, 4%);
+        animation: box-left $duration $easingBox infinite alternate;
+    }
+
+    .right {
+        top: 0;
+        right: 0;
+        border-width: 80px 80px 80px 0;
+        border-color: transparent darken($color-quaternary, 7%) transparent transparent;
+        animation: box-right $duration $easingBox infinite alternate;
+    }
+
+    .bottom {
+        bottom: 0;
+        right: 0;
+        border-width: 0 80px 80px 80px;
+        border-color: transparent transparent darken($color-quaternary, 9%) transparent;
+        animation: box-bottom $duration $easingBox infinite alternate;
+    }
+}
+
+@keyframes box-top {
+
+    0%,
+    20% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-180px);
+    }
+}
+
+@keyframes box-left {
+
+    0%,
+    20% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateX(-180px);
+    }
+}
+
+@keyframes box-right {
+
+    0%,
+    20% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateX(180px);
+    }
+}
+
+@keyframes box-bottom {
+
+    0%,
+    20% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(180px);
+    }
+}
