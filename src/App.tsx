@@ -95,7 +95,8 @@ import {
     Day93,
     Day94,
     Day95,
-    Day96
+    Day96,
+    Day97
 } from "./challenges/100-days-css/index.t";
 import styles from "./App.module.scss";
 import { FrameSwitch } from "./FrameSwitch/FrameSwitch";
@@ -1122,6 +1123,15 @@ const cards = [
             <>
                 <h2>#96 Jumping Marshmallow</h2>
                 <p>Squashed and stretched, this is how objects in motion should look like.</p>
+            </>
+        )
+    },
+    {
+        component: <Day97 />,
+        text: (
+            <>
+                <h2>#97 Waving man</h2>
+                <p>Don't be shy, wave back!</p>
             </>
         )
     }
