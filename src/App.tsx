@@ -97,7 +97,8 @@ import {
     Day95,
     Day96,
     Day97,
-    Day98
+    Day98,
+    Day99
 } from "./challenges/100-days-css/index.t";
 import styles from "./App.module.scss";
 import { FrameSwitch } from "./FrameSwitch/FrameSwitch";
@@ -1142,6 +1143,15 @@ const cards = [
             <>
                 <h2>#98 Suprise box</h2>
                 <p>What would you put inside?</p>
+            </>
+        )
+    },
+    {
+        component: <Day99 />,
+        text: (
+            <>
+                <h2>#99 State transition</h2>
+                <p>Yet another effect to keep user engaged.</p>
             </>
         )
     }
