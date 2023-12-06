@@ -4,7 +4,7 @@ import styles from "./source.module.scss";
 export const Day99: React.FC = () => {
     return (
         <Center>
-            <input type="checkbox"/>
+            <input type="checkbox" className={styles.checkbox} />
         </Center>
     );
 };
