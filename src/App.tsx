@@ -96,7 +96,8 @@ import {
     Day94,
     Day95,
     Day96,
-    Day97
+    Day97,
+    Day98
 } from "./challenges/100-days-css/index.t";
 import styles from "./App.module.scss";
 import { FrameSwitch } from "./FrameSwitch/FrameSwitch";
@@ -1132,6 +1133,15 @@ const cards = [
             <>
                 <h2>#97 Waving man</h2>
                 <p>Don't be shy, wave back!</p>
+            </>
+        )
+    },
+    {
+        component: <Day98 />,
+        text: (
+            <>
+                <h2>#98 Suprise box</h2>
+                <p>What would you put inside?</p>
             </>
         )
     }
