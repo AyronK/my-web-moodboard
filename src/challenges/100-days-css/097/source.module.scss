@@ -1,1 +1,126 @@
 @import "../../../styles/colors.scss";
+
+.man {
+    transform: translateY(-32px);
+}
+
+.head {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 10px auto;
+    background: $color-quaternary;
+    border-radius: 50%;
+}
+
+.body {
+    position: relative;
+    height: 100px;
+    width: 50px;
+    background: $color-quaternary;
+}
+
+.arm {
+    position: absolute;
+    top: 0;
+
+    &.left {
+        left: -10px;
+
+        .upper {
+            transform: rotate(10deg);
+
+            .lower {
+                transform: rotate(-5deg);
+            }
+        }
+    }
+
+    &.right {
+        right: -10px;
+
+        .upper {
+            transform: rotate(-75deg);
+            animation: upper 1s ease-in-out infinite alternate;
+
+            .lower {
+                transform: rotate(-75deg);
+                animation: lower 1s ease-in-out infinite alternate;
+            }
+        }
+    }
+
+    .upper {
+        position: relative;
+        height: 50px;
+        width: 16px;
+        background: $color-quaternary;
+        border-radius: 8px;
+        transform-origin: 8px 8px;
+
+        .lower {
+            position: absolute;
+            height: 52px;
+            width: 16px;
+            bottom: -36px;
+            left: 0;
+            background: $color-quaternary;
+            border-radius: 8px;
+            transform-origin: 8px 8px;
+        }
+    }
+}
+
+.leg {
+    position: absolute;
+    top: 78px;
+
+    &.left {
+        left: 0px;
+    }
+
+    &.right {
+        right: 0px;
+    }
+
+    .upper {
+        position: relative;
+        height: 70px;
+        width: 24px;
+        background: $color-quaternary;
+        border-radius: 12px;
+        transform-origin: 12px 12px;
+
+        .lower {
+            position: absolute;
+            height: 70px;
+            width: 24px;
+            bottom: -46px;
+            left: 0;
+            background: $color-quaternary;
+            border-radius: 12px;
+            transform-origin: 12px 12px;
+        }
+    }
+}
+
+
+@keyframes upper {
+    0% {
+        transform: rotate(-75deg);
+    }
+
+    100% {
+        transform: rotate(-85deg);
+    }
+}
+
+@keyframes lower {
+    0% {
+        transform: rotate(-75deg);
+    }
+
+    100% {
+        transform: rotate(-105deg);
+    }
+}
