@@ -1,0 +1,346 @@
+@import "../../../styles/colors.scss";
+
+@mixin animation() {
+    animation: blink 6s ease-in-out (calc(random(400) / 100) * 1s) infinite alternate both;
+}
+
+@mixin edge() {
+    position: absolute;
+    background: #1A1E24;
+    box-shadow: 0px 0px 6px 0px #1A1E24;
+    border-radius: 3px;
+}
+
+.container {
+    transform: scale(0.85) translate(16px, 48px);
+}
+
+.e {
+    position: absolute;
+    width: 69px;
+    height: 120px;
+    top: 136px;
+    left: 324px;
+
+    &Left {
+        top: 0;
+        left: 0;
+        height: 120px;
+        width: 6px;
+        @include animation();
+        @include edge();
+    }
+
+    &Top {
+        top: 0;
+        right: 0;
+        height: 6px;
+        width: 60px;
+        @include animation();
+        @include edge();
+    }
+
+    &Mid {
+        top: 56px;
+        left: 9px;
+        height: 6px;
+        width: 50px;
+        @include animation();
+        @include edge();
+    }
+
+    &Bottom {
+        bottom: 0;
+        right: 0;
+        height: 6px;
+        width: 60px;
+        @include animation();
+        @include edge();
+    }
+}
+
+.n {
+    position: absolute;
+    width: 85px;
+    height: 120px;
+    top: 136px;
+    left: 212px;
+
+    &Left {
+        top: 0;
+        left: 0;
+        height: 120px;
+        width: 6px;
+        @include animation();
+        @include edge();
+    }
+
+    &Mid {
+        top: 0;
+        left: 9px;
+        height: 6px;
+        width: 135px;
+        transform-origin: 3px 3px;
+        transform: rotate(62deg);
+        @include animation();
+        @include edge();
+    }
+
+    &Right {
+        top: 0;
+        right: 0;
+        height: 120px;
+        width: 6px;
+        @include animation();
+        @include edge();
+    }
+
+}
+
+.d {
+    position: absolute;
+    width: 72px;
+    height: 120px;
+    top: 136px;
+    left: -24px;
+
+    &Left {
+        top: 0;
+        left: 0;
+        height: 120px;
+        width: 6px;
+        @include animation();
+        @include edge();
+    }
+
+    &Right {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        height: 120px;
+        width: 70px;
+
+        $delay: (
+            calc(random(400) / 100)) * 1s;
+
+        .circleContainer .circle {
+            animation: blink-circle 6s ease-in-out $delay infinite alternate both;
+        }
+
+        .circleContainer {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            bottom: -10px;
+            width: 70px;
+            overflow: hidden;
+
+            .circle {
+                box-sizing: border-box;
+                position: absolute;
+                width: 120px;
+                height: 120px;
+                top: 10px;
+                right: 10px;
+                border-style: solid;
+                border-width: 6px;
+                border-color: #1A1E24 #1A1E24 transparent transparent;
+                border-radius: 50%;
+                box-shadow: 0px 0px 10px 0px #1A1E24,
+                    inset 0px 0px 10px 0px #F1F4F5;
+                transform: rotate(45deg
+                );
+        }
+    }
+
+    .topDotContainer {
+        position: absolute;
+        top: -10px;
+        right: 60px;
+        width: 26px;
+        height: 26px;
+        overflow: hidden;
+    }
+
+    .bottomDotContainer {
+        position: absolute;
+        bottom: -10px;
+        right: 60px;
+        width: 26px;
+        height: 26px;
+        overflow: hidden;
+    }
+
+    .dot {
+        @include edge();
+        top: 10px;
+        right: -12px;
+        width: 15px;
+        height: 6px;
+        animation: blink-dots 6s ease-in-out $delay infinite alternate both;
+    }
+}
+}
+
+.o {
+    position: absolute;
+    width: 72px;
+    height: 120px;
+    top: 136px;
+    left: 120px;
+
+    &Left {
+        transform: rotateZ(180deg) translateX(60px);
+    }
+
+    &Right,
+    &Left {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        height: 120px;
+        width: 70px;
+
+        $delay: (
+            calc(random(400) / 100)) * 1s;
+
+        .circleContainer .circle {
+            animation: blink-circle 6s ease-in-out $delay infinite alternate both;
+        }
+
+        .circleContainer {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            bottom: -10px;
+            width: 70px;
+            overflow: hidden;
+
+            .circle {
+                box-sizing: border-box;
+                position: absolute;
+                width: 120px;
+                height: 120px;
+                top: 10px;
+                right: 10px;
+                border-style: solid;
+                border-width: 6px;
+                border-color: #1A1E24 #1A1E24 transparent transparent;
+                border-radius: 50%;
+                box-shadow: 0px 0px 10px 0px #1A1E24,
+                    inset 0px 0px 10px 0px #F1F4F5;
+                transform: rotate(45deg
+                );
+        }
+    }
+
+    .topDotContainer {
+        position: absolute;
+        top: -10px;
+        right: 60px;
+        width: 26px;
+        height: 26px;
+        overflow: hidden;
+    }
+
+    .bottomDotContainer {
+        position: absolute;
+        bottom: -10px;
+        right: 60px;
+        width: 26px;
+        height: 26px;
+        overflow: hidden;
+    }
+
+    .dot {
+        @include edge();
+        top: 10px;
+        right: -12px;
+        width: 15px;
+        height: 6px;
+        animation: blink-dots 6s ease-in-out $delay infinite alternate both;
+    }
+}
+
+&Left {
+    $delay: (
+        calc(random(400) / 100)) * 1s;
+
+    .circleContainer .circle {
+        animation: blink-circle 6s ease-in-out $delay + 0.3s infinite alternate both;
+    }
+
+    .dot {
+        animation: blink-dots 6s ease-in-out $delay + 0.3s infinite alternate both;
+    }
+}
+}
+
+@keyframes blink {
+
+    35%,
+    37%,
+    39%,
+    41%,
+    100% {
+        background: $color-quaternary;
+        box-shadow: 0px 0px 10px 0px $color-quaternary;
+    }
+
+    0%,
+    34%,
+    36%,
+    36%,
+    38%,
+    40% {
+        background: darken($color-primary, 10%
+        );
+    box-shadow: 0px 0px 6px 0px darken($color-primary, 10%);
+}
+}
+
+@keyframes blink-circle {
+
+    35%,
+    37%,
+    39%,
+    41%,
+    100% {
+        border-color: $color-quaternary $color-quaternary transparent transparent;
+        box-shadow: 0px 0px 10px 0px $color-quaternary, inset 0px 0px 10px 0px $color-quaternary;
+    }
+
+    0%,
+    34%,
+    36%,
+    36%,
+    38%,
+    40% {
+        border-color: darken($color-primary, 10%) darken($color-primary, 10%) transparent transparent;
+        box-shadow: 0px 0px 6px 0px darken($color-primary, 10%), inset 0px 0px 6px 0px darken($color-primary, 10%);
+    }
+}
+
+@keyframes blink-dots {
+
+    35%,
+    37%,
+    39%,
+    41%,
+    100% {
+        background: $color-quaternary;
+        box-shadow: 0px 0px 9px 1px $color-quaternary;
+    }
+
+    0%,
+    34%,
+    36%,
+    36%,
+    38%,
+    40% {
+        background: darken($color-primary, 10%);
+        box-shadow: 0px 0px 5px 1px darken($color-primary, 10%);
+    }
+}

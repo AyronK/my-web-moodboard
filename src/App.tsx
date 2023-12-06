@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import {
     Day1,
     Day10,
+    Day100,
     Day11,
     Day12,
     Day13,
@@ -95,7 +96,10 @@ import {
     Day93,
     Day94,
     Day95,
-    Day96
+    Day96,
+    Day97,
+    Day98,
+    Day99
 } from "./challenges/100-days-css/index.t";
 import styles from "./App.module.scss";
 import { FrameSwitch } from "./FrameSwitch/FrameSwitch";
@@ -1122,6 +1126,42 @@ const cards = [
             <>
                 <h2>#96 Jumping Marshmallow</h2>
                 <p>Squashed and stretched, this is how objects in motion should look like.</p>
+            </>
+        )
+    },
+    {
+        component: <Day97 />,
+        text: (
+            <>
+                <h2>#97 Waving man</h2>
+                <p>Don't be shy, wave back!</p>
+            </>
+        )
+    },
+    {
+        component: <Day98 />,
+        text: (
+            <>
+                <h2>#98 Suprise box</h2>
+                <p>What would you put inside?</p>
+            </>
+        )
+    },
+    {
+        component: <Day99 />,
+        text: (
+            <>
+                <h2>#99 State transition</h2>
+                <p>Yet another effect to keep user engaged.</p>
+            </>
+        )
+    },
+    {
+        component: <Day100 />,
+        text: (
+            <>
+                <h2>#100 The end</h2>
+                <p>This challange came to an end. What a journey!</p>
             </>
         )
     }
