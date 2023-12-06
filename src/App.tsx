@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import {
     Day1,
     Day10,
+    Day100,
     Day11,
     Day12,
     Day13,
@@ -1152,6 +1153,15 @@ const cards = [
             <>
                 <h2>#99 State transition</h2>
                 <p>Yet another effect to keep user engaged.</p>
+            </>
+        )
+    },
+    {
+        component: <Day100 />,
+        text: (
+            <>
+                <h2>#100 The end</h2>
+                <p>This challange came to an end. What a journey!</p>
             </>
         )
     }
